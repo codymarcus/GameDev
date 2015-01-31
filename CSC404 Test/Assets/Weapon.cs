@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Weapon : MonoBehaviour {
 
+	public GameObject bullet;
+	public GameObject barrel;
+	float canFire = 0f;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -10,8 +14,15 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float x = Input.GetAxis("RightH");
-		float y = Input.GetAxis("RightV");
-		transform.Rotate(Time.deltaTime, 0, 0);
+		if ( Input.GetButton("Fire1") && canFire == 0) 
+		{ 
+			GameObject b = (GameObject) Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+			Destroy( b , 4);
+			canFire = .05f;
+		}
+		if (canFire <= 0)
+			canFire = 0;
+		else
+			canFire -= Time.deltaTime;
 	}
 }
