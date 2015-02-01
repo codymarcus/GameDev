@@ -12,8 +12,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float newX = transform.position.x + velocity * Time.deltaTime;
-		transform.position = new Vector3 (newX, transform.position.y, transform.position.z);
+		transform.Translate(Vector3.up * velocity * Time.deltaTime);
 	}
 
 	void OnTriggerEnter(Collider other)
