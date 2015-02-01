@@ -21,5 +21,9 @@ public class PlayerController : MonoBehaviour {
 		{
 			transform.position = spawn.transform.position;
 		}
+		if (other.gameObject.tag == "Money")
+		{
+			Destroy(other.gameObject);
+		}
 	}
 }
