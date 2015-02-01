@@ -486,6 +486,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 717928083}
+  - 114: {fileID: 717928084}
   m_Layer: 0
   m_Name: GunBarrel
   m_TagString: Untagged
@@ -500,11 +501,24 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 717928082}
   m_LocalRotation: {x: 0, y: 0, z: .70710659, w: -.707106948}
-  m_LocalPosition: {x: -.109999999, y: -.370000005, z: 0}
+  m_LocalPosition: {x: -.200000003, y: .959999979, z: 0}
   m_LocalScale: {x: 3.33333397, y: 3.33333397, z: 3.33333325}
   m_Children: []
   m_Father: {fileID: 1608080148}
   m_RootOrder: 0
+--- !u!114 &717928084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717928082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a4d3ee13ba34ffca20dcb16ee83b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
+  barrel: {fileID: 717928082}
 --- !u!1001 &815775953
 Prefab:
   m_ObjectHideFlags: 0
@@ -764,7 +778,6 @@ GameObject:
   - 143: {fileID: 1101117261}
   - 114: {fileID: 1101117259}
   - 114: {fileID: 1101117258}
-  - 114: {fileID: 1101117260}
   m_Layer: 0
   m_Name: Player Controller
   m_TagString: Untagged
@@ -783,7 +796,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1849750465}
-  - {fileID: 1608080148}
+  - {fileID: 1856444515}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!114 &1101117258
@@ -854,19 +867,6 @@ MonoBehaviour:
     slidingSpeed: 10
     sidewaysControl: 1
     speedControl: .400000006
---- !u!114 &1101117260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1101117256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a4d3ee13ba34ffca20dcb16ee83b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
-  barrel: {fileID: 717928082}
 --- !u!143 &1101117261
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1035,13 +1035,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1608080144}
-  m_LocalRotation: {x: 0, y: 0, z: .707106829, w: .707106709}
-  m_LocalPosition: {x: .589999974, y: -.0199999996, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -.0449996367, y: .589999914, z: 0}
+  m_LocalScale: {x: .300000012, y: .5, z: .300000012}
   m_Children:
   - {fileID: 717928083}
-  m_Father: {fileID: 1101117257}
-  m_RootOrder: 1
+  m_Father: {fileID: 1856444515}
+  m_RootOrder: 0
 --- !u!1001 &1733155627
 Prefab:
   m_ObjectHideFlags: 0
@@ -1146,6 +1146,46 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849750464}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1856444514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1856444515}
+  - 114: {fileID: 1856444516}
+  m_Layer: 0
+  m_Name: GunPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 266726316, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1856444515
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856444514}
+  m_LocalRotation: {x: 0, y: 0, z: .70710659, w: -.707106948}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1608080148}
+  m_Father: {fileID: 1101117257}
+  m_RootOrder: 1
+--- !u!114 &1856444516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1856444514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e240ef3c70753468298e155bb7fecfed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1986673529
 Prefab:
   m_ObjectHideFlags: 0
