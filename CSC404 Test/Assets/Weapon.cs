@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Weapon : MonoBehaviour {
 
+	public int playerNumber;
 	public GameObject bullet;
 	public GameObject barrel;
 	float canFire = 0f;
@@ -14,7 +15,7 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetButton("Fire1") && canFire == 0) 
+		if ( Input.GetButton(playerNumber + "Fire1") && canFire == 0) 
 		{ 
 			GameObject b = (GameObject) Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
 			Destroy( b , 4);
