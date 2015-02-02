@@ -17,7 +17,7 @@ public class Aim : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		rightStick = new Vector2 (Input.GetAxis ("RightH"), Input.GetAxis ("RightV"));
-		direction = new Vector3 (rightStick.x, rightStick.y, 0);
+		direction = new Vector3 (rightStick.x, -1 * rightStick.y, 0);
 		if (direction.magnitude > radialDeadZone)
 		{
 			currentRotation = Quaternion.LookRotation(Vector3.forward, direction);
