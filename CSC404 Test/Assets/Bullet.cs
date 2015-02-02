@@ -17,8 +17,7 @@ public class Bullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Floor")
-		{
+		if (other.gameObject.tag == "Floor") {
 			Destroy (gameObject);
 		}
 	}

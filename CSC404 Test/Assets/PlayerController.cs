@@ -19,11 +19,20 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Death")
 		{
-			transform.position = spawn.transform.position;
+			Death();
 		}
 		if (other.gameObject.tag == "Money")
 		{
 			Destroy(other.gameObject);
 		}
+		if (other.gameObject.tag == "Bullet")
+		{
+			Destroy(other.gameObject);
+			Death ();
+		}
+	}
+
+	void Death () {
+		transform.position = spawn.transform.position;
 	}
 }
