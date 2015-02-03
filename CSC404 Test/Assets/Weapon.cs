@@ -18,7 +18,9 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 		if ( Input.GetButton(playerNumber + "Fire1") && canFire <= 0 && player.UseAmmo()) 
 		{ 
-			GameObject b = (GameObject) Instantiate(bullet, barrel.transform.position, barrel.transform.rotation);
+			GameObject b = new GameObject();
+			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
+			b.GetComponent<Bullet>().owner = playerNumber;
 			Destroy( b , 4);
 			canFire = .2f;
 		}

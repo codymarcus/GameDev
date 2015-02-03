@@ -30,8 +30,12 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (other.gameObject.tag == "Bullet")
 		{
-			Destroy(other.gameObject);
-			Death ();
+			int owner = other.gameObject.GetComponent<Bullet>().owner;
+			if (owner != playerNumber)
+			{
+				Destroy (other.gameObject);
+				Death();
+			}
 		}
 		if (other.gameObject.tag == "Ammo")
 		{

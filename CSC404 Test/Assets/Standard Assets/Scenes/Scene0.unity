@@ -141,6 +141,10 @@ Prefab:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11498230, guid: 3bc5d928fedef4c988e27f277f15968c, type: 2}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bc5d928fedef4c988e27f277f15968c, type: 2}
   m_RootGameObject: {fileID: 1101117256}
@@ -1423,7 +1427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
-  bullet: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
+  bullet: {fileID: 0}
   barrel: {fileID: 878373948}
   player: {fileID: 1656302267}
 --- !u!4 &878373950
@@ -2207,7 +2211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 4
-  bullet: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
+  bullet: {fileID: 0}
   barrel: {fileID: 1212672432}
   player: {fileID: 1591433474}
 --- !u!1001 &1256996575
@@ -2429,7 +2433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 3
-  bullet: {fileID: 193434, guid: 737d1a2d29d8b4c809e11e5466947346, type: 2}
+  bullet: {fileID: 0}
   barrel: {fileID: 1416767215}
   player: {fileID: 1876436156}
 --- !u!1 &1479322276

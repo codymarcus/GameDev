@@ -4,6 +4,7 @@ using System.Collections;
 public class Bullet : MonoBehaviour {
 
 	public float velocity;
+	public int owner;
 
 	// Use this for initialization
 	void Start () {
