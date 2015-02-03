@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour {
 		if (ammoSpawnTime <= 0)
 		{
 			Spawn (ammo);
-			ammoSpawnTime = 10f;
+			ammoSpawnTime = 5f;
 		}
 
 	}
