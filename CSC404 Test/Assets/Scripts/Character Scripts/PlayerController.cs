@@ -48,17 +48,26 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		lives--;
-		if (lives > 0)
+		if (MatchManager.gameType != "King of the Hill")
+		{
+			lives--;
+			if (lives > 0)
+			{
+				int spawnNumber = Random.Range (0, spawns.Length);
+				spawn = spawns [spawnNumber];
+				transform.position = spawn.transform.position;
+			}
+			else
+			{
+				Destroy(this.gameObject);
+				manager.Dead(playerNumber);
+			}
+		}
+		else
 		{
 			int spawnNumber = Random.Range (0, spawns.Length);
 			spawn = spawns [spawnNumber];
 			transform.position = spawn.transform.position;
-		}
-		else
-		{
-			Destroy(this.gameObject);
-			manager.Dead(playerNumber);
 		}
 	}
 

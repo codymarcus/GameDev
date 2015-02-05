@@ -12,6 +12,7 @@ TagManager:
   - Round
   - GameType
   - Teams
+  - Hill
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

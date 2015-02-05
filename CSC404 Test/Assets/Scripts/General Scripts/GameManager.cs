@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject ammo;
 	public float ammoSpawnTime = 10f;
+	public GameObject hill;
+	public float hillChangeTime = 10f;
 	GameObject[] floors;
 	GameObject[] players;
 	GameObject floor;
@@ -40,11 +42,14 @@ public class GameManager : MonoBehaviour {
 
 		// Player setup based on game mode
 		foreach (GameObject player in players)
+		{
 			// 1 life each in last man standing
 			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
 				player.GetComponent<PlayerController>().lives = 1;
+		}
 
-		if (MatchManager.team1 != null)
+		// Team setup if team-based game
+		if (MatchManager.teamDynamic != "FFA")
 		{
 			// Team setup
 			foreach (int playerNum in MatchManager.team1)
@@ -76,6 +81,19 @@ public class GameManager : MonoBehaviour {
 			ammoSpawnTime = 5f;
 		}
 
+		// Move the Hill if GameType is King of the Hill
+		if (gameType == "King of the Hill")
+		{
+			// Hill change timing
+			hillChangeTime -= Time.deltaTime;
+		
+			if (hillChangeTime <= 0)
+			{
+				MoveHill ();
+				hillChangeTime = 10f;
+			}
+		}
+
 	}
 
 	// Function to spawn an object
@@ -87,6 +105,17 @@ public class GameManager : MonoBehaviour {
 		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
 		                        floor.transform.position.y + 1f, 0);
 		Instantiate (item, spawnLoc, Quaternion.Euler(90, 30, 0));
+	}
+
+	// Function to move Hill
+	void MoveHill ()
+	{
+		int floorNumber = Random.Range(0, floors.Length);
+		floor = floors[floorNumber];
+		spawnLoc = new Vector3 (floor.transform.position.x
+		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
+		                        floor.transform.position.y + 1.25f, 0);
+		hill.transform.position = spawnLoc;
 	}
 
 	// Function to add an amount to a player's score
