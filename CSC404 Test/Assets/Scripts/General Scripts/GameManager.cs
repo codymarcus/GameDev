@@ -3,14 +3,23 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-	
-	public GameObject ammo;
+
+	// Gametypes: Last Man Standing
 	public string gameType;
+
+	public GameObject ammo;
 	public float ammoSpawnTime = 10f;
 	GameObject[] floors;
 	GameObject[] players;
 	GameObject floor;
 	Vector3 spawnLoc;
+
+	// Teams for team gametypes
+	public int[] team_1;
+	public int[] team_2;
+	ArrayList team1 = new ArrayList();
+	ArrayList team2 = new ArrayList();
+
 	int[] scores = {0, 0, 0, 0};
 	//Text scoreText;
 
@@ -30,8 +39,13 @@ public class GameManager : MonoBehaviour {
 		// Player setup based on game mode
 		foreach (GameObject player in players)
 			// 1 life each in last man standing
-			if (gameType == "Last Man Standing")
+			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
 				player.GetComponent<PlayerController>().lives = 1;
+
+		foreach (int playerNum in team_1)
+			team1.Add(playerNum);
+		foreach (int playerNum in team_2)
+			team2.Add(playerNum);
 	}
 	
 	// Update is called once per frame
@@ -75,7 +89,7 @@ public class GameManager : MonoBehaviour {
 		scores [playerNumber - 1] += amount;
 	}
 
-	public void isLastMan(int playerNumber)
+	public void Dead (int playerNumber)
 	{
 		if (gameType == "Last Man Standing")
 		{
@@ -88,6 +102,17 @@ public class GameManager : MonoBehaviour {
 						Debug.Log ("Player " + players [0].GetComponent<PlayerController> ().playerNumber + " Wins!");
 						// Last Player Alive Wins
 				}
+		}
+		else if (gameType == "Last Team Standing")
+		{
+			team1.Remove(playerNumber);
+			team2.Remove(playerNumber);
+
+			if (team1.Count == 0)
+				Debug.Log("Team 2 Wins!");
+			else if (team2.Count == 0)
+				Debug.Log("Team 1 Wins!");
+
 		}
 	}
 }

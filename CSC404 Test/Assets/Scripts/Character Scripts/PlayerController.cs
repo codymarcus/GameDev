@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 		else
 		{
 			Destroy(this.gameObject);
-			manager.isLastMan(playerNumber);
+			manager.Dead(playerNumber);
 		}
 	}
 

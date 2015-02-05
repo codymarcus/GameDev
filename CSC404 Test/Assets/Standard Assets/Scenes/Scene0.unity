@@ -1143,9 +1143,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3370b3a089e9478facb8a09954f9390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameType: Last Team Standing
   ammo: {fileID: 187688, guid: fa61678e0af8d4a24a78ba10b75f61ed, type: 2}
-  gameType: Last Man Standing
   ammoSpawnTime: 10
+  team_1: 01000000
+  team_2: 020000000300000004000000
 --- !u!4 &708192000
 Transform:
   m_ObjectHideFlags: 0
