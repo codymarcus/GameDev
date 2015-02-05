@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour {
 				{
 					int playerNo = player.GetComponent<PlayerController> ().playerNumber;
 					if (playerNo != playerNumber)
-						Debug.Log ("Player " + players [0].GetComponent<PlayerController> ().playerNumber + "Wins!");
+						Debug.Log ("Player " + players [0].GetComponent<PlayerController> ().playerNumber + " Wins!");
 						// Last Player Alive Wins
 				}
 		}
