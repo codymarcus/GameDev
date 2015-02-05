@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour {
 	Vector3 spawnLoc;
 
 	// Teams for team gametypes
-	public int[] team_1;
-	public int[] team_2;
 	ArrayList team1 = new ArrayList();
 	ArrayList team2 = new ArrayList();
 
@@ -31,7 +29,7 @@ public class GameManager : MonoBehaviour {
 //		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
 
 		// Set GameType to MatchManager GameType
-		if (MatchManager.gameType)
+		if (MatchManager.gameType != null)
 			gameType = MatchManager.gameType;
 
 		// Find and store all floors
@@ -47,9 +45,9 @@ public class GameManager : MonoBehaviour {
 				player.GetComponent<PlayerController>().lives = 1;
 
 		// Team setup
-		foreach (int playerNum in team_1)
+		foreach (int playerNum in MatchManager.team1)
 			team1.Add(playerNum);
-		foreach (int playerNum in team_2)
+		foreach (int playerNum in MatchManager.team2)
 			team2.Add(playerNum);
 	}
 	

@@ -312,6 +312,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn: {fileID: 0}
   playerNumber: 0
+  spawns: []
+  manager: {fileID: 11448140, guid: 017fdfae8344d4d17aa3772ed6c51ab4, type: 2}
+  lives: 0
 --- !u!114 &11498238
 MonoBehaviour:
   m_ObjectHideFlags: 1

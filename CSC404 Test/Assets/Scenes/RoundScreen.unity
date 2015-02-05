@@ -86,7 +86,7 @@ GameObject:
   - 114: {fileID: 6822309}
   m_Layer: 5
   m_Name: GameType
-  m_TagString: Untagged
+  m_TagString: GameType
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: 0, y: 27}
-  m_SizeDelta: {x: 160, y: 60}
+  m_SizeDelta: {x: 400, y: 60}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &6822309
 MonoBehaviour:
@@ -246,7 +246,7 @@ GameObject:
   - 114: {fileID: 205360957}
   m_Layer: 5
   m_Name: Teams
-  m_TagString: Untagged
+  m_TagString: Teams
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,8 +265,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 150}
-  m_SizeDelta: {x: 200, y: 60}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 400, y: 300}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &205360957
 MonoBehaviour:
@@ -411,6 +411,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c944e2bef3fd47bc8586cb71bbdedce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTypes:
+  - Last Man Standing
+  - Last Team Standing
+  playerNumbers: 01000000020000000300000004000000
+  timeToNextRound: 5
 --- !u!4 &1361474708
 Transform:
   m_ObjectHideFlags: 0

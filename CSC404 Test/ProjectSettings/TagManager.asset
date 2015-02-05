@@ -10,6 +10,8 @@ TagManager:
   - Ammo
   - Spawn
   - Round
+  - GameType
+  - Teams
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
