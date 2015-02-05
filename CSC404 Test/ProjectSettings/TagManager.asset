@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Ammo
   - Spawn
+  - Round
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

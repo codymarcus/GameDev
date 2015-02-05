@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		//scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
+//		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
+
+		// Set GameType to MatchManager GameType
+		if (MatchManager.gameType)
+			gameType = MatchManager.gameType;
 
 		// Find and store all floors
 		floors = GameObject.FindGameObjectsWithTag ("Floor");
@@ -42,6 +46,7 @@ public class GameManager : MonoBehaviour {
 			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
 				player.GetComponent<PlayerController>().lives = 1;
 
+		// Team setup
 		foreach (int playerNum in team_1)
 			team1.Add(playerNum);
 		foreach (int playerNum in team_2)
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour {
 	// Function to spawn an object
 	void Spawn (GameObject item)
 	{
-		int floorNumber = Random.Range(0, floors.Length - 1);
+		int floorNumber = Random.Range(0, floors.Length);
 		floor = floors[floorNumber];
 		spawnLoc = new Vector3 (floor.transform.position.x
 		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),

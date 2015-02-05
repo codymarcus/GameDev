@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 		lives--;
 		if (lives > 0)
 		{
-			int spawnNumber = Random.Range (0, spawns.Length - 1);
+			int spawnNumber = Random.Range (0, spawns.Length);
 			spawn = spawns [spawnNumber];
 			transform.position = spawn.transform.position;
 		}
