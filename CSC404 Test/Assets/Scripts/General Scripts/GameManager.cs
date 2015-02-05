@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
-	// Gametypes: Last Man Standing
+	// Gametypes: Last Man Standing, Last Team Standing
 	public string gameType;
 
 	public GameObject ammo;
