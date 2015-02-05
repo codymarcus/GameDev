@@ -5,11 +5,12 @@ public class PlayerController : MonoBehaviour {
 
 	public GameObject spawn;
 	public int playerNumber;
+	public GameObject[] spawns;
 	int ammo = 5;
-
+	
 	// Use this for initialization
 	void Start () {
-	
+		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
 	}
 	
 	// Update is called once per frame
@@ -45,6 +46,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
+		int spawnNumber = Random.Range(0, spawns.Length - 1);
+		spawn = spawns[spawnNumber];
 		transform.position = spawn.transform.position;
 	}
 

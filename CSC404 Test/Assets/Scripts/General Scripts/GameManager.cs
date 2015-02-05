@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] floors;
 	GameObject floor;
 	float ammoSpawnTime = 10f;
-	float moneySpawnTime = 5f;
+//	float moneySpawnTime = 5f;
 	Vector3 spawnLoc;
 	//Text scoreText;
 	int[] scores = {0, 0, 0, 0};
@@ -25,14 +25,14 @@ public class GameManager : MonoBehaviour {
 
 		//scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
-		moneySpawnTime -= Time.deltaTime;
+//		moneySpawnTime -= Time.deltaTime;
 		ammoSpawnTime -= Time.deltaTime;
 
-		if (moneySpawnTime <= 0)
-		{
-			Spawn (coin);
-			moneySpawnTime = 5f;
-		}
+//		if (moneySpawnTime <= 0)
+//		{
+//			Spawn (coin);
+//			moneySpawnTime = 5f;
+//		}
 
 		if (ammoSpawnTime <= 0)
 		{
