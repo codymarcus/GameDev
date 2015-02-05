@@ -44,11 +44,14 @@ public class GameManager : MonoBehaviour {
 			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
 				player.GetComponent<PlayerController>().lives = 1;
 
-		// Team setup
-		foreach (int playerNum in MatchManager.team1)
-			team1.Add(playerNum);
-		foreach (int playerNum in MatchManager.team2)
-			team2.Add(playerNum);
+		if (MatchManager.team1 != null)
+		{
+			// Team setup
+			foreach (int playerNum in MatchManager.team1)
+				team1.Add(playerNum);
+			foreach (int playerNum in MatchManager.team2)
+				team2.Add(playerNum);
+		}
 	}
 	
 	// Update is called once per frame
