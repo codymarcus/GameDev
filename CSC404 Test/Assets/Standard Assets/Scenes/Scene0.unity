@@ -1143,9 +1143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3370b3a089e9478facb8a09954f9390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin: {fileID: 194006, guid: c1e2b022ae58b463286d93527a29bd7f, type: 2}
   ammo: {fileID: 187688, guid: fa61678e0af8d4a24a78ba10b75f61ed, type: 2}
-  floors: []
+  gameType: Last Man Standing
+  ammoSpawnTime: 10
 --- !u!4 &708192000
 Transform:
   m_ObjectHideFlags: 0
@@ -1879,6 +1879,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   playerNumber: 1
   spawns: []
+  manager: {fileID: 708191999}
+  lives: 0
 --- !u!143 &1101117261
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2362,7 +2364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1479322277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2582,6 +2584,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   playerNumber: 4
   spawns: []
+  manager: {fileID: 708191999}
+  lives: 0
 --- !u!114 &1591433475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2803,6 +2807,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   playerNumber: 2
   spawns: []
+  manager: {fileID: 708191999}
+  lives: 0
 --- !u!114 &1656302268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,6 +3321,8 @@ MonoBehaviour:
   spawn: {fileID: 0}
   playerNumber: 3
   spawns: []
+  manager: {fileID: 708191999}
+  lives: 0
 --- !u!114 &1876436157
 MonoBehaviour:
   m_ObjectHideFlags: 0

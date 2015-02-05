@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject spawn;
 	public int playerNumber;
 	public GameObject[] spawns;
+	public GameManager manager;
+	public int lives;
 	int ammo = 5;
 	
 	// Use this for initialization
@@ -46,9 +48,18 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		int spawnNumber = Random.Range(0, spawns.Length - 1);
-		spawn = spawns[spawnNumber];
-		transform.position = spawn.transform.position;
+		lives--;
+		if (lives > 0)
+		{
+			int spawnNumber = Random.Range (0, spawns.Length - 1);
+			spawn = spawns [spawnNumber];
+			transform.position = spawn.transform.position;
+		}
+		else
+		{
+			Destroy(this.gameObject);
+			manager.isLastMan(playerNumber);
+		}
 	}
 
 	public bool UseAmmo() {
