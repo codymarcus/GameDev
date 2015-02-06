@@ -54,8 +54,8 @@
      <Compile Include="Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\General Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
-     <Compile Include="Assets\Scripts\MatchManager.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">

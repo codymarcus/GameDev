@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
 	public float ammoSpawnTime = 10f;
 	public GameObject hill;
 	public float hillChangeTime = 10f;
+	GameObject myHill;
 	GameObject[] floors;
 	GameObject[] players;
 	GameObject floor;
@@ -20,8 +21,11 @@ public class GameManager : MonoBehaviour {
 	ArrayList team1 = new ArrayList();
 	ArrayList team2 = new ArrayList();
 
-	int[] scores = {0, 0, 0, 0};
+	public static int[] scores = {0, 0, 0, 0};
 	//Text scoreText;
+
+	float curAmmoTime;
+	float curHillTime;
 
 //	public GameObject coin;
 //	float moneySpawnTime = 5f;
@@ -29,6 +33,9 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 //		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
+
+		curAmmoTime = ammoSpawnTime;
+		curHillTime = hillChangeTime;
 
 		// Set GameType to MatchManager GameType
 		if (MatchManager.gameType != null)
@@ -40,6 +47,17 @@ public class GameManager : MonoBehaviour {
 		// Find and store all players
 		players = GameObject.FindGameObjectsWithTag ("Player");
 
+		// Setup Hill if King of the Hill
+		if (gameType == "King of the Hill")
+		{
+			int floorNumber = Random.Range(0, floors.Length);
+			floor = floors[floorNumber];
+			spawnLoc = new Vector3 (floor.transform.position.x
+			                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
+			                        floor.transform.position.y + 1.75f, 0);
+			myHill = Instantiate (hill, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		}
+
 		// Player setup based on game mode
 		foreach (GameObject player in players)
 		{
@@ -49,7 +67,7 @@ public class GameManager : MonoBehaviour {
 		}
 
 		// Team setup if team-based game
-		if (MatchManager.teamDynamic != "FFA")
+		if (MatchManager.teamDynamic != null && MatchManager.teamDynamic != "FFA")
 		{
 			// Team setup
 			foreach (int playerNum in MatchManager.team1)
@@ -73,24 +91,24 @@ public class GameManager : MonoBehaviour {
 //		}
 
 		// Ammo spawn timing
-		ammoSpawnTime -= Time.deltaTime;
+		curAmmoTime -= Time.deltaTime;
 
-		if (ammoSpawnTime <= 0)
+		if (curAmmoTime <= 0)
 		{
 			Spawn (ammo);
-			ammoSpawnTime = 5f;
+			curAmmoTime = ammoSpawnTime;
 		}
 
 		// Move the Hill if GameType is King of the Hill
 		if (gameType == "King of the Hill")
 		{
 			// Hill change timing
-			hillChangeTime -= Time.deltaTime;
+			curHillTime -= Time.deltaTime;
 		
-			if (hillChangeTime <= 0)
+			if (curHillTime <= 0)
 			{
 				MoveHill ();
-				hillChangeTime = 10f;
+				curHillTime = hillChangeTime;
 			}
 		}
 
@@ -114,8 +132,8 @@ public class GameManager : MonoBehaviour {
 		floor = floors[floorNumber];
 		spawnLoc = new Vector3 (floor.transform.position.x
 		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
-		                        floor.transform.position.y + 1.25f, 0);
-		hill.transform.position = spawnLoc;
+		                        floor.transform.position.y + 1.75f, 0);
+		myHill.transform.position = spawnLoc;
 	}
 
 	// Function to add an amount to a player's score

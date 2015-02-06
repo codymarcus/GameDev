@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives;
 	int ammo = 5;
+	float floatScore = 0;
 	
 	// Use this for initialization
 	void Start () {
@@ -17,20 +18,18 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		GameManager.scores [playerNumber - 1] = (int) floatScore;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
+		// If player touches a death object then die
 		if (other.gameObject.tag == "Death")
 		{
 			Death();
 		}
-		if (other.gameObject.tag == "Money")
-		{
-			Destroy(other.gameObject);
 
-		}
+		// If player touches bullet that isn't theirs then die and destroy bullet
 		if (other.gameObject.tag == "Bullet")
 		{
 			int owner = other.gameObject.GetComponent<Bullet>().owner;
@@ -40,10 +39,21 @@ public class PlayerController : MonoBehaviour {
 				Death();
 			}
 		}
+
+		// If player touches ammo, destroy it and add 5 ammo
 		if (other.gameObject.tag == "Ammo")
 		{
 			Destroy(other.gameObject);
 			ammo += 5;
+		}
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "Hill")
+		{
+			floatScore += Time.deltaTime;
+			Debug.Log("Player" + playerNumber + ": " + GameManager.scores[playerNumber-1]);
 		}
 	}
 
