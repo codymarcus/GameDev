@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
 	GameObject floor;
 	Vector3 spawnLoc;
 
-	List<GameObject> playersList = new List<GameObject> ();
+	GameObject[] playersList;
 
 	List<int> winners = new List<int> ();
 
@@ -76,12 +76,20 @@ public class GameManager : MonoBehaviour {
 		{
 			// Team setup
 			foreach (int playerNum in MatchManager.team1){
-				players[playerNum-1].GetComponent<PlayerController>().Update_color(1);
-				team1.Add(playerNum);
+				foreach (GameObject player in players){
+					if(player.GetComponent<PlayerController>().playerNumber == playerNum){
+						player.GetComponent<PlayerController>().Update_color(1);
+						team1.Add(playerNum);
+					}
+				}
 			}
 			foreach (int playerNum in MatchManager.team2){
-				players[playerNum-1].GetComponent<PlayerController>().Update_color(2);
-				team2.Add(playerNum);
+				foreach (GameObject player in players){
+					if(player.GetComponent<PlayerController>().playerNumber == playerNum){
+						player.GetComponent<PlayerController>().Update_color(2);
+						team2.Add(playerNum);
+					}
+				}
 			}
 		}
 	}
@@ -157,36 +165,57 @@ public class GameManager : MonoBehaviour {
 
 		if (gameType == "Last Man Standing")
 		{
-			if (playersList.Count < 2)
+			playersList = GameObject.FindGameObjectsWithTag("Player");
+			if (playersList.Length < 3)
 			{
 				winners.Add(playersList[0].GetComponent<PlayerController>().playerNumber);
-				RoundOver (winners, 1);
+				RoundOver (winners, 1, 2);
 			}
 		}
 		else if (gameType == "Last Team Standing")
 		{
-			team1.Remove(playerNumber);
-			team2.Remove(playerNumber);
-
+			if (team1.Contains(playerNumber))
+				team1.Remove(playerNumber);
+			if (team2.Contains(playerNumber))
+				team2.Remove(playerNumber);
 			if (team1.Count == 0)
 			{
 				foreach (int member in MatchManager.team2)
 					winners.Add(member);
-				RoundOver(winners, 2);
+				RoundOver(winners, 2, 1);
 			}
 			else if (team2.Count == 0)
 			{
 				foreach (int member in MatchManager.team1)
 					winners.Add(member);
-				RoundOver(winners, 2);
+				RoundOver(winners, 2, 1);
+			}
+		}
+		else if (gameType == "WANTED")
+		{
+			if (team1.Contains(playerNumber))
+				team1.Remove(playerNumber);
+			if (team2.Contains(playerNumber))
+				team2.Remove(playerNumber);
+			if (team1.Count == 0)
+			{
+				foreach (int member in MatchManager.team2)
+					winners.Add(member);
+				RoundOver(winners, 3, 1);
+			}
+			else if (team2.Count == 0)
+			{
+				foreach (int member in MatchManager.team1)
+					winners.Add(member);
+				RoundOver(winners, 1, 3);
 			}
 		}
 	}
 
-	public void RoundOver (List<int> winnerNumbers, int numWinners)
+	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)
 	{
 		for (int i = 0; i < numWinners; i++)
-			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]++;
+			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
 		Application.LoadLevel (1);
 	}
 }
