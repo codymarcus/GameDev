@@ -94,10 +94,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 193434}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 520ed50be930a4657b9ac0d5b4bb3b3f, type: 3}
+  m_Script: {fileID: 11500000, guid: d7cb2d3073c2c4fae85a65d5f0814dcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 30
+  velocity: 20
+  owner: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
