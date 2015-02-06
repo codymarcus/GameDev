@@ -75,10 +75,14 @@ public class GameManager : MonoBehaviour {
 		if (MatchManager.teamDynamic != null && MatchManager.teamDynamic != "FFA")
 		{
 			// Team setup
-			foreach (int playerNum in MatchManager.team1)
+			foreach (int playerNum in MatchManager.team1){
+				players[playerNum-1].GetComponent<PlayerController>().Update_color(1);
 				team1.Add(playerNum);
-			foreach (int playerNum in MatchManager.team2)
+			}
+			foreach (int playerNum in MatchManager.team2){
+				players[playerNum-1].GetComponent<PlayerController>().Update_color(2);
 				team2.Add(playerNum);
+			}
 		}
 	}
 	
