@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
 	public int lives;
 	int ammo = 5;
 	float floatScore = 0;
+	bool isAlive = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		if (MatchManager.gameType != "King of the Hill")
+		if (MatchManager.gameType != "King of the Hill" && isAlive == true)
 		{
 			lives--;
 			if (lives > 0)
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour {
 			{
 				Destroy(this.gameObject);
 				manager.Dead(playerNumber);
+				isAlive = false;
 			}
 		}
 		else

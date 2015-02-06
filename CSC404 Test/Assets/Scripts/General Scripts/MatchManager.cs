@@ -32,7 +32,6 @@ public class MatchManager : MonoBehaviour {
 		// Select random GameType and set GameType text
 		int g = Random.Range (0, gameTypes.Length);
 		gameType = gameTypes [g];
-		gameType = "King of the Hill";
 		GameObject.FindGameObjectWithTag ("GameType").GetComponent<Text> ().text = gameType;
 
 		// Set team dynamic based on game type
@@ -80,7 +79,7 @@ public class MatchManager : MonoBehaviour {
 	void Update () {
 		timePassed += Time.deltaTime;
 		if (timePassed >= timeToNextRound)
-			Application.LoadLevel(Random.Range(1, Application.levelCount - 1));
+			Application.LoadLevel(Random.Range(2, Application.levelCount - 1));
 	}
 	
 }

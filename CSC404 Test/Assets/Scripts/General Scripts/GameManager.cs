@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
@@ -16,6 +17,10 @@ public class GameManager : MonoBehaviour {
 	GameObject[] players;
 	GameObject floor;
 	Vector3 spawnLoc;
+
+	List<GameObject> playersList = new List<GameObject> ();
+
+	List<int> winners = new List<int> ();
 
 	// Teams for team gametypes
 	ArrayList team1 = new ArrayList();
@@ -144,17 +149,15 @@ public class GameManager : MonoBehaviour {
 
 	public void Dead (int playerNumber)
 	{
+		//TODO figure out if game ends
+
 		if (gameType == "Last Man Standing")
 		{
-			players = GameObject.FindGameObjectsWithTag ("Player");
-			if (players.Length <= 2)
-				foreach (GameObject player in players)
-				{
-					int playerNo = player.GetComponent<PlayerController> ().playerNumber;
-					if (playerNo != playerNumber)
-						Debug.Log ("Player " + players [0].GetComponent<PlayerController> ().playerNumber + " Wins!");
-						// Last Player Alive Wins
-				}
+			if (playersList.Count < 2)
+			{
+				winners.Add(playersList[0].GetComponent<PlayerController>().playerNumber);
+				RoundOver (winners, 1);
+			}
 		}
 		else if (gameType == "Last Team Standing")
 		{
@@ -162,10 +165,24 @@ public class GameManager : MonoBehaviour {
 			team2.Remove(playerNumber);
 
 			if (team1.Count == 0)
-				Debug.Log("Team 2 Wins!");
+			{
+				foreach (int member in MatchManager.team2)
+					winners.Add(member);
+				RoundOver(winners, 2);
+			}
 			else if (team2.Count == 0)
-				Debug.Log("Team 1 Wins!");
-
+			{
+				foreach (int member in MatchManager.team1)
+					winners.Add(member);
+				RoundOver(winners, 2);
+			}
 		}
+	}
+
+	public void RoundOver (List<int> winnerNumbers, int numWinners)
+	{
+		for (int i = 0; i < numWinners; i++)
+			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]++;
+		Application.LoadLevel (1);
 	}
 }
