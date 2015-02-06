@@ -1796,6 +1796,7 @@ MonoBehaviour:
   spawns: []
   manager: {fileID: 708191999}
   lives: 0
+  self: {fileID: 1849750464}
 --- !u!143 &1101117261
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2499,6 +2500,7 @@ MonoBehaviour:
   spawns: []
   manager: {fileID: 708191999}
   lives: 0
+  self: {fileID: 1400296600}
 --- !u!114 &1591433475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2722,6 +2724,7 @@ MonoBehaviour:
   spawns: []
   manager: {fileID: 708191999}
   lives: 0
+  self: {fileID: 73991759}
 --- !u!114 &1656302268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3236,6 +3239,7 @@ MonoBehaviour:
   spawns: []
   manager: {fileID: 708191999}
   lives: 0
+  self: {fileID: 1923937936}
 --- !u!114 &1876436157
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject[] spawns;
 	public GameManager manager;
 	public int lives;
+	public GameObject self;
+
 	int ammo = 5;
 	float floatScore = 0;
 	bool isAlive = true;
@@ -46,6 +48,16 @@ public class PlayerController : MonoBehaviour {
 		{
 			Destroy(other.gameObject);
 			ammo += 5;
+		}
+	}
+
+	public void Update_color(int color)
+	{
+		if (color == 1) {
+			self.renderer.material.color = Color.red;
+		}
+		if (color == 2) {
+			self.renderer.material.color = Color.green;
 		}
 	}
 

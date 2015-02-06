@@ -415,6 +415,7 @@ MonoBehaviour:
   - Last Man Standing
   - Last Team Standing
   - King of the Hill
+  - WANTED
   possibleTeamDynamics:
   - FFA
   - 2v2
