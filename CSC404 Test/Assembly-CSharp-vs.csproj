@@ -47,28 +47,21 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ScoreScreenManager.cs" />
-     <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Aim.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Weapon.cs" />
-     <Compile Include="Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <Compile Include="Assets\Scripts\General Scripts\Coin.cs" />
      <Compile Include="Assets\Scripts\General Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/codymarcus/Developer/GameDev/CSC404 Test/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{902114F2-5A4F-FFDF-FB39-91D408F4D631}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
