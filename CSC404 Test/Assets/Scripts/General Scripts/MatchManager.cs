@@ -32,6 +32,7 @@ public class MatchManager : MonoBehaviour {
 		// Select random GameType and set GameType text
 		int g = Random.Range (0, gameTypes.Length);
 		gameType = gameTypes [g];
+		gameType = "King of the Hill";
 		GameObject.FindGameObjectWithTag ("GameType").GetComponent<Text> ().text = gameType;
 
 		// Set team dynamic based on game type
@@ -40,7 +41,11 @@ public class MatchManager : MonoBehaviour {
 		else if (gameType == "Last Team Standing")
 			teamDynamic = "2v2";
 		else if (gameType == "King of the Hill")
-			teamDynamic = possibleTeamDynamics[Random.Range(0,1)];
+		{
+			int randInt = Random.Range(0, 2);
+			Debug.Log (randInt);
+			teamDynamic = possibleTeamDynamics[randInt];
+		}
 
 		// If team dynamic is free-for-all, display FFA text
 		if (teamDynamic == "FFA")

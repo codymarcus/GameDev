@@ -414,6 +414,10 @@ MonoBehaviour:
   gameTypes:
   - Last Man Standing
   - Last Team Standing
+  - King of the Hill
+  possibleTeamDynamics:
+  - FFA
+  - 2v2
   playerNumbers: 01000000020000000300000004000000
   timeToNextRound: 5
 --- !u!4 &1361474708
