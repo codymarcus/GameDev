@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ScoreScreenManager.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Aim.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\PlayerController.cs" />
@@ -55,6 +54,7 @@
      <Compile Include="Assets\Scripts\General Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
+     <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\General Scripts\ActivateTrigger.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
