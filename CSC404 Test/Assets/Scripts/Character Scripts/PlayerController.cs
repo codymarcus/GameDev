@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
@@ -13,7 +14,9 @@ public class PlayerController : MonoBehaviour {
 	int ammo = 5;
 	float floatScore = 0;
 	bool isAlive = true;
-	
+
+	Vector3 screenPosition;
+
 	// Use this for initialization
 	void Start () {
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
@@ -21,7 +24,13 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
+		screenPosition.y = Screen.height - screenPosition.y;
 		GameManager.scores [playerNumber - 1] = (int) floatScore;
+	}
+
+	void OnGUI () {
+		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),("P" + playerNumber));
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -104,4 +113,5 @@ public class PlayerController : MonoBehaviour {
 		else
 			return false;
 	}
+	
 }
