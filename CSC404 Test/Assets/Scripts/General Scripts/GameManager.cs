@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour {
 			if (playersList.Length < 3)
 			{
 				winners.Add(playersList[0].GetComponent<PlayerController>().playerNumber);
-				RoundOver (winners, 1, 2);
+				RoundOver (winners, 1, 1);
 			}
 		}
 		else if (gameType == "Last Team Standing")
@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour {
 			{
 				foreach (int member in MatchManager.team1)
 					winners.Add(member);
-				RoundOver(winners, 1, 3);
+				RoundOver(winners, 1, 1);
 			}
 		}
 	}
