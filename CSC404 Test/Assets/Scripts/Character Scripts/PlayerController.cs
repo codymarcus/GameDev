@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 			if (owner != playerNumber)
 			{
 				speed = other.gameObject.GetComponent<Bullet>().speed;
+				speed = new Vector3 (speed.x, 0, speed.z);
 				Destroy (other.gameObject);
 			}
 		}
