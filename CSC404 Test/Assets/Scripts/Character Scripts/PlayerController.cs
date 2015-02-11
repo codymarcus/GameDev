@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives;
 	public GameObject self;
+	public Vector3 speed;
+	public Vector2 rotation;
 
 	int ammo = 5;
 	float floatScore = 0;
@@ -27,6 +29,10 @@ public class PlayerController : MonoBehaviour {
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
 		GameManager.scores [playerNumber - 1] = (int) floatScore;
+		if (rotation != null) {
+			speed = new Vector3(rotation.x, -1 *rotation.y, 0);
+			transform.Translate (speed);	
+		}
 	}
 
 	void OnGUI () {
@@ -48,7 +54,10 @@ public class PlayerController : MonoBehaviour {
 			if (owner != playerNumber)
 			{
 				Destroy (other.gameObject);
-				Death();
+				rotation = other.gameObject.GetComponent<Bullet>().rotation;
+				//speed = other.gameObject.GetComponent<Bullet>().speed;
+				//Death();
+
 			}
 		}
 
