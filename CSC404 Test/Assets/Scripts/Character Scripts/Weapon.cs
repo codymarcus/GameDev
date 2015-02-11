@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetButton(playerNumber + "Fire1") && canFire <= 0 && player.UseAmmo()) 
+		if ( Input.GetButton(playerNumber + "Fire1") && canFire <= 0) 
 		{ 
 			GameObject b = new GameObject();
 			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;

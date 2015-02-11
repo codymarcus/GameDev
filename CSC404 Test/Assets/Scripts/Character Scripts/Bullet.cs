@@ -5,10 +5,12 @@ public class Bullet : MonoBehaviour {
 
 	public float velocity;
 	public int owner;
+	public Vector3 speed;
 
 	// Use this for initialization
 	void Start () {
-	
+		speed = Vector3.up * 5 * Time.deltaTime;
+		speed = transform.rotation * speed;
 	}
 	
 	// Update is called once per frame
@@ -22,4 +24,5 @@ public class Bullet : MonoBehaviour {
 			Destroy (gameObject);
 		}
 	}
+	
 }
