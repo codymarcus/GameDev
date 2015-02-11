@@ -7,13 +7,14 @@ public class Aim : MonoBehaviour {
 	Vector2 rightStick = new Vector2(0, 0);
 	float angularVelocity = 30f;
 	float radialDeadZone = 0.25f;
-	Vector3 direction;
+	public Vector3 direction;
 	Quaternion currentRotation;
 	//public int RotateSpeed = 300;
 
 	// Use this for initialization
 	void Start () {
-		 
+		rightStick = new Vector2 (Input.GetAxis (playerNumber + "RightH"), Input.GetAxis (playerNumber + "RightV"));
+		direction = new Vector3 (rightStick.x, -1 * rightStick.y, 0);
 	}
 	
 	// Update is called once per frame

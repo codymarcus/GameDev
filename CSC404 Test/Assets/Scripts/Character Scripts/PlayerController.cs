@@ -11,9 +11,14 @@ public class PlayerController : MonoBehaviour {
 	public int lives;
 	public GameObject self;
 
+	private Vector3 moveDirection = Vector3.zero;
+
 	int ammo = 5;
 	float floatScore = 0;
 	bool isAlive = true;
+
+	float[] list;
+	int i = 0;
 
 	Vector3 screenPosition;
 
@@ -44,12 +49,22 @@ public class PlayerController : MonoBehaviour {
 		// If player touches bullet that isn't theirs then die and destroy bullet
 		if (other.gameObject.tag == "Bullet")
 		{
-			int owner = other.gameObject.GetComponent<Bullet>().owner;
-			if (owner != playerNumber)
-			{
-				Destroy (other.gameObject);
-				Death();
+			//int owner = other.gameObject.GetComponent<Bullet>().owner;
+			//if (owner != playerNumber)
+			//{
+			//	Destroy (other.gameObject);
+			//	Death();
+			//}
+			moveDirection = (other.gameObject.transform.position - other.gameObject.GetComponent<Bullet>().start)/other.gameObject.GetComponent<Bullet>().live_time;
+			if (moveDirection == new Vector3(0,0,0)){
+
 			}
+			moveDirection = transform.TransformDirection(moveDirection);
+			moveDirection *= 20;
+
+			CharacterController controller = GetComponent<CharacterController>();
+			controller.Move(moveDirection * Time.deltaTime);
+			Destroy(other.gameObject);
 		}
 
 		// If player touches ammo, destroy it and add 5 ammo
