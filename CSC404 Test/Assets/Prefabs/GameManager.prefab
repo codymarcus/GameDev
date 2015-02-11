@@ -40,10 +40,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 
-  ammo: {fileID: 187688, guid: fa61678e0af8d4a24a78ba10b75f61ed, type: 2}
-  ammoSpawnTime: 10
-  team_1: 
-  team_2: 
+  ammo: {fileID: 0}
+  ammoSpawnTime: 0
+  hill: {fileID: 0}
+  hillChangeTime: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -108,13 +108,13 @@ public class GameManager : MonoBehaviour {
 //		}
 
 		// Ammo spawn timing
-		curAmmoTime -= Time.deltaTime;
-
-		if (curAmmoTime <= 0)
-		{
-			Spawn (ammo);
-			curAmmoTime = ammoSpawnTime;
-		}
+//		curAmmoTime -= Time.deltaTime;
+//
+//		if (curAmmoTime <= 0)
+//		{
+//			Spawn (ammo);
+//			curAmmoTime = ammoSpawnTime;
+//		}
 
 		// Move the Hill if GameType is King of the Hill
 		if (gameType == "King of the Hill")

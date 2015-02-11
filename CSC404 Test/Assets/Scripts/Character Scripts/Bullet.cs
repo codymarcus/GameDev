@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		speed = Vector3.up * 5 * Time.deltaTime;
+		speed = Vector3.up * velocity * Time.deltaTime;
 		speed = transform.rotation * speed;
 	}
 	
