@@ -31,6 +31,11 @@ public class Bullet : MonoBehaviour {
 		if (other.gameObject.tag == "Floor") {
 
 			isDestroy = true;
+		}
+
+		if (other.gameObject.tag == "RightFloor") {
+			
+			Destroy (gameObject);
 			other.gameObject.GetComponent<MovingFloor>().Hit();
 		}
 

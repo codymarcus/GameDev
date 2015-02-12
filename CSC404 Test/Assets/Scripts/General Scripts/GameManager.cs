@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour {
 		{
 			// 1 life each in last man standing
 			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
-				player.GetComponent<PlayerController>().lives = 1;
+				player.GetComponent<PlayerController>().lives = 1000;
 		}
 
 		// Team setup if team-based game
