@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public int playerNumber;
 	public GameObject[] spawns;
 	public GameManager manager;
-	public int lives = 1;
+	public int lives = 1000;
 	public GameObject self;
 	public GameObject player;
 
@@ -65,14 +65,14 @@ public class PlayerController : MonoBehaviour {
 		{
 			int owner = other.gameObject.GetComponent<Bullet>().owner;
 
-			if (owner != playerNumber)
-			{
-				speed = other.gameObject.GetComponent<Bullet>().speed;
-				if (player.GetComponent<CharacterMotor>().grounded){
-					speed = new Vector3 (speed.x, 0, speed.z);
-				}
-				Destroy (other.gameObject);
-			}
+//			if (owner != playerNumber)
+//			{
+//				speed = other.gameObject.GetComponent<Bullet>().speed;
+//				if (player.GetComponent<CharacterMotor>().grounded){
+//					speed = new Vector3 (speed.x, 0, speed.z);
+//				}
+//				Destroy (other.gameObject);
+//			}
 		}
 
 		// If player touches ammo, destroy it and add 5 ammo
@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		if (MatchManager.gameType != "King of the Hill" && isAlive == true)
+		if (isAlive == true)
 		{
 			lives--;
 			if (lives > 0)

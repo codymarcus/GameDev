@@ -33,6 +33,11 @@ public class Bullet : MonoBehaviour {
 			isDestroy = true;
 			other.gameObject.GetComponent<MovingFloor>().Hit();
 		}
+
+		if (other.gameObject.tag == "Player") {
+			
+			Destroy (gameObject);
+		}
 	}
 	
 }
