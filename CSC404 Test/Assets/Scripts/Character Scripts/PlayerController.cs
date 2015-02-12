@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (other.gameObject.tag == "Floor")
-<<<<<<< HEAD
 			canDJump = false;
 	}
 
@@ -91,11 +90,9 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Floor")
 			canDJump = true;
-=======
 		{
 			speed = new Vector3 (speed.x, 0, speed.z);
 		}
->>>>>>> e516d2ddada5b56242a89820a0ae61dd466d3388
 	}
 
 	public void Update_color(int color)

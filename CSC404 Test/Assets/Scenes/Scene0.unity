@@ -2466,6 +2466,7 @@ MonoBehaviour:
   manager: {fileID: 708191999}
   lives: 0
   self: {fileID: 1849750464}
+  player: {fileID: 0}
   controller: {fileID: 1101117261}
 --- !u!143 &1101117261
 CharacterController:
@@ -3858,6 +3859,7 @@ MonoBehaviour:
   manager: {fileID: 708191999}
   lives: 0
   self: {fileID: 1400296600}
+  player: {fileID: 0}
   controller: {fileID: 0}
 --- !u!114 &1591433475
 MonoBehaviour:
@@ -4143,6 +4145,7 @@ MonoBehaviour:
   manager: {fileID: 708191999}
   lives: 0
   self: {fileID: 73991759}
+  player: {fileID: 0}
   controller: {fileID: 1656302270}
 --- !u!114 &1656302268
 MonoBehaviour:
@@ -4856,6 +4859,7 @@ MonoBehaviour:
   manager: {fileID: 708191999}
   lives: 0
   self: {fileID: 1923937936}
+  player: {fileID: 0}
   controller: {fileID: 0}
 --- !u!114 &1876436157
 MonoBehaviour:
