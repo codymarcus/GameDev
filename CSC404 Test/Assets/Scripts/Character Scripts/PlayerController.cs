@@ -8,9 +8,14 @@ public class PlayerController : MonoBehaviour {
 	public int playerNumber;
 	public GameObject[] spawns;
 	public GameManager manager;
-	public int lives;
+	public int lives = 5;
 	public GameObject self;
 	Vector3 speed = new Vector3();
+	public CharacterController controller;
+
+
+	float doubleJump = 3.0F;
+	bool canDJump = false;
 
 	int ammo = 5;
 	float floatScore = 0;
@@ -25,6 +30,9 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (transform.position.z != 0)
+			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
 		GameManager.scores [playerNumber - 1] = (int) floatScore;
@@ -33,6 +41,9 @@ public class PlayerController : MonoBehaviour {
 			transform.Translate (speed);
 			speed = new Vector3 (speed.x * 0.95F, speed.y * 0.95F, 0);
 		}
+
+//		if (Input.GetButton (playerNumber + "Jump") && canDJump)
+//			controller.Move (new Vector3 (0, doubleJump, 0) * Time.deltaTime);
 	}
 
 	void OnGUI () {
@@ -66,6 +77,15 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 			ammo += 5;
 		}
+
+		if (other.gameObject.tag == "Floor")
+			canDJump = false;
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject.tag == "Floor")
+			canDJump = true;
 	}
 
 	public void Update_color(int color)
@@ -88,28 +108,28 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		if (MatchManager.gameType != "King of the Hill" && isAlive == true)
-		{
+		//if (MatchManager.gameType != "King of the Hill" && isAlive == true)
+		//{
 			lives--;
-			if (lives > 0)
-			{
+			//if (lives > 0)
+			//{
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				transform.position = spawn.transform.position;
-			}
-			else
-			{
-				Destroy(this.gameObject);
-				manager.Dead(playerNumber);
-				isAlive = false;
-			}
-		}
-		else
-		{
-			int spawnNumber = Random.Range (0, spawns.Length);
-			spawn = spawns [spawnNumber];
-			transform.position = spawn.transform.position;
-		}
+			//}
+//			else
+//			{
+//				Destroy(this.gameObject);
+//				manager.Dead(playerNumber);
+//				isAlive = false;
+//			}
+//	//	}
+//		else
+//		{
+//			int spawnNumber = Random.Range (0, spawns.Length);
+//			spawn = spawns [spawnNumber];
+//			transform.position = spawn.transform.position;
+//	//	}
 	}
 
 	public bool UseAmmo() {

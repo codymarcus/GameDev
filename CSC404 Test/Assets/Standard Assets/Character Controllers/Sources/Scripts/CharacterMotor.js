@@ -219,7 +219,9 @@ private function UpdateFunction () {
 	// when walking down a step or over a sharp change in slope.
 	var pushDownOffset : float = Mathf.Max(controller.stepOffset, Vector3(currentMovementOffset.x, 0, currentMovementOffset.z).magnitude);
 	if (grounded)
+	{
 		currentMovementOffset -= pushDownOffset * Vector3.up;
+	}
 	
 	// Reset variables that will be set by collision function
 	movingPlatform.hitPlatform = null;
@@ -332,6 +334,7 @@ function FixedUpdate () {
 }
 
 function Update () {
+	
 	if (!useFixedUpdate)
 		UpdateFunction();
 }
@@ -397,7 +400,9 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 		jumping.lastButtonDownTime = Time.time;
 	
 	if (grounded)
+	{
 		velocity.y = Mathf.Min(0, velocity.y) - movement.gravity * Time.deltaTime;
+	}
 	else {
 		velocity.y = movement.velocity.y - movement.gravity * Time.deltaTime;
 		
