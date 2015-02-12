@@ -15,14 +15,17 @@ public class MovingFloor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		velocity *= 0.999f;
-		if (velocity <= 0.01f)
+		if (Mathf.Abs(velocity) <= 0.01f)
 		{
 			velocity = 0f;
 			isHit = false;
 		}
 		if (isHit)
 		{
-			rigidbody.velocity = new Vector3 (velocity, 0, 0);
+			if (gameObject.tag == "RightFloor")
+				rigidbody.velocity = new Vector3 (velocity, 0, 0);
+			if (gameObject.tag == "DownFloor")
+				rigidbody.velocity = new Vector3 (0, -velocity, 0);
 			rigidbody.angularVelocity = new Vector3 (0, 0, 0);
 		}
 	}

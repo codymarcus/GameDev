@@ -60,18 +60,14 @@ public class PlayerController : MonoBehaviour {
 			Death();
 		}
 
-		// If player touches bullet that isn't theirs then die and destroy bullet
+		// If player touches bullet that isn't their
 		if (other.gameObject.tag == "Bullet")
 		{
 			int owner = other.gameObject.GetComponent<Bullet>().owner;
 
 //			if (owner != playerNumber)
 //			{
-//				speed = other.gameObject.GetComponent<Bullet>().speed;
-//				if (player.GetComponent<CharacterMotor>().grounded){
-//					speed = new Vector3 (speed.x, 0, speed.z);
-//				}
-//				Destroy (other.gameObject);
+//				controller.Move(other.gameObject.GetComponent<Bullet>().speed);
 //			}
 		}
 
@@ -118,8 +114,9 @@ public class PlayerController : MonoBehaviour {
 		if (isAlive == true)
 		{
 			lives--;
-			if (lives > 0)
+			if (lives > 0 || lives <= 0)
 			{
+				Debug.Log("respawn");
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				transform.position = spawn.transform.position;

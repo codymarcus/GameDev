@@ -1,19 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CrazyFloor.cs">
     <Files>
       <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="26" Column="36" />
-      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="19" Column="3" />
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="35" Column="4" />
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="12" Column="1" />
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="22" Column="27" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="15" Column="29" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="71" Column="7" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="162" Column="18" />
       <File FileName="Assets/Scripts/General Scripts/ScoreManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Character Controllers/Sources/Scripts/FPSInputController.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/General Scripts/ScoreScreenManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="313" Column="24" />
       <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/FPSInputController.js" Line="33" Column="59" />
-      <File FileName="Assets/MovingFloor.cs" Line="18" Column="7" />
+      <File FileName="Assets/MovingFloor.cs" Line="12" Column="3" />
+      <File FileName="Assets/CrazyFloor.cs" Line="21" Column="46" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

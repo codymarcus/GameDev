@@ -8,14 +8,15 @@ public class GameManager : MonoBehaviour {
 	// Gametypes: Last Man Standing, Last Team Standing
 	public string gameType;
 
-	public GameObject ammo;
+	public GameObject floor;
 	public float ammoSpawnTime = 10f;
 	public GameObject hill;
 	public float hillChangeTime = 10f;
 	GameObject myHill;
+	float floorSpawnTime = 0.5f;
 	GameObject[] floors;
 	GameObject[] players;
-	GameObject floor;
+	public GameObject spawnFloor;
 	Vector3 spawnLoc;
 
 	GameObject[] playersList;
@@ -31,16 +32,19 @@ public class GameManager : MonoBehaviour {
 
 	float curAmmoTime;
 	float curHillTime;
+	float curFloorTime;
 
 //	public GameObject coin;
 //	float moneySpawnTime = 5f;
 	
 	// Use this for initialization
 	void Start () {
+
 //		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
 
 		curAmmoTime = ammoSpawnTime;
 		curHillTime = hillChangeTime;
+		curFloorTime = floorSpawnTime;
 
 		// Set GameType to MatchManager GameType
 		if (MatchManager.gameType != null)
@@ -99,21 +103,12 @@ public class GameManager : MonoBehaviour {
 
 		//scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
-//		moneySpawnTime -= Time.deltaTime;
-
-//		if (moneySpawnTime <= 0)
-//		{
-//			Spawn (coin);
-//			moneySpawnTime = 5f;
-//		}
-
-		// Ammo spawn timing
-//		curAmmoTime -= Time.deltaTime;
+		curFloorTime -= Time.deltaTime;
 //
-//		if (curAmmoTime <= 0)
+//		if (curFloorTime <= 0)
 //		{
-//			Spawn (ammo);
-//			curAmmoTime = ammoSpawnTime;
+//			Spawn (spawnFloor);
+//			curFloorTime = floorSpawnTime;
 //		}
 
 		// Move the Hill if GameType is King of the Hill
@@ -134,12 +129,8 @@ public class GameManager : MonoBehaviour {
 	// Function to spawn an object
 	void Spawn (GameObject item)
 	{
-		int floorNumber = Random.Range(0, floors.Length);
-		floor = floors[floorNumber];
-		spawnLoc = new Vector3 (floor.transform.position.x
-		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
-		                        floor.transform.position.y + 1f, 0);
-		Instantiate (item, spawnLoc, Quaternion.Euler(90, 30, 0));
+		spawnLoc = new Vector3 (Random.Range (-38, 18), Random.Range (-15, 17), 0);
+		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
 	}
 
 	// Function to move Hill
