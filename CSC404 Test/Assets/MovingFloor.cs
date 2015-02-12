@@ -15,13 +15,16 @@ public class MovingFloor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isHit)
-			timeToMove -= Time.deltaTime;
-		if (timeToMove <= 0)
-		{
-			transform.position = startingPos;
-			timeToMove = 5.0F;
-		}
+//		if (isHit)
+//			timeToMove -= Time.deltaTime;
+//		if (timeToMove <= 0)
+//		{
+//			transform.position = startingPos;
+//			timeToMove = 5.0F;
+//		}
+//
+//		rigidbody.velocity = new Vector3 (rigidbody.velocity.x * .5f, rigidbody.velocity.y * .5f, 0);
+//		rigidbody.angularVelocity = new Vector3 (rigidbody.angularVelocity.x * .5f, rigidbody.angularVelocity.y * .5f, 0);
 	}
 
 	public void Hit () {

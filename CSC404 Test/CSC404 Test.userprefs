@@ -1,18 +1,19 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="32" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="16" Column="2" />
-      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="26" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="75" Column="4" />
-      <File FileName="Assets\Scripts\General Scripts\GameManager.cs" Line="222" Column="1" />
-      <File FileName="Assets\Scripts\General Scripts\ScoreManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\General Scripts\MatchManager.cs" Line="102" Column="1" />
-      <File FileName="Assets\Scripts\Character Controllers\Sources\Scripts\FPSInputController.js" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\General Scripts\ScoreScreenManager.cs" Line="16" Column="3" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="148" Column="30" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="33" Column="59" />
+      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="26" Column="36" />
+      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="19" Column="3" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="35" Column="4" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/General Scripts/ScoreManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Controllers/Sources/Scripts/FPSInputController.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/General Scripts/ScoreScreenManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="313" Column="24" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/FPSInputController.js" Line="33" Column="59" />
+      <File FileName="Assets/MovingFloor.cs" Line="18" Column="7" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
