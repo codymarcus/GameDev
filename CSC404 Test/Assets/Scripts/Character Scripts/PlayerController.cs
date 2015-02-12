@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives;
 	public GameObject self;
+	public GameObject player;
+
 	Vector3 speed = new Vector3();
 
 	int ammo = 5;
@@ -55,7 +57,9 @@ public class PlayerController : MonoBehaviour {
 			if (owner != playerNumber)
 			{
 				speed = other.gameObject.GetComponent<Bullet>().speed;
-				speed = new Vector3 (speed.x, 0, speed.z);
+				if (player.GetComponent<CharacterMotor>().grounded){
+					speed = new Vector3 (speed.x, 0, speed.z);
+				}
 				Destroy (other.gameObject);
 			}
 		}
@@ -65,6 +69,11 @@ public class PlayerController : MonoBehaviour {
 		{
 			Destroy(other.gameObject);
 			ammo += 5;
+		}
+
+		if (other.gameObject.tag == "Floor")
+		{
+			speed = new Vector3 (speed.x, 0, speed.z);
 		}
 	}
 
