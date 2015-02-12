@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	public int playerNumber;
 	public GameObject[] spawns;
 	public GameManager manager;
-	public int lives = 5;
+	public int lives = 1;
 	public GameObject self;
 	public GameObject player;
 
@@ -115,28 +115,28 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		//if (MatchManager.gameType != "King of the Hill" && isAlive == true)
-		//{
+		if (MatchManager.gameType != "King of the Hill" && isAlive == true)
+		{
 			lives--;
-			//if (lives > 0)
-			//{
+			if (lives > 0)
+			{
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				transform.position = spawn.transform.position;
-			//}
-//			else
-//			{
-//				Destroy(this.gameObject);
-//				manager.Dead(playerNumber);
-//				isAlive = false;
-//			}
-//	//	}
-//		else
-//		{
-//			int spawnNumber = Random.Range (0, spawns.Length);
-//			spawn = spawns [spawnNumber];
-//			transform.position = spawn.transform.position;
-//	//	}
+			}
+			else
+			{
+				Destroy(this.gameObject);
+				manager.Dead(playerNumber);
+				isAlive = false;
+			}
+		}
+		else
+		{
+			int spawnNumber = Random.Range (0, spawns.Length);
+			spawn = spawns [spawnNumber];
+			transform.position = spawn.transform.position;
+		}
 	}
 
 	public bool UseAmmo() {

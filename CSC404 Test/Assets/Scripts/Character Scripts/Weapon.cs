@@ -21,7 +21,7 @@ public class Weapon : MonoBehaviour {
 			GameObject b = new GameObject();
 			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
 			b.GetComponent<Bullet>().owner = playerNumber;
-			Destroy( b , .3F);
+			Destroy( b , 3.5F);
 			canFire = .2f;
 		}
 		if (canFire <= 0)
