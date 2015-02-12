@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives = 5;
 	public GameObject self;
+	public GameObject player;
+
 	Vector3 speed = new Vector3();
 	public CharacterController controller;
 
@@ -66,7 +68,9 @@ public class PlayerController : MonoBehaviour {
 			if (owner != playerNumber)
 			{
 				speed = other.gameObject.GetComponent<Bullet>().speed;
-				speed = new Vector3 (speed.x, 0, speed.z);
+				if (player.GetComponent<CharacterMotor>().grounded){
+					speed = new Vector3 (speed.x, 0, speed.z);
+				}
 				Destroy (other.gameObject);
 			}
 		}
@@ -79,6 +83,7 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (other.gameObject.tag == "Floor")
+<<<<<<< HEAD
 			canDJump = false;
 	}
 
@@ -86,6 +91,11 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Floor")
 			canDJump = true;
+=======
+		{
+			speed = new Vector3 (speed.x, 0, speed.z);
+		}
+>>>>>>> e516d2ddada5b56242a89820a0ae61dd466d3388
 	}
 
 	public void Update_color(int color)
