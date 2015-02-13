@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour {
 	public float velocity;
 	public int owner;
 	public Vector3 speed;
-	float destroyTime = 0.0001F;
+	float destroyTime = 0.01F;
 	bool isDestroy = false;
 
 	// Use this for initialization
@@ -28,14 +28,8 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Floor") {
-			other.gameObject.GetComponent<CrazyFloor>().Hit();
+			//other.gameObject.GetComponent<CrazyFloor>().Hit();
 			isDestroy = true;
-		}
-
-		if (other.gameObject.tag == "RightFloor" || other.gameObject.tag == "DownFloor") {
-			
-			Destroy (gameObject);
-			other.gameObject.GetComponent<MovingFloor>().Hit();
 		}
 
 		if (other.gameObject.tag == "Player") {

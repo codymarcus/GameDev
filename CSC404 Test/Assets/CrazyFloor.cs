@@ -18,6 +18,10 @@ public class CrazyFloor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (transform.position != startPos || transform.rotation != startAngle)
+			isHit = true;
+
 		if (isHit)
 		{
 			timeToRespawn -= Time.deltaTime;

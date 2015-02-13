@@ -22,7 +22,7 @@ public class Weapon : MonoBehaviour {
 			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
 			b.GetComponent<Bullet>().owner = playerNumber;
 			Destroy( b , 3.5F);
-			canFire = .2f;
+			canFire = .5f;
 		}
 		if (canFire <= 0)
 			canFire = 0;
