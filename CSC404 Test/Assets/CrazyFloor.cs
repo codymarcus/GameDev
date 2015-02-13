@@ -4,7 +4,8 @@ using System.Collections;
 public class CrazyFloor : MonoBehaviour {
 
 	public double respawnTime;
-	double timeToRespawn = 5;
+	public int returnSpeed = 7;
+	double timeToRespawn = 5f;
 	bool isHit = false;
 	Vector3 startPos;
 	Quaternion startAngle;
@@ -12,7 +13,7 @@ public class CrazyFloor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		startPos = transform.position;
-		startAngle.eulerAngles = transform.eulerAngles;
+		startAngle = transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -22,8 +23,10 @@ public class CrazyFloor : MonoBehaviour {
 			timeToRespawn -= Time.deltaTime;
 			if (timeToRespawn <= 0)
 			{
-				Vector3 newPos = Vector3.MoveTowards(transform.position, startPos, 5*Time.deltaTime);
+				Vector3 newPos = Vector3.MoveTowards(transform.position, startPos, returnSpeed * Time.deltaTime);
 				transform.position = new Vector3(newPos.x, newPos.y, 0);
+				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 4 * Time.deltaTime);
+				transform.rotation = new Quaternion(newAngle.x, newAngle.y, newAngle.z, newAngle.w);
 				//timeToRespawn = 5;
 			}
 			else
