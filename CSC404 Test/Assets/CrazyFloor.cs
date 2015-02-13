@@ -25,7 +25,7 @@ public class CrazyFloor : MonoBehaviour {
 			{
 				Vector3 newPos = Vector3.MoveTowards(transform.position, startPos, returnSpeed * Time.deltaTime);
 				transform.position = new Vector3(newPos.x, newPos.y, 0);
-				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 4 * Time.deltaTime);
+				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 6 * Time.deltaTime);
 				transform.rotation = new Quaternion(newAngle.x, newAngle.y, newAngle.z, newAngle.w);
 				//timeToRespawn = 5;
 			}
@@ -37,11 +37,9 @@ public class CrazyFloor : MonoBehaviour {
 				if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
 					rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
 
-				rigidbody.angularVelocity = new Vector3 (0.95f * rigidbody.angularVelocity.x, 0.95f * rigidbody.angularVelocity.y, 0);
-				if (Mathf.Abs(rigidbody.angularVelocity.x) <= 0.01f)
+				rigidbody.angularVelocity = new Vector3 (0, 0, .7f * rigidbody.angularVelocity.z);
+				if (Mathf.Abs(rigidbody.angularVelocity.z) <= 0.01f)
 					rigidbody.angularVelocity = new Vector3 (0, rigidbody.angularVelocity.y, 0);
-				if (Mathf.Abs(rigidbody.angularVelocity.y) <= 0.01f)
-					rigidbody.angularVelocity = new Vector3 (rigidbody.angularVelocity.x, 0, 0);
 			}
 		}
 	}
