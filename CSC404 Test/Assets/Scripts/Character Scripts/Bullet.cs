@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Floor") {
-			//other.gameObject.GetComponent<CrazyFloor>().Hit();
+			other.gameObject.GetComponent<CrazyFloor>().Hit();
 			isDestroy = true;
 		}
 

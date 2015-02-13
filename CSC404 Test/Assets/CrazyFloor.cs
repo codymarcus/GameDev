@@ -19,7 +19,12 @@ public class CrazyFloor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (transform.position != startPos || transform.rotation != startAngle)
+		if (transform.position == startPos && transform.rotation == startAngle)
+		{
+			isHit = false;
+			timeToRespawn = 5;
+		}
+		else
 			isHit = true;
 
 		if (isHit)
@@ -31,7 +36,7 @@ public class CrazyFloor : MonoBehaviour {
 				transform.position = new Vector3(newPos.x, newPos.y, 0);
 				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 6 * Time.deltaTime);
 				transform.rotation = new Quaternion(newAngle.x, newAngle.y, newAngle.z, newAngle.w);
-				//timeToRespawn = 5;
+
 			}
 			else
 			{
