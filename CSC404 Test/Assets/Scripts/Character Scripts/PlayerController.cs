@@ -59,28 +59,8 @@ public class PlayerController : MonoBehaviour {
 		{
 			Death();
 		}
-
-		// If player touches bullet that isn't their
-		if (other.gameObject.tag == "Bullet")
-		{
-			int owner = other.gameObject.GetComponent<Bullet>().owner;
-
-//			if (owner != playerNumber)
-//			{
-//				controller.Move(other.gameObject.GetComponent<Bullet>().speed);
-//			}
-		}
-
-//		// If player touches ammo, destroy it and add 5 ammo
-//		if (other.gameObject.tag == "Ammo")
-//		{
-//			Destroy(other.gameObject);
-//			ammo += 5;
-//		}
-
-		if (other.gameObject.tag == "Floor")
-			canDJump = false;
 	}
+
 
 	void OnTriggerExit(Collider other)
 	{
@@ -88,6 +68,25 @@ public class PlayerController : MonoBehaviour {
 			canDJump = true;
 		{
 			speed = new Vector3 (speed.x, 0, speed.z);
+		}
+
+		if (other.gameObject.tag == "HeavyFloor")
+		{
+			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
+		}
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "Hill")
+		{
+			floatScore += Time.deltaTime;
+			Debug.Log("Player" + playerNumber + ": " + GameManager.scores[playerNumber-1]);
+		}
+
+		if (other.gameObject.tag == "HeavyFloor")
+		{
+			other.gameObject.GetComponentInParent<HeavyFloor>().WeighDown();
 		}
 	}
 
@@ -98,15 +97,6 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (color == 2) {
 			self.renderer.material.color = Color.green;
-		}
-	}
-
-	void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.tag == "Hill")
-		{
-			floatScore += Time.deltaTime;
-			Debug.Log("Player" + playerNumber + ": " + GameManager.scores[playerNumber-1]);
 		}
 	}
 

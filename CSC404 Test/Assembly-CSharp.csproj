@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\CrazyFloor.cs" />
      <Compile Include="Assets\Follow.cs" />
+     <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Aim.cs" />
