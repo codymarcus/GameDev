@@ -35,16 +35,16 @@ public class MatchManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("GameType").GetComponent<Text> ().text = gameType;
 
 		// Set team dynamic based on game type
-		if (gameType == "Last Man Standing")
+		if (gameType == "Deathmatch")
 				teamDynamic = "FFA";
-		else if (gameType == "Last Team Standing")
+		else if (gameType == "Team Deathmatch")
 				teamDynamic = "2v2";
 		else if (gameType == "King of the Hill") {
 				int randInt = Random.Range (0, 2);
 				Debug.Log (randInt);
 				teamDynamic = possibleTeamDynamics [randInt];
-		} else if (gameType == "WANTED") {
-				teamDynamic = "1v3";	
+		} else if (gameType == "Blowdown") {
+				teamDynamic = "FFA";	
 		}
 
 		// If team dynamic is free-for-all, display FFA text

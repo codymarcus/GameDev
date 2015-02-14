@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-
-	// Gametypes: Last Man Standing, Last Team Standing
+	
 	public string gameType;
 
 	public GameObject floor;
@@ -70,9 +69,8 @@ public class GameManager : MonoBehaviour {
 		// Player setup based on game mode
 		foreach (GameObject player in players)
 		{
-			// 1 life each in last man standing
-			if (gameType == "Last Man Standing" || gameType == "Last Team Standing")
-				player.GetComponent<PlayerController>().lives = 1000;
+			if (gameType == "Deathmatch" || gameType == "Team Deathmatch")
+				player.GetComponent<PlayerController>().lives = 3;
 		}
 
 		// Team setup if team-based game
@@ -154,7 +152,7 @@ public class GameManager : MonoBehaviour {
 	{
 		//TODO figure out if game ends
 
-		if (gameType == "Last Man Standing")
+		if (gameType == "Deathmatch")
 		{
 			playersList = GameObject.FindGameObjectsWithTag("Player");
 			if (playersList.Length < 3)
@@ -163,7 +161,7 @@ public class GameManager : MonoBehaviour {
 				RoundOver (winners, 1, 1);
 			}
 		}
-		else if (gameType == "Last Team Standing")
+		else if (gameType == "Team Deathmatch")
 		{
 			if (team1.Contains(playerNumber))
 				team1.Remove(playerNumber);

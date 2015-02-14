@@ -412,8 +412,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTypes:
-  - Last Man Standing
-  - Last Team Standing
+  - Deathmatch
+  - Team Deathmatch
+  - Blowdown
   possibleTeamDynamics:
   - FFA
   - 2v2

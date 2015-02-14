@@ -1,10 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/CrazyFloor.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/Bullet.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="26" Column="36" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="8" Column="16" />
+      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="9" Column="26" />
       <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/General Scripts/ScoreManager.cs" Line="1" Column="1" />
@@ -14,7 +14,7 @@
       <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="1" Column="1" />
       <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/FPSInputController.js" Line="1" Column="1" />
       <File FileName="Assets/MovingFloor.cs" Line="1" Column="1" />
-      <File FileName="Assets/CrazyFloor.cs" Line="53" Column="3" />
+      <File FileName="Assets/CrazyFloor.cs" Line="1" Column="1" />
       <File FileName="Assets/Follow.cs" Line="1" Column="1" />
     </Files>
     <Pads>
@@ -22,10 +22,11 @@
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
-              <Node name="Character Scripts" expanded="True" />
+              <Node name="Character Scripts" expanded="True">
+                <Node name="Bullet.cs" selected="True" />
+              </Node>
               <Node name="General Scripts" expanded="True" />
             </Node>
-            <Node name="CrazyFloor.cs" selected="True" />
           </Node>
         </State>
       </Pad>

@@ -71,12 +71,12 @@ public class PlayerController : MonoBehaviour {
 //			}
 		}
 
-		// If player touches ammo, destroy it and add 5 ammo
-		if (other.gameObject.tag == "Ammo")
-		{
-			Destroy(other.gameObject);
-			ammo += 5;
-		}
+//		// If player touches ammo, destroy it and add 5 ammo
+//		if (other.gameObject.tag == "Ammo")
+//		{
+//			Destroy(other.gameObject);
+//			ammo += 5;
+//		}
 
 		if (other.gameObject.tag == "Floor")
 			canDJump = false;
@@ -114,15 +114,16 @@ public class PlayerController : MonoBehaviour {
 		if (isAlive == true)
 		{
 			lives--;
-			if (lives > 0 || lives <= 0)
+			if (lives > 0)
 			{
-				Debug.Log("respawn");
+				Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				transform.position = spawn.transform.position;
 			}
 			else
 			{
+				Debug.Log("P" + playerNumber + " eliminated!");
 				Destroy(this.gameObject);
 				manager.Dead(playerNumber);
 				isAlive = false;

@@ -561,7 +561,7 @@ Transform:
   m_GameObject: {fileID: 347025904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .49000001, z: 0}
-  m_LocalScale: {x: .899999976, y: 1, z: .800000012}
+  m_LocalScale: {x: .899999976, y: 2, z: .800000012}
   m_Children: []
   m_Father: {fileID: 795214341}
   m_RootOrder: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3370b3a089e9478facb8a09954f9390, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameType: 
+  gameType: Deathmatch
   floor: {fileID: 103342, guid: cf19668eecbe04e05b9bf7df9be7dde1, type: 2}
   ammoSpawnTime: 10
   hill: {fileID: 172522, guid: 65c574b4791734d7f9138fe5877343d3, type: 2}
@@ -1136,7 +1136,7 @@ GameObject:
   - 54: {fileID: 795214337}
   m_Layer: 0
   m_Name: DeathFloor
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
