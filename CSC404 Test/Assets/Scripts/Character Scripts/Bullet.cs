@@ -31,6 +31,10 @@ public class Bullet : MonoBehaviour {
 			other.gameObject.GetComponent<CrazyFloor>().Hit();
 			isDestroy = true;
 		}
+
+		if (other.gameObject.tag == "HeavyFloor") {
+			Destroy(gameObject);
+		}
 	}
 
 }

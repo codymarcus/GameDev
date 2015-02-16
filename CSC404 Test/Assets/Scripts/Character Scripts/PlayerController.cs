@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "HeavyFloor")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
+			other.gameObject.GetComponentInParent<CrazyFloor>().Hit();
 		}
 	}
 
