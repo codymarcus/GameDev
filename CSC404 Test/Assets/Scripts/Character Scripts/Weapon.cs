@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour {
 	public GameObject barrel;
 	public PlayerController player;
 	float canFire = 0f;
+	bool isFiring = false;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class Weapon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetButton(playerNumber + "Fire1") && canFire <= 0) 
+		if (isFiring == true && canFire <= 0) 
 		{ 
 			GameObject b = new GameObject();
 			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
@@ -28,5 +29,13 @@ public class Weapon : MonoBehaviour {
 			canFire = 0;
 		else
 			canFire -= Time.deltaTime;
+	}
+
+	public void Fire() {
+		isFiring = true;
+	}
+
+	public void StopFire() {
+		isFiring = false;
 	}
 }

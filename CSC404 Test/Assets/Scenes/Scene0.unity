@@ -880,6 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 3
+  barrel: {fileID: 1416767215}
 --- !u!1 &395967639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3148,6 +3149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 2
+  barrel: {fileID: 878373948}
 --- !u!1001 &1743073035
 Prefab:
   m_ObjectHideFlags: 0
@@ -3400,6 +3402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 1
+  barrel: {fileID: 717928082}
 --- !u!1 &1876436154
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,6 +4010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNumber: 4
+  barrel: {fileID: 1212672432}
 --- !u!1 &2048992559
 GameObject:
   m_ObjectHideFlags: 0

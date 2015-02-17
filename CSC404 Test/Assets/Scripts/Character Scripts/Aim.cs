@@ -4,8 +4,9 @@ using System.Collections;
 public class Aim : MonoBehaviour {
 
 	public int playerNumber;
+	public GameObject barrel;
 	Vector2 rightStick = new Vector2(0, 0);
-	float angularVelocity = 30f;
+	float angularVelocity = 200f;
 	float radialDeadZone = 0.25f;
 	Vector3 direction;
 	Quaternion currentRotation;
@@ -25,7 +26,11 @@ public class Aim : MonoBehaviour {
 		{
 			currentRotation = Quaternion.LookRotation(Vector3.forward, direction);
 			transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * angularVelocity);
+			barrel.GetComponent<Weapon>().Fire();
 		}
-
+		else
+		{
+			barrel.GetComponent<Weapon>().StopFire();
+		}
 	}
 }
