@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour {
 	GameObject myHill;
 	float floorSpawnTime = 0.5f;
 	GameObject[] floors;
-	GameObject[] players;
+	public GameObject[] players;
 	public GameObject spawnFloor;
 	Vector3 spawnLoc;
 

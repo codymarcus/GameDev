@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 			speed = new Vector3 (speed.x, 0, speed.z);
 		}
 
-		if (other.gameObject.tag == "HeavyFloor")
+		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
 			other.gameObject.GetComponentInParent<CrazyFloor>().Hit();
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log("Player" + playerNumber + ": " + GameManager.scores[playerNumber-1]);
 		}
 
-		if (other.gameObject.tag == "HeavyFloor")
+		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().WeighDown();
 		}
