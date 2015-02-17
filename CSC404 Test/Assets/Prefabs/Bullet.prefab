@@ -113,6 +113,7 @@ MonoBehaviour:
   velocity: 30
   owner: 0
   speed: {x: 0, y: 0, z: 0}
+  manager: {fileID: 11448140, guid: 017fdfae8344d4d17aa3772ed6c51ab4, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

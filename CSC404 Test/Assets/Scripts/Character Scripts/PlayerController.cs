@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject self;
 	public GameObject player;
 
+	GameObject[] players;
+
 	Vector3 speed = new Vector3();
 	public CharacterController controller;
 
@@ -28,6 +30,10 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
+
+		players = GameObject.FindGameObjectsWithTag ("Player");
+		foreach (GameObject player in players)
+			Physics.IgnoreCollision(collider, player.collider);
 	}
 	
 	// Update is called once per frame

@@ -508,7 +508,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 95250894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8, z: -30}
+  m_LocalPosition: {x: 0, y: 8, z: -28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -809,7 +809,7 @@ GameObject:
   - 65: {fileID: 378527858}
   m_Layer: 0
   m_Name: HeavyTrigger
-  m_TagString: HeavyFloor
+  m_TagString: HeavyFloorTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1162,6 +1162,7 @@ MonoBehaviour:
   ammoSpawnTime: 10
   hill: {fileID: 172522, guid: 65c574b4791734d7f9138fe5877343d3, type: 2}
   hillChangeTime: 10
+  players: []
   spawnFloor: {fileID: 103342, guid: 168233d0af94a4be6b5680a51d6f993e, type: 2}
 --- !u!4 &708192000
 Transform:
@@ -1761,8 +1762,8 @@ MonoBehaviour:
   jumping:
     enabled: 1
     maxJumps: 1
-    baseHeight: 3
-    extraHeight: 3.5
+    baseHeight: 2.70000005
+    extraHeight: 3.20000005
     perpAmount: 0
     steepPerpAmount: 0
   movingPlatform:
