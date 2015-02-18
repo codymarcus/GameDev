@@ -2,23 +2,34 @@
 using System.Collections;
 
 public class SpikeWalls : MonoBehaviour {
-	public double timeToRespwan = 5;
+	public double respawnTime = 5;
 	public GameObject spike;
-	public GameObject PlatformOwner;
+	GameObject s = new GameObject ();
+
+	double timeToRespawn;
+	bool spikesOut = true;
 
 	// Use this for initialization
 	void Start () {
-	
+		timeToRespawn = respawnTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		timeToRespwan -= Time.deltaTime;
-		if (timeToRespwan <= 0) {
-			GameObject b = new GameObject ();
-			b = Instantiate (spike, this.transform.position, spike.transform.rotation) as GameObject;
-			b.GetComponent<SpikeDeath>().platform = PlatformOwner;
-			timeToRespwan = 10;
+		timeToRespawn -= Time.deltaTime;
+		if (timeToRespawn <= 0) {
+			if (spikesOut == true)
+			{
+				Destroy (s, 0f);
+				spikesOut = false;
+			}
+			else
+			{
+				s = Instantiate (spike, this.transform.position, this.transform.rotation) as GameObject;
+				s.transform.parent = transform;
+				spikesOut = true;
+			}
+			timeToRespawn = respawnTime;
 		}
 	}
 }
