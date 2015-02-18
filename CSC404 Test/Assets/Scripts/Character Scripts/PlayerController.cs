@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		// If player touches a death object then die
-		if (other.gameObject.tag == "Death")
+		if (other.gameObject.tag == "Death" || other.gameObject.tag == "Enemy")
 		{
 			Death();
 		}
@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
-			other.gameObject.GetComponentInParent<CrazyFloor>().Hit();
 		}
 	}
 

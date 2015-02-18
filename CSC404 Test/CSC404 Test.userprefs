@@ -1,14 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/PlayerController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/Aim.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="27" Column="2" />
-      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="146" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="16" Column="3" />
+      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="9" Column="29" />
+      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="39" Column="20" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="15" Column="23" />
       <File FileName="Assets/HeavyFloor.cs" Line="34" Column="36" />
       <File FileName="Assets/CrazyFloor.cs" Line="40" Column="5" />
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="158" Column="31" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="12" Column="25" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,18 +16,9 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Scripts" expanded="True">
               <Node name="Character Scripts" expanded="True">
-                <Node name="PlayerController.cs" selected="True" />
+                <Node name="Aim.cs" selected="True" />
               </Node>
               <Node name="General Scripts" expanded="True" />
-            </Node>
-          </Node>
-          <Node name="Assembly-UnityScript" expanded="True">
-            <Node name="Scripts" expanded="True">
-              <Node name="Character Controllers" expanded="True">
-                <Node name="Sources" expanded="True">
-                  <Node name="Scripts" expanded="True" />
-                </Node>
-              </Node>
             </Node>
           </Node>
         </State>

@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 	public Vector3 speed;
 	public GameManager manager;
 	GameObject[] players;
+	GameObject[] heavyFloors;
 	float destroyTime = 0.01F;
 	bool isDestroy = false;
 
@@ -15,9 +16,12 @@ public class Bullet : MonoBehaviour {
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
-		{
 			Physics.IgnoreCollision(collider, player.collider);
-		}
+
+		heavyFloors = GameObject.FindGameObjectsWithTag ("HeavyFloor");
+		foreach (GameObject heavyFloor in heavyFloors)
+			Physics.IgnoreCollision(collider, heavyFloor.collider);
+
 		rigidbody.velocity = transform.up * velocity; // * Time.deltaTime;
 		speed = rigidbody.velocity;
 	}
@@ -43,6 +47,10 @@ public class Bullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
+		if (other.gameObject.tag == "Enemy") {
+			other.gameObject.GetComponent<Enemy>().Hit();
+			isDestroy = true;
+		}
 	}
 	
 	void onControllerColliderHit (ControllerColliderHit hit)
