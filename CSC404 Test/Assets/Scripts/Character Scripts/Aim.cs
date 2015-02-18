@@ -10,7 +10,6 @@ public class Aim : MonoBehaviour {
 	float radialDeadZone = 0.25f;
 	Vector3 direction;
 	Quaternion currentRotation;
-	//public int RotateSpeed = 300;
 
 	// Use this for initialization
 	void Start () {
@@ -19,15 +18,21 @@ public class Aim : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.Rotate (-(Vector3.forward * RotateSpeed * Time.deltaTime * Input.GetAxis(playerNumber + "RightH")));
+		// Get right stick direction
 		rightStick = new Vector2 (Input.GetAxis (playerNumber + "RightH"), Input.GetAxis (playerNumber + "RightV"));
 		direction = new Vector3 (rightStick.x, -1 * rightStick.y, 0);
+
+		// If right stick is pushed in a direction...
 		if (direction.magnitude > radialDeadZone)
 		{
+			// Aim in that direction
 			currentRotation = Quaternion.LookRotation(Vector3.forward, direction);
 			transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * angularVelocity);
+
+			// Fire
 			barrel.GetComponent<Weapon>().Fire();
 		}
+		// Otherwise, do not fire
 		else
 		{
 			barrel.GetComponent<Weapon>().StopFire();

@@ -3,13 +3,16 @@ using System.Collections;
 
 public class Enemy : MonoBehaviour {
 
+	// Vertical flying range and speed
 	public float dropRange;
-	public float speed = 4;
+	public float speed;
 
 	float curSpeed;
+	bool isHit;
+
+	// Top and bottom ends of flying range
 	Vector3 startPos;
 	Vector3 endPos;
-	bool isHit;
 
 	// Use this for initialization
 	void Start () {
@@ -20,18 +23,22 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// If enemy is hit
 		if (isHit)
 		{
+			// Decelerate movement and eventually stop
 			rigidbody.velocity = new Vector3 (0.97f * rigidbody.velocity.x, 0.97f * rigidbody.velocity.y, 0);
 			if (Mathf.Abs(rigidbody.velocity.x) <= 0.01f)
 				rigidbody.velocity = new Vector3 (0, rigidbody.velocity.y, 0);
 			if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
 				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
-			
+
+			// Decelerate spinning and eventually stop
 			rigidbody.angularVelocity = new Vector3 (0, 0, .7f * rigidbody.angularVelocity.z);
 			if (Mathf.Abs(rigidbody.angularVelocity.z) <= 0.01f)
 				rigidbody.angularVelocity = new Vector3 (0, rigidbody.angularVelocity.y, 0);
 
+			// If stopped, set new movement range
 			if (rigidbody.velocity.x == 0 && rigidbody.velocity.y == 0 && rigidbody.angularVelocity.z == 0)
 			{
 				isHit = false;
@@ -39,8 +46,10 @@ public class Enemy : MonoBehaviour {
 				endPos = new Vector3 (startPos.x, startPos.y - dropRange);
 			}
 		}
+		// If enemy is not hit
 		else
 		{
+			// Check position and set vertical direction accordingly
 			if (transform.position.y >= startPos.y)
 				curSpeed = -speed;
 			else if (transform.position.y <= endPos.y)
@@ -49,6 +58,7 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
+	// Called if enemy is hit
 	public void Hit() {
 		isHit = true;
 	}
