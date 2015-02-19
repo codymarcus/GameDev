@@ -12,8 +12,8 @@ public class SpikeDeath : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y+0.5f, platform.transform.position.z);
-		this.transform.rotation = platform.transform.rotation;
-		Destroy(gameObject, 3);
+		//this.transform.position = new Vector3(platform.transform.position.x, platform.transform.position.y+0.5f, platform.transform.position.z);
+		//this.transform.rotation = platform.transform.rotation;
+		//Destroy(gameObject, 3);
 	}
 }
