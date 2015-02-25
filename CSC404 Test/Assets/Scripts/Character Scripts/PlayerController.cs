@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives = 1000;
 	public GameObject self;
-	public GameObject player;
 
 	GameObject[] players;
 
@@ -27,6 +26,11 @@ public class PlayerController : MonoBehaviour {
 
 	Vector3 screenPosition;
 
+	GUIStyle livesFont;
+	float fadeTime = 2f;
+	Color color = Color.white;
+	Color playerColor;
+
 	// Use this for initialization
 	void Start () {
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
@@ -34,6 +38,13 @@ public class PlayerController : MonoBehaviour {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
 			Physics.IgnoreCollision(collider, player.collider);
+
+		livesFont = new GUIStyle();
+		livesFont.fontSize = 15;
+		livesFont.fontStyle = FontStyle.Bold;
+		playerColor = self.renderer.material.color;
+		livesFont.normal.textColor = playerColor;
+
 	}
 	
 	// Update is called once per frame
@@ -50,12 +61,21 @@ public class PlayerController : MonoBehaviour {
 			speed = new Vector3 (speed.x * 0.95F, speed.y * 0.95F, 0);
 		}
 
-//		if (Input.GetButton (playerNumber + "Jump") && canDJump)
-//			controller.Move (new Vector3 (0, doubleJump, 0) * Time.deltaTime);
+		if (fadeTime > 0)
+			fadeTime -= Time.deltaTime;
 	}
 
 	void OnGUI () {
+		color.a = 1;
+		GUI.color = color;
 		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),("P" + playerNumber));
+
+		playerColor.a = fadeTime;
+		GUI.color = playerColor;
+		if (lives > 1)
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Lives!"), livesFont);
+		else
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -112,6 +132,7 @@ public class PlayerController : MonoBehaviour {
 			lives--;
 			if (lives > 0)
 			{
+				fadeTime = 2f;
 				Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
