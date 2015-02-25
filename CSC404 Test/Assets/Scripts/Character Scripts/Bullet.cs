@@ -54,6 +54,12 @@ public class Bullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 
+		// Exploding Floor
+		if (other.gameObject.tag == "ExplodingFloor") {
+			other.GetComponent<ExplodingFloor>().Explode();
+			Destroy(gameObject);
+		}
+
 		// Upon touching an enemy, call its hit function and set isDestroy to true
 		if (other.gameObject.tag == "Enemy") {
 			other.gameObject.GetComponent<Enemy>().Hit();

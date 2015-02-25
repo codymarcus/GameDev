@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\CrazyFloor.cs" />
      <Compile Include="Assets\Enemy.cs" />
+     <Compile Include="Assets\ExplodingFloor.cs" />
+     <Compile Include="Assets\Explosion.cs" />
      <Compile Include="Assets\Follow.cs" />
      <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
