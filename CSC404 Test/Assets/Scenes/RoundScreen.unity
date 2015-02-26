@@ -414,7 +414,7 @@ MonoBehaviour:
   gameTypes:
   - Deathmatch
   - Team Deathmatch
-  - Blowdown
+  - King of the Hill
   possibleTeamDynamics:
   - FFA
   - 2v2

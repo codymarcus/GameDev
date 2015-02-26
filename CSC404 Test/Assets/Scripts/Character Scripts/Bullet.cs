@@ -56,7 +56,7 @@ public class Bullet : MonoBehaviour {
 
 		// Exploding Floor
 		if (other.gameObject.tag == "ExplodingFloor") {
-			other.GetComponent<ExplodingFloor>().Explode();
+			other.GetComponent<ExplodingFloor>().Hit();
 			Destroy(gameObject);
 		}
 

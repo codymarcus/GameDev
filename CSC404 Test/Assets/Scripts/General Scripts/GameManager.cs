@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour {
 	public float ammoSpawnTime = 10f;
 	public GameObject hill;
 	public float hillChangeTime = 10f;
+	public int winScore;
+
 	GameObject myHill;
 	float floorSpawnTime = 0.5f;
 	GameObject[] floors;
@@ -26,7 +28,12 @@ public class GameManager : MonoBehaviour {
 	ArrayList team1 = new ArrayList();
 	ArrayList team2 = new ArrayList();
 
+	int[] team1Array;
+	int[] team2Array;
+
 	public static int[] scores = {0, 0, 0, 0};
+	public static int[] teamScores = {0, 0};
+
 	//Text scoreText;
 
 	float curAmmoTime;
@@ -40,6 +47,9 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 
 //		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
+
+		team1Array = team1.ToArray(typeof(int)) as int[];
+		team2Array = team1.ToArray(typeof(int)) as int[];
 
 		curAmmoTime = ammoSpawnTime;
 		curHillTime = hillChangeTime;
@@ -120,6 +130,33 @@ public class GameManager : MonoBehaviour {
 				MoveHill ();
 				curHillTime = hillChangeTime;
 			}
+
+			Debug.Log(teamScores[0] + "-" + teamScores[1]);
+
+			teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
+			teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
+
+			if (MatchManager.teamDynamic == "FFA")
+				for (int i = 0; i < 4; i++)
+					if (scores[i] >= winScore)
+					{
+						winners.Add(i+1);
+						RoundOver(winners, 1, 1);
+					}
+			else
+			{
+				if (teamScores[0] >= winScore)
+				{
+					winners.AddRange(team1Array);
+					RoundOver(winners, 2, 1);
+				}
+				else if (teamScores[1] >= winScore)
+				{
+					winners.AddRange(team2Array);
+					RoundOver(winners, 2, 1);
+				}
+			}
+
 		}
 
 	}
@@ -150,8 +187,6 @@ public class GameManager : MonoBehaviour {
 
 	public void Dead (int playerNumber)
 	{
-		//TODO figure out if game ends
-
 		if (gameType == "Deathmatch")
 		{
 			playersList = GameObject.FindGameObjectsWithTag("Player");
@@ -180,25 +215,25 @@ public class GameManager : MonoBehaviour {
 				RoundOver(winners, 2, 1);
 			}
 		}
-		else if (gameType == "WANTED")
-		{
-			if (team1.Contains(playerNumber))
-				team1.Remove(playerNumber);
-			if (team2.Contains(playerNumber))
-				team2.Remove(playerNumber);
-			if (team1.Count == 0)
-			{
-				foreach (int member in MatchManager.team2)
-					winners.Add(member);
-				RoundOver(winners, 3, 1);
-			}
-			else if (team2.Count == 0)
-			{
-				foreach (int member in MatchManager.team1)
-					winners.Add(member);
-				RoundOver(winners, 1, 1);
-			}
-		}
+//		else if (gameType == "WANTED")
+//		{
+//			if (team1.Contains(playerNumber))
+//				team1.Remove(playerNumber);
+//			if (team2.Contains(playerNumber))
+//				team2.Remove(playerNumber);
+//			if (team1.Count == 0)
+//			{
+//				foreach (int member in MatchManager.team2)
+//					winners.Add(member);
+//				RoundOver(winners, 3, 1);
+//			}
+//			else if (team2.Count == 0)
+//			{
+//				foreach (int member in MatchManager.team1)
+//					winners.Add(member);
+//				RoundOver(winners, 1, 1);
+//			}
+//		}
 	}
 
 	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)

@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour {
 
 	int ammo = 5;
 	float floatScore = 0;
+	bool inHill = false;
 	bool isAlive = true;
 
 	Vector3 screenPosition;
@@ -70,12 +71,23 @@ public class PlayerController : MonoBehaviour {
 		GUI.color = color;
 		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),("P" + playerNumber));
 
+		playerColor.a = 1;
+		GUI.color = playerColor;
+
+		if (inHill)
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
+
 		playerColor.a = fadeTime;
 		GUI.color = playerColor;
-		if (lives > 1)
-			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Lives!"), livesFont);
+		if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
+		{
+			if (lives > 1)
+				GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Lives!"), livesFont);
+			else
+				GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
+		}
 		else
-			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Infinite Lives!"), livesFont);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -84,6 +96,11 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Death" || other.gameObject.tag == "Enemy")
 		{
 			Death();
+		}
+
+		if (other.gameObject.tag == "Hill")
+		{
+			inHill = true;
 		}
 	}
 
@@ -100,6 +117,11 @@ public class PlayerController : MonoBehaviour {
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
 		}
+
+		if (other.gameObject.tag == "Hill")
+		{
+			inHill = false;
+		}
 	}
 
 	void OnTriggerStay(Collider other)
@@ -107,7 +129,6 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Hill")
 		{
 			floatScore += Time.deltaTime;
-			Debug.Log("Player" + playerNumber + ": " + GameManager.scores[playerNumber-1]);
 		}
 
 		if (other.gameObject.tag == "HeavyFloorTrigger")
@@ -127,7 +148,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		if (isAlive == true)
+		if (isAlive == true && manager.gameType != "King of the Hill")
 		{
 			lives--;
 			if (lives > 0)
