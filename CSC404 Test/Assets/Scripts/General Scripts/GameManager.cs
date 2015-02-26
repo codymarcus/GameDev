@@ -48,8 +48,6 @@ public class GameManager : MonoBehaviour {
 
 //		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
 
-		team1Array = team1.ToArray(typeof(int)) as int[];
-		team2Array = team1.ToArray(typeof(int)) as int[];
 
 		curAmmoTime = ammoSpawnTime;
 		curHillTime = hillChangeTime;
@@ -130,20 +128,19 @@ public class GameManager : MonoBehaviour {
 				MoveHill ();
 				curHillTime = hillChangeTime;
 			}
-
-			Debug.Log(teamScores[0] + "-" + teamScores[1]);
-
+			team1Array = team1.ToArray(typeof(int)) as int[];
+			team2Array = team2.ToArray(typeof(int)) as int[];
 			teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
 			teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
 
-			if (MatchManager.teamDynamic == "FFA")
+			if (MatchManager.teamDynamic == "FFA"){
 				for (int i = 0; i < 4; i++)
 					if (scores[i] >= winScore)
 					{
 						winners.Add(i+1);
 						RoundOver(winners, 1, 1);
 					}
-			else
+			}else
 			{
 				if (teamScores[0] >= winScore)
 				{

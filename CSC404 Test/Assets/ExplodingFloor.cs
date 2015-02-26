@@ -39,7 +39,6 @@ public class ExplodingFloor : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		Debug.Log (waitTime);
 		GUI.color = Color.black;
 		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),(System.Math.Round(waitTime, 0)+""));
 	}
