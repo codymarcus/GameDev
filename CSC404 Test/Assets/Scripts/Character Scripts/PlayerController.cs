@@ -65,9 +65,11 @@ public class PlayerController : MonoBehaviour {
 		if (fadeTime > 0)
 			fadeTime -= Time.deltaTime;
 
+		// If player falls through bottom of screen, teleport them to top
 		if (transform.position.y <= -10)
 			transform.position = new Vector3 (transform.position.x, 26);
 
+		// If player moves through side of screen, teleport them to other side
 		if (transform.position.x < -32.5f)
 			transform.position = new Vector3 (32.5f, transform.position.y);
 		if (transform.position.x > 32.5f)

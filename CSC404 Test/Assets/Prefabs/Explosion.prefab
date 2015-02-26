@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 4bcbf34a6c6b2460db8de7aab47b48fb, type: 2}
+  - {fileID: 2100000, guid: b1506a24982310f4ba67788d7c4d33d4, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -66,7 +66,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100608}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: .100000001
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0

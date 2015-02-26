@@ -5,7 +5,11 @@ public class CrazyFloor : MonoBehaviour {
 
 	public double respawnTime;
 	public int returnSpeed = 7;
+	public double timeLimit = 2f;
+
+
 	double timeToRespawn = 5f;
+	double timeSoFar;
 	bool isHit = false;
 
 	// Starting position and angle
@@ -16,6 +20,7 @@ public class CrazyFloor : MonoBehaviour {
 	void Start () {
 		startPos = transform.position;
 		startAngle = transform.rotation;
+		timeSoFar = timeLimit;
 	}
 	
 	// Update is called once per frame
@@ -30,6 +35,15 @@ public class CrazyFloor : MonoBehaviour {
 		else
 			isHit = true;
 
+		if (timeSoFar <= 0)
+		{
+			transform.position = startPos;
+			transform.rotation = startAngle;
+			rigidbody.velocity = new Vector3 (0, 0);
+			rigidbody.angularVelocity = new Vector3 (0, 0, 0);
+			timeSoFar = timeLimit;
+		}
+
 		// If floor is hit
 		if (isHit)
 		{
@@ -41,7 +55,8 @@ public class CrazyFloor : MonoBehaviour {
 				transform.position = new Vector3(newPos.x, newPos.y, 0);
 				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 6 * Time.deltaTime);
 				transform.rotation = new Quaternion(newAngle.x, newAngle.y, newAngle.z, newAngle.w);
-
+				timeSoFar -= Time.deltaTime;
+				Debug.Log(timeSoFar);
 			}
 			// Otherwise, decelerate the floor's velocity and angular velocity
 			else

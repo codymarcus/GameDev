@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 3
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &66966418
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -555,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 3
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &119926624
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -847,6 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 0
   returnSpeed: 7
+  timeLimit: 10
 --- !u!1001 &287824615
 Prefab:
   m_ObjectHideFlags: 0
@@ -941,6 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 0
   returnSpeed: 7
+  timeLimit: 10
 --- !u!114 &307097470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,6 +1419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 3
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &501356297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2034,6 +2039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 0
   returnSpeed: 7
+  timeLimit: 10
 --- !u!114 &1033042638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2636,6 +2642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 3
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1375761709
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3271,6 +3278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 3
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1622755407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3376,6 +3384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1638042821
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3927,6 +3936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1843470759
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4144,6 +4154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 0
   returnSpeed: 7
+  timeLimit: 10
 --- !u!114 &1859240292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4605,6 +4616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1938889674
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4709,6 +4721,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2
   returnSpeed: 5
+  timeLimit: 6
 --- !u!54 &1950688101
 Rigidbody:
   m_ObjectHideFlags: 0

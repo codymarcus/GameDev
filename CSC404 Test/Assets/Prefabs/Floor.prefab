@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2
   returnSpeed: 5
+  timeLimit: 6
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
