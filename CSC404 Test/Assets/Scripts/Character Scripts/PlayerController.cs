@@ -64,6 +64,14 @@ public class PlayerController : MonoBehaviour {
 
 		if (fadeTime > 0)
 			fadeTime -= Time.deltaTime;
+
+		if (transform.position.y <= -10)
+			transform.position = new Vector3 (transform.position.x, 26);
+
+		if (transform.position.x < -32.5f)
+			transform.position = new Vector3 (32.5f, transform.position.y);
+		if (transform.position.x > 32.5f)
+			transform.position = new Vector3 (-32.5f, transform.position.y);
 	}
 
 	void OnGUI () {
