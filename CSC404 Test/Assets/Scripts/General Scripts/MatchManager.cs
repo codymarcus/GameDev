@@ -31,7 +31,7 @@ public class MatchManager : MonoBehaviour {
 
 		// Select random GameType and set GameType text
 		int g = Random.Range (0, gameTypes.Length);
-		gameType = gameTypes [2];
+		gameType = gameTypes [g];
 		GameObject.FindGameObjectWithTag ("GameType").GetComponent<Text> ().text = gameType;
 
 		// Set team dynamic based on game type
@@ -41,7 +41,7 @@ public class MatchManager : MonoBehaviour {
 				teamDynamic = "2v2";
 		else if (gameType == "King of the Hill") {
 				int randInt = Random.Range (0, 2);
-				teamDynamic = possibleTeamDynamics [1];
+				teamDynamic = possibleTeamDynamics [randInt];
 		} else if (gameType == "Blowdown") {
 				teamDynamic = "FFA";	
 		}
