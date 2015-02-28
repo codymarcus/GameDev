@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Explosion : MonoBehaviour {
 
-	float lifeSpan = 0.3f;
+	float lifeSpan = 0.4f;
 
 	// Use this for initialization
 	void Start () {
@@ -12,9 +12,10 @@ public class Explosion : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.localScale += new Vector3 (0.9f, 0.9f, 0.9f);
+		transform.localScale += new Vector3 (0.6f, 0.6f, 0.6f);
 		lifeSpan -= Time.deltaTime;
 		if (lifeSpan <= 0)
 			Destroy (gameObject);
 	}
+	
 }

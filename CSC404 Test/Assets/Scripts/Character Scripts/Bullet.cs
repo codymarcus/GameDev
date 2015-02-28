@@ -62,7 +62,10 @@ public class Bullet : MonoBehaviour {
 
 		// Upon touching an enemy, call its hit function and set isDestroy to true
 		if (other.gameObject.tag == "Enemy") {
-			other.gameObject.GetComponent<Enemy>().Hit();
+			if (other.gameObject.GetComponent<Enemy>() != null)
+				other.gameObject.GetComponent<Enemy>().Hit();
+			else
+				other.gameObject.GetComponent<Follow>().Hit();
 			isDestroy = true;
 		}
 	}
