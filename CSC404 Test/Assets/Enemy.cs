@@ -56,6 +56,17 @@ public class Enemy : MonoBehaviour {
 				curSpeed = speed;
 			rigidbody.velocity = new Vector3 (0, curSpeed, 0);
 		}
+		// If player falls through bottom of screen, teleport them to top
+		if (transform.position.y >= 26)
+			transform.position = new Vector3 (transform.position.x, -10);
+		if (transform.position.y <= -10)
+			transform.position = new Vector3 (transform.position.x, 26);
+		
+		// If player moves through side of screen, teleport them to other side
+		if (transform.position.x < -32.5f)
+			transform.position = new Vector3 (32.5f, transform.position.y);
+		if (transform.position.x > 32.5f)
+			transform.position = new Vector3 (-32.5f, transform.position.y);
 	}
 
 	// Called if enemy is hit
