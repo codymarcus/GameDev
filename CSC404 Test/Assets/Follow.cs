@@ -25,6 +25,14 @@ public class Follow : MonoBehaviour {
 			Debug.Log (target);
 			newPos = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
 			transform.position = new Vector3(newPos.x, newPos.y, 0);
+			if (transform.position.x > 40.0f)
+				transform.position = new Vector3 (35.0f, transform.position.y);
+			if (transform.position.x < -40.0f)
+				transform.position = new Vector3 (-35.0f, transform.position.y);
+			if (transform.position.y > 36.0f)
+				transform.position = new Vector3 (transform.position.x, 31.0f);
+			if (transform.position.y < -20.0f)
+				transform.position = new Vector3 (transform.position.x, -15.0f);
 		}
 
 		if (isHit || offscreen)
