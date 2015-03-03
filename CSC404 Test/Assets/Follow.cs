@@ -10,6 +10,7 @@ public class Follow : MonoBehaviour {
 	GameObject closestPlayer;
 	float closestDistance;
 	bool isHit = false;
+	bool offscreen = false;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +19,15 @@ public class Follow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isHit)
+		offscreen = transform.position.x > 32.5f || transform.position.x < -32.5f || transform.position.y > 26 || transform.position.y < -10;
+		if (isHit == false) {
+			target = FindClosestPlayer ().transform;
+			Debug.Log (target);
+			newPos = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
+			transform.position = new Vector3(newPos.x, newPos.y, 0);
+		}
+
+		if (isHit || offscreen)
 		{
 			// Decelerate movement and eventually stop
 			rigidbody.velocity = new Vector3 (0.97f * rigidbody.velocity.x, 0.97f * rigidbody.velocity.y, 0);
@@ -27,14 +36,9 @@ public class Follow : MonoBehaviour {
 			if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
 				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
 
-			if (rigidbody.velocity.x < 2 && rigidbody.velocity.y < 2)
+			if (Mathf.Abs(rigidbody.velocity.y) <= 2.0f && Mathf.Abs(rigidbody.velocity.x) <= 2.0f) 
 				isHit = false;
-		}
-		else 
-		{
-			target = FindClosestPlayer ().transform;
-			newPos = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
-			transform.position = new Vector3(newPos.x, newPos.y, 0);
+			Debug.Log (this.isHit);
 		}
 	}
 
