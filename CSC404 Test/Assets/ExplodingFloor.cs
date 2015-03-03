@@ -7,7 +7,9 @@ public class ExplodingFloor : MonoBehaviour {
 	public Explosion explosion;
 	
 	float waitTime = 2f;
+	float respawnTime = 5f;
 	bool isHit = false;
+	bool isExplode = false;
 
 	Vector3 screenPosition;
 
@@ -25,13 +27,25 @@ public class ExplodingFloor : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 		if (waitTime <= 0)
 			Explode();
+		if (isExplode)
+			respawnTime -= Time.deltaTime;
+		if (respawnTime <= 0) {
+			gameObject.renderer.enabled = true;
+			gameObject.collider.enabled = true;
+			isExplode = false;
+			respawnTime = 5f;
+			isHit = false;
+		}
 	}
 
 	void Explode() {
-
-		Destroy (collider);
+		gameObject.collider.enabled = false;
 		GameObject e = Instantiate (explosion, transform.position , transform.rotation) as GameObject;
-		Destroy (gameObject);
+		waitTime = 2f;
+		isHit = false;
+		//Destroy (gameObject);
+		gameObject.renderer.enabled = false;
+		isExplode = true;
 	}
 
 	public void Hit() {
@@ -40,6 +54,7 @@ public class ExplodingFloor : MonoBehaviour {
 
 	void OnGUI() {
 		GUI.color = Color.black;
-		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),(System.Math.Round(waitTime, 0)+""));
+		if (gameObject.renderer.enabled)
+			GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),(System.Math.Round(waitTime, 0)+""));
 	}
 }
