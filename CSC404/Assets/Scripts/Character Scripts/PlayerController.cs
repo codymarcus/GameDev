@@ -11,6 +11,12 @@ public class PlayerController : MonoBehaviour {
 	public int lives = 1000;
 	public GameObject self;
 
+	public float shieldTime = 5f;
+
+	float timeInShield;
+
+	bool isShield = true;
+
 	GameObject[] players;
 
 	Vector3 speed = new Vector3();
@@ -34,6 +40,8 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		timeInShield = shieldTime;
+
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
 
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -50,6 +58,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (timeInShield > 0)
+			timeInShield -= Time.deltaTime;
+		else
+			isShield = false;
 
 		if (transform.position.z != 0)
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
@@ -158,30 +170,38 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Death () {
-		if (isAlive == true && manager.gameType != "King of the Hill")
+		if (!isShield)
 		{
-			lives--;
-			if (lives > 0)
+			if (isAlive == true && manager.gameType != "King of the Hill")
 			{
-				fadeTime = 2f;
-				Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
-				int spawnNumber = Random.Range (0, spawns.Length);
-				spawn = spawns [spawnNumber];
-				transform.position = spawn.transform.position;
+				lives--;
+
+				if (lives > 0)
+				{
+					fadeTime = 2f;
+					Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
+					int spawnNumber = Random.Range (0, spawns.Length);
+					spawn = spawns [spawnNumber];
+					timeInShield = shieldTime;
+					isShield = true;
+					transform.position = spawn.transform.position;
+				}
+				else
+				{
+					Debug.Log("P" + playerNumber + " eliminated!");
+					Destroy(this.gameObject);
+					manager.Dead(playerNumber);
+					isAlive = false;
+				}
 			}
 			else
 			{
-				Debug.Log("P" + playerNumber + " eliminated!");
-				Destroy(this.gameObject);
-				manager.Dead(playerNumber);
-				isAlive = false;
+				int spawnNumber = Random.Range (0, spawns.Length);
+				spawn = spawns [spawnNumber];
+				timeInShield = shieldTime;
+				isShield = true;
+				transform.position = spawn.transform.position;
 			}
-		}
-		else
-		{
-			int spawnNumber = Random.Range (0, spawns.Length);
-			spawn = spawns [spawnNumber];
-			transform.position = spawn.transform.position;
 		}
 	}
 

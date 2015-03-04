@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
 			                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
 			                        floor.transform.position.y + 1.75f, 0);
 			myHill = Instantiate (hill, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		//	myHill.transform.parent = floor.transform;
 		}
 
 		// Player setup based on game mode
@@ -128,10 +129,7 @@ public class GameManager : MonoBehaviour {
 				MoveHill ();
 				curHillTime = hillChangeTime;
 			}
-			team1Array = team1.ToArray(typeof(int)) as int[];
-			team2Array = team2.ToArray(typeof(int)) as int[];
-			teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
-			teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
+
 
 			if (MatchManager.teamDynamic == "FFA"){
 				for (int i = 0; i < 4; i++)
@@ -142,6 +140,10 @@ public class GameManager : MonoBehaviour {
 					}
 			}else
 			{
+				team1Array = team1.ToArray(typeof(int)) as int[];
+				team2Array = team2.ToArray(typeof(int)) as int[];
+				teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
+				teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
 				if (teamScores[0] >= winScore)
 				{
 					winners.AddRange(team1Array);
@@ -174,6 +176,8 @@ public class GameManager : MonoBehaviour {
 		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
 		                        floor.transform.position.y + 1.75f, 0);
 		myHill.transform.position = spawnLoc;
+	//	myHill.transform.rotation = floor.transform.rotation;
+	//	myHill.transform.parent = floor.transform;
 	}
 
 	// Function to add an amount to a player's score
@@ -237,6 +241,7 @@ public class GameManager : MonoBehaviour {
 	{
 		for (int i = 0; i < numWinners; i++)
 			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
+		MatchManager.roundNumber ++;
 		Application.LoadLevel (1);
 	}
 }

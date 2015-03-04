@@ -56,7 +56,6 @@ public class CrazyFloor : MonoBehaviour {
 				Quaternion newAngle = Quaternion.RotateTowards(transform.rotation, startAngle, returnSpeed * 6 * Time.deltaTime);
 				transform.rotation = new Quaternion(newAngle.x, newAngle.y, newAngle.z, newAngle.w);
 				timeSoFar -= Time.deltaTime;
-				Debug.Log(timeSoFar);
 			}
 			// Otherwise, decelerate the floor's velocity and angular velocity
 			else
