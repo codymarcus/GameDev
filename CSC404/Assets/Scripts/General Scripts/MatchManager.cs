@@ -33,13 +33,11 @@ public class MatchManager : MonoBehaviour {
 
 		// Select random GameType and set GameType text
 		int g;
-		if (OnClickEvent.matchType == "") {
+		if (OnClickEvent.matchType == null) {
 			g = Random.Range (0, gameTypes.Length);
 		} else {
 			g = OnClickEvent.f;
-			Debug.Log(g);
 		}
-		Debug.Log (gameTypes.Length);
 		gameType = gameTypes [g];
 		GameObject.FindGameObjectWithTag ("GameType").GetComponent<Text> ().text = gameType;
 
@@ -54,7 +52,6 @@ public class MatchManager : MonoBehaviour {
 				teamDynamic = "2v2";
 
 
-		Debug.Log(gameType);
 		// If team dynamic is free-for-all, display FFA text
 		if (teamDynamic == "FFA")
 						GameObject.FindGameObjectWithTag ("Teams").GetComponent<Text> ().text = "P1 vs P2 vs P3 vs P4";
@@ -89,7 +86,7 @@ public class MatchManager : MonoBehaviour {
 	void Update () {
 		timePassed += Time.deltaTime;
 		if (timePassed >= timeToNextRound) {
-				Application.LoadLevel(3);
+				Application.LoadLevel("Scene0");
 		}
 	}
 	

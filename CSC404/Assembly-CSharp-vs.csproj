@@ -51,10 +51,13 @@
      <Compile Include="Assets\ExplodingFloor.cs" />
      <Compile Include="Assets\Explosion.cs" />
      <Compile Include="Assets\Follow.cs" />
+     <Compile Include="Assets\GameMenu.cs" />
+     <Compile Include="Assets\GameMenuStart.cs" />
      <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\OnClickEvent.cs" />
      <Compile Include="Assets\PlayerHealthController.cs" />
+     <Compile Include="Assets\QuickMatch.cs" />
      <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Aim.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Bullet.cs" />
@@ -69,10 +72,11 @@
      <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\SpikeWalls.cs" />
      <Compile Include="Assets\rigid.cs" />
+     <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/sidachen/CSC404/Repo/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/apple/Documents/CSC404/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>

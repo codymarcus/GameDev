@@ -4,11 +4,11 @@ using System.Collections;
 public class GameMenuStart : MonoBehaviour {
 
 	public void QuickMatch() {
-		Application.LoadLevel();
+		Application.LoadLevel("GameMenu");
 	}
 
 	public void Tournament() {
-		Application.LoadLevel();
+		Application.LoadLevel("RoundScreen");
 	}
 
 	public void EndGame() {

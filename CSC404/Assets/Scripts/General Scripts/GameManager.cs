@@ -218,25 +218,6 @@ public class GameManager : MonoBehaviour {
 				RoundOver(winners, 2, 1);
 			}
 		}
-//		else if (gameType == "WANTED")
-//		{
-//			if (team1.Contains(playerNumber))
-//				team1.Remove(playerNumber);
-//			if (team2.Contains(playerNumber))
-//				team2.Remove(playerNumber);
-//			if (team1.Count == 0)
-//			{
-//				foreach (int member in MatchManager.team2)
-//					winners.Add(member);
-//				RoundOver(winners, 3, 1);
-//			}
-//			else if (team2.Count == 0)
-//			{
-//				foreach (int member in MatchManager.team1)
-//					winners.Add(member);
-//				RoundOver(winners, 1, 1);
-//			}
-//		}
 	}
 
 	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)
@@ -244,6 +225,6 @@ public class GameManager : MonoBehaviour {
 		for (int i = 0; i < numWinners; i++)
 			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
 		MatchManager.roundNumber ++;
-		Application.LoadLevel (1);
+		Application.LoadLevel ("ScoresScreen");
 	}
 }

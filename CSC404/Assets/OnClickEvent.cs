@@ -29,5 +29,8 @@ public class OnClickEvent : MonoBehaviour {
 		f = 1;
 	}
 
-
+	public void switch5(){
+		Application.LoadLevel ("StartMenu");
+	}
+	
 }
