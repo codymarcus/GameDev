@@ -46,7 +46,8 @@ public class PlayerController : MonoBehaviour {
 
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
-			Physics.IgnoreCollision(collider, player.collider);
+			if (player != gameObject)
+				Physics.IgnoreCollision(collider, player.collider);
 
 		livesFont = new GUIStyle();
 		livesFont.fontSize = 15;
