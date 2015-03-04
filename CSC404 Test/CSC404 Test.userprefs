@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ExplodingFloor.cs">
+    <Files>
+      <File FileName="Assets/CrazyFloor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="1" Column="1" />
+      <File FileName="Assets/PlayerHealthController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="1" Column="1" />
+      <File FileName="Assets/SpikeWalls.cs" Line="1" Column="1" />
+      <File FileName="Assets/ExplodingFloor.cs" Line="55" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
