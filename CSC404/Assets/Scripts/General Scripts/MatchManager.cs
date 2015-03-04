@@ -93,8 +93,9 @@ public class MatchManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		timePassed += Time.deltaTime;
-		if (timePassed >= timeToNextRound)
-			Application.LoadLevel(Random.Range(2, Application.levelCount - 1));
+		if (timePassed >= timeToNextRound) {
+				Application.LoadLevel(3);
+		}
 	}
 	
 }

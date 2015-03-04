@@ -131,14 +131,16 @@ public class GameManager : MonoBehaviour {
 			}
 
 
-			if (MatchManager.teamDynamic == "FFA"){
+			if (MatchManager.teamDynamic == "FFA")
+			{
 				for (int i = 0; i < 4; i++)
 					if (scores[i] >= winScore)
 					{
 						winners.Add(i+1);
 						RoundOver(winners, 1, 1);
 					}
-			}else
+			}
+			else
 			{
 				team1Array = team1.ToArray(typeof(int)) as int[];
 				team2Array = team2.ToArray(typeof(int)) as int[];
