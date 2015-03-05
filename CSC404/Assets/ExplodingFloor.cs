@@ -6,8 +6,8 @@ public class ExplodingFloor : MonoBehaviour {
 
 	public Explosion explosion;
 	
-	float waitTime = 2f;
-	float respawnTime = 5f;
+	float waitTime = 5f;
+	float respawnTime = 10f;
 	bool isHit = false;
 	bool isExplode = false;
 
@@ -33,7 +33,7 @@ public class ExplodingFloor : MonoBehaviour {
 			gameObject.renderer.enabled = true;
 			gameObject.collider.enabled = true;
 			isExplode = false;
-			respawnTime = 5f;
+			respawnTime = 10f;
 			isHit = false;
 		}
 	}
@@ -41,7 +41,7 @@ public class ExplodingFloor : MonoBehaviour {
 	void Explode() {
 		gameObject.collider.enabled = false;
 		GameObject e = Instantiate (explosion, transform.position , transform.rotation) as GameObject;
-		waitTime = 2f;
+		waitTime = 5f;
 		isHit = false;
 		//Destroy (gameObject);
 		gameObject.renderer.enabled = false;

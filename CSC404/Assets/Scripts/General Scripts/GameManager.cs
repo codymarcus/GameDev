@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour {
 			                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
 			                        floor.transform.position.y + 1.75f, 0);
 			myHill = Instantiate (hill, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		//	myHill.transform.parent = floor.transform;
 		}
 
 		// Player setup based on game mode
@@ -128,20 +129,23 @@ public class GameManager : MonoBehaviour {
 				MoveHill ();
 				curHillTime = hillChangeTime;
 			}
-			team1Array = team1.ToArray(typeof(int)) as int[];
-			team2Array = team2.ToArray(typeof(int)) as int[];
-			teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
-			teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
 
-			if (MatchManager.teamDynamic == "FFA"){
+
+			if (MatchManager.teamDynamic == "FFA")
+			{
 				for (int i = 0; i < 4; i++)
 					if (scores[i] >= winScore)
 					{
 						winners.Add(i+1);
 						RoundOver(winners, 1, 1);
 					}
-			}else
+			}
+			else
 			{
+				team1Array = team1.ToArray(typeof(int)) as int[];
+				team2Array = team2.ToArray(typeof(int)) as int[];
+				teamScores[0] = scores[team1Array[0]-1] + scores[team1Array[1]-1];
+				teamScores[1] = scores[team2Array[0]-1] + scores[team2Array[1]-1];
 				if (teamScores[0] >= winScore)
 				{
 					winners.AddRange(team1Array);
@@ -174,6 +178,8 @@ public class GameManager : MonoBehaviour {
 		                        + Random.Range(-0.5f * floor.transform.lossyScale.x,0.5f * floor.transform.lossyScale.x),
 		                        floor.transform.position.y + 1.75f, 0);
 		myHill.transform.position = spawnLoc;
+	//	myHill.transform.rotation = floor.transform.rotation;
+	//	myHill.transform.parent = floor.transform;
 	}
 
 	// Function to add an amount to a player's score
@@ -212,31 +218,13 @@ public class GameManager : MonoBehaviour {
 				RoundOver(winners, 2, 1);
 			}
 		}
-//		else if (gameType == "WANTED")
-//		{
-//			if (team1.Contains(playerNumber))
-//				team1.Remove(playerNumber);
-//			if (team2.Contains(playerNumber))
-//				team2.Remove(playerNumber);
-//			if (team1.Count == 0)
-//			{
-//				foreach (int member in MatchManager.team2)
-//					winners.Add(member);
-//				RoundOver(winners, 3, 1);
-//			}
-//			else if (team2.Count == 0)
-//			{
-//				foreach (int member in MatchManager.team1)
-//					winners.Add(member);
-//				RoundOver(winners, 1, 1);
-//			}
-//		}
 	}
 
 	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)
 	{
 		for (int i = 0; i < numWinners; i++)
 			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
-		Application.LoadLevel (1);
+		MatchManager.roundNumber ++;
+		Application.LoadLevel ("ScoresScreen");
 	}
 }

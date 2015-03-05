@@ -18,7 +18,16 @@ public class ScoreScreenManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		waitTime -= Time.deltaTime;
-		if (waitTime <= 0)
-			Application.LoadLevel (0);
+		if (waitTime <= 0){
+			Debug.Log(OnClickEvent.matchType);
+			if (OnClickEvent.matchType == null)
+			{
+				Application.LoadLevel ("RoundScreen");
+			}
+			else
+			{	
+				Application.LoadLevel ("GameMenu");
+			}
+		}
 	}
 }
