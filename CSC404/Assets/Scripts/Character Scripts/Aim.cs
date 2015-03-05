@@ -10,6 +10,8 @@ public class Aim : MonoBehaviour {
 	float radialDeadZone = 0.25f;
 	Vector3 direction;
 	Quaternion currentRotation;
+	ParticleEmitter muzzleFlash;
+
 
 	// Use this for initialization
 	void Start () {
@@ -30,6 +32,7 @@ public class Aim : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * angularVelocity);
 
 			// Fire
+			//Instantiate (muzzleFlash, transform.position, Quarternion.identity);
 			barrel.GetComponent<Weapon>().Fire();
 		}
 		// Otherwise, do not fire
