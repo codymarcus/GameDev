@@ -45,7 +45,6 @@ public class Follow : MonoBehaviour {
 
 			if (Mathf.Abs(rigidbody.velocity.y) <= 2.0f && Mathf.Abs(rigidbody.velocity.x) <= 2.0f) 
 				isHit = false;
-			Debug.Log (this.isHit);
 		}
 	}
 
