@@ -80,8 +80,6 @@ public class PlayerController : MonoBehaviour {
 		else if (GetComponent<CharacterController>().velocity.x > 0)
 			self.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
 
-		Debug.Log (self.GetComponent<CharacterController> ().velocity.x);
-
 		if (fadeTime > 0)
 			fadeTime -= Time.deltaTime;
 

@@ -68,5 +68,9 @@ public class Bullet : MonoBehaviour {
 				other.gameObject.GetComponent<Follow>().Hit();
 			isDestroy = true;
 		}
+
+		if (other.gameObject.tag == "Hat") {
+			isDestroy = true;
+		}
 	}
 }
