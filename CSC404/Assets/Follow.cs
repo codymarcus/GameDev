@@ -37,13 +37,13 @@ public class Follow : MonoBehaviour {
 		if (isHit || offscreen)
 		{
 			// Decelerate movement and eventually stop
-			rigidbody.velocity = new Vector3 (0.97f * rigidbody.velocity.x, 0.97f * rigidbody.velocity.y, 0);
-			if (Mathf.Abs(rigidbody.velocity.x) <= 0.01f)
-				rigidbody.velocity = new Vector3 (0, rigidbody.velocity.y, 0);
-			if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
-				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
+			GetComponent<Rigidbody>().velocity = new Vector3 (0.97f * GetComponent<Rigidbody>().velocity.x, 0.97f * GetComponent<Rigidbody>().velocity.y, 0);
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) <= 0.01f)
+				GetComponent<Rigidbody>().velocity = new Vector3 (0, GetComponent<Rigidbody>().velocity.y, 0);
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.y) <= 0.01f)
+				GetComponent<Rigidbody>().velocity = new Vector3 (GetComponent<Rigidbody>().velocity.x, 0, 0);
 
-			if (Mathf.Abs(rigidbody.velocity.y) <= 2.0f && Mathf.Abs(rigidbody.velocity.x) <= 2.0f) 
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.y) <= 2.0f && Mathf.Abs(GetComponent<Rigidbody>().velocity.x) <= 2.0f) 
 				isHit = false;
 		}
 	}

@@ -39,8 +39,8 @@ public class CrazyFloor : MonoBehaviour {
 		{
 			transform.position = startPos;
 			transform.rotation = startAngle;
-			rigidbody.velocity = new Vector3 (0, 0);
-			rigidbody.angularVelocity = new Vector3 (0, 0, 0);
+			GetComponent<Rigidbody>().velocity = new Vector3 (0, 0);
+			GetComponent<Rigidbody>().angularVelocity = new Vector3 (0, 0, 0);
 			timeSoFar = timeLimit;
 		}
 
@@ -60,15 +60,15 @@ public class CrazyFloor : MonoBehaviour {
 			// Otherwise, decelerate the floor's velocity and angular velocity
 			else
 			{
-				rigidbody.velocity = new Vector3 (0.95f * rigidbody.velocity.x, 0.95f * rigidbody.velocity.y, 0);
-				if (Mathf.Abs(rigidbody.velocity.x) <= 0.01f)
-					rigidbody.velocity = new Vector3 (0, rigidbody.velocity.y, 0);
-				if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
-					rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
+				GetComponent<Rigidbody>().velocity = new Vector3 (0.95f * GetComponent<Rigidbody>().velocity.x, 0.95f * GetComponent<Rigidbody>().velocity.y, 0);
+				if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) <= 0.01f)
+					GetComponent<Rigidbody>().velocity = new Vector3 (0, GetComponent<Rigidbody>().velocity.y, 0);
+				if (Mathf.Abs(GetComponent<Rigidbody>().velocity.y) <= 0.01f)
+					GetComponent<Rigidbody>().velocity = new Vector3 (GetComponent<Rigidbody>().velocity.x, 0, 0);
 
-				rigidbody.angularVelocity = new Vector3 (0, 0, .7f * rigidbody.angularVelocity.z);
-				if (Mathf.Abs(rigidbody.angularVelocity.z) <= 0.01f)
-					rigidbody.angularVelocity = new Vector3 (0, rigidbody.angularVelocity.y, 0);
+				GetComponent<Rigidbody>().angularVelocity = new Vector3 (0, 0, .7f * GetComponent<Rigidbody>().angularVelocity.z);
+				if (Mathf.Abs(GetComponent<Rigidbody>().angularVelocity.z) <= 0.01f)
+					GetComponent<Rigidbody>().angularVelocity = new Vector3 (0, GetComponent<Rigidbody>().angularVelocity.y, 0);
 			}
 		}
 	}

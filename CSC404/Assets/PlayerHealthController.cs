@@ -18,13 +18,13 @@ public class PlayerHealthController : MonoBehaviour
 	void Update ()
 	{
 		if (currentHealth <= 2) {
-			Health3.gameObject.renderer.enabled = false;
+			Health3.gameObject.GetComponent<Renderer>().enabled = false;
 		}
 		if (currentHealth <= 1) {
-			Health2.gameObject.renderer.enabled = false;
+			Health2.gameObject.GetComponent<Renderer>().enabled = false;
 		}
 		if (currentHealth <= 0) {
-			Health1.gameObject.renderer.enabled = false;
+			Health1.gameObject.GetComponent<Renderer>().enabled = false;
 		}
 	}
 	

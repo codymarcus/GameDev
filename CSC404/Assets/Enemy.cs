@@ -27,19 +27,19 @@ public class Enemy : MonoBehaviour {
 		if (isHit)
 		{
 			// Decelerate movement and eventually stop
-			rigidbody.velocity = new Vector3 (0.97f * rigidbody.velocity.x, 0.97f * rigidbody.velocity.y, 0);
-			if (Mathf.Abs(rigidbody.velocity.x) <= 0.01f)
-				rigidbody.velocity = new Vector3 (0, rigidbody.velocity.y, 0);
-			if (Mathf.Abs(rigidbody.velocity.y) <= 0.01f)
-				rigidbody.velocity = new Vector3 (rigidbody.velocity.x, 0, 0);
+			GetComponent<Rigidbody>().velocity = new Vector3 (0.97f * GetComponent<Rigidbody>().velocity.x, 0.97f * GetComponent<Rigidbody>().velocity.y, 0);
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.x) <= 0.01f)
+				GetComponent<Rigidbody>().velocity = new Vector3 (0, GetComponent<Rigidbody>().velocity.y, 0);
+			if (Mathf.Abs(GetComponent<Rigidbody>().velocity.y) <= 0.01f)
+				GetComponent<Rigidbody>().velocity = new Vector3 (GetComponent<Rigidbody>().velocity.x, 0, 0);
 
 			// Decelerate spinning and eventually stop
-			rigidbody.angularVelocity = new Vector3 (0, 0, .7f * rigidbody.angularVelocity.z);
-			if (Mathf.Abs(rigidbody.angularVelocity.z) <= 0.01f)
-				rigidbody.angularVelocity = new Vector3 (0, rigidbody.angularVelocity.y, 0);
+			GetComponent<Rigidbody>().angularVelocity = new Vector3 (0, 0, .7f * GetComponent<Rigidbody>().angularVelocity.z);
+			if (Mathf.Abs(GetComponent<Rigidbody>().angularVelocity.z) <= 0.01f)
+				GetComponent<Rigidbody>().angularVelocity = new Vector3 (0, GetComponent<Rigidbody>().angularVelocity.y, 0);
 
 			// If stopped, set new movement range
-			if (rigidbody.velocity.x == 0 && rigidbody.velocity.y == 0 && rigidbody.angularVelocity.z == 0)
+			if (GetComponent<Rigidbody>().velocity.x == 0 && GetComponent<Rigidbody>().velocity.y == 0 && GetComponent<Rigidbody>().angularVelocity.z == 0)
 			{
 				isHit = false;
 				startPos = new Vector3 (transform.position.x, transform.position.y + (dropRange/2));
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
 				curSpeed = -speed;
 			else if (transform.position.y <= endPos.y)
 				curSpeed = speed;
-			rigidbody.velocity = new Vector3 (0, curSpeed, 0);
+			GetComponent<Rigidbody>().velocity = new Vector3 (0, curSpeed, 0);
 		}
 		// If player falls through bottom of screen, teleport them to top
 		if (transform.position.y <= -10)

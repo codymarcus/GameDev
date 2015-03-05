@@ -30,8 +30,8 @@ public class ExplodingFloor : MonoBehaviour {
 		if (isExplode)
 			respawnTime -= Time.deltaTime;
 		if (respawnTime <= 0) {
-			gameObject.renderer.enabled = true;
-			gameObject.collider.enabled = true;
+			gameObject.GetComponent<Renderer>().enabled = true;
+			gameObject.GetComponent<Collider>().enabled = true;
 			isExplode = false;
 			respawnTime = 10f;
 			isHit = false;
@@ -39,12 +39,12 @@ public class ExplodingFloor : MonoBehaviour {
 	}
 
 	void Explode() {
-		gameObject.collider.enabled = false;
+		gameObject.GetComponent<Collider>().enabled = false;
 		GameObject e = Instantiate (explosion, transform.position , transform.rotation) as GameObject;
 		waitTime = 5f;
 		isHit = false;
 		//Destroy (gameObject);
-		gameObject.renderer.enabled = false;
+		gameObject.GetComponent<Renderer>().enabled = false;
 		isExplode = true;
 	}
 
@@ -54,7 +54,7 @@ public class ExplodingFloor : MonoBehaviour {
 
 	void OnGUI() {
 		GUI.color = Color.black;
-		if (gameObject.renderer.enabled)
+		if (gameObject.GetComponent<Renderer>().enabled)
 			GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),(System.Math.Round(waitTime, 0)+""));
 	}
 }

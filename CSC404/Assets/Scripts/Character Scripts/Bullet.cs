@@ -17,16 +17,16 @@ public class Bullet : MonoBehaviour {
 		// Ignore collisions with players
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
-			Physics.IgnoreCollision(collider, player.collider);
+			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
 
 		// Ignore collisions with heavy floors
 		heavyFloors = GameObject.FindGameObjectsWithTag ("HeavyFloor");
 		foreach (GameObject heavyFloor in heavyFloors)
-			Physics.IgnoreCollision(collider, heavyFloor.collider);
+			Physics.IgnoreCollision(GetComponent<Collider>(), heavyFloor.GetComponent<Collider>());
 
 		// Set initial velocity
-		rigidbody.velocity = transform.up * velocity; // * Time.deltaTime;
-		speed = rigidbody.velocity;
+		GetComponent<Rigidbody>().velocity = transform.up * velocity; // * Time.deltaTime;
+		speed = GetComponent<Rigidbody>().velocity;
 	}
 	
 	// Update is called once per frame

@@ -18,9 +18,9 @@ public class HeavyFloor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (weighedDown == true)
-			rigidbody.velocity = Vector3.down * dropSpeed;
+			GetComponent<Rigidbody>().velocity = Vector3.down * dropSpeed;
 		else
-			rigidbody.velocity = Vector3.zero;
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 		if (timeToRespawn < -1)
 			timeToRespawn = -1;

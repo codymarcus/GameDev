@@ -47,12 +47,12 @@ public class PlayerController : MonoBehaviour {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
 			if (player != gameObject)
-				Physics.IgnoreCollision(collider, player.collider);
+				Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
 
 		livesFont = new GUIStyle();
 		livesFont.fontSize = 15;
 		livesFont.fontStyle = FontStyle.Bold;
-		playerColor = self.renderer.material.color;
+		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
 
 	}
@@ -163,10 +163,10 @@ public class PlayerController : MonoBehaviour {
 	public void Update_color(int color)
 	{
 		if (color == 1) {
-			self.renderer.material.color = Color.red;
+			self.GetComponent<Renderer>().material.color = Color.red;
 		}
 		if (color == 2) {
-			self.renderer.material.color = Color.green;
+			self.GetComponent<Renderer>().material.color = Color.green;
 		}
 	}
 
