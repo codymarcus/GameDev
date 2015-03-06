@@ -53,6 +53,7 @@
      <Compile Include="Assets\Follow.cs" />
      <Compile Include="Assets\GameMenu.cs" />
      <Compile Include="Assets\GameMenuStart.cs" />
+     <Compile Include="Assets\Hat.cs" />
      <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\OnClickEvent.cs" />
