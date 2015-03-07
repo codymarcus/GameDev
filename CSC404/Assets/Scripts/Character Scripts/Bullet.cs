@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		// Ignore collisions with players
+
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
 			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
@@ -44,11 +45,18 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		// Upon touching a "crazy" floor, call its hit function and set isDestroy to true
+	
 		if (other.gameObject.tag == "Floor") {
 			other.gameObject.GetComponent<CrazyFloor>().Hit();
 			isDestroy = true;
 		}
-
+		//if (other.gameObject.tag == "Player") {
+		//	isDestroy = true;
+			//other.gameObject.GetComponent<PlayerController>().Death();
+		//}
+		if (other.gameObject.tag == "deathwall") {
+			isDestroy = true;
+		}
 		// Upon touching a heavy floor, destroy bullet
 		if (other.gameObject.tag == "HeavyFloor") {
 			Destroy(gameObject);

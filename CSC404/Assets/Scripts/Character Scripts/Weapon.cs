@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour {
 			Destroy( b , 3.5F);
 
 			// Set cooldown
-			canFire = .5f;
+			canFire = .1f;
 		}
 
 		// If cooldown is less than zero, set it to zero

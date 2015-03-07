@@ -175,7 +175,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void Death () {
+	public void Death () {
 		if (!isShield)
 		{
 			if (isAlive == true && manager.gameType != "King of the Hill")

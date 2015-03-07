@@ -72,6 +72,7 @@
      <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\SpikeWalls.cs" />
+     <Compile Include="Assets\autoRotate.cs" />
      <Compile Include="Assets\rigid.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />

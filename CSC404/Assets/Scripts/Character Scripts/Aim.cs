@@ -10,7 +10,6 @@ public class Aim : MonoBehaviour {
 	float radialDeadZone = 0.25f;
 	Vector3 direction;
 	Quaternion currentRotation;
-	ParticleEmitter muzzleFlash;
 
 
 	// Use this for initialization

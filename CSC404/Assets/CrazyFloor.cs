@@ -4,8 +4,8 @@ using System.Collections;
 public class CrazyFloor : MonoBehaviour {
 
 	public double respawnTime;
-	public int returnSpeed = 7;
-	public double timeLimit = 2f;
+	public int returnSpeed;
+	public double timeLimit;
 
 
 	double timeToRespawn = 5f;
