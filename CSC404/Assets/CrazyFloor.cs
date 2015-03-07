@@ -6,8 +6,9 @@ public class CrazyFloor : MonoBehaviour {
 	public double respawnTime;
 	public int returnSpeed;
 	public double timeLimit;
-
-
+	public GameObject platform;
+	GameObject[] players;
+	
 	double timeToRespawn = 5f;
 	double timeSoFar;
 	bool isHit = false;
@@ -26,6 +27,14 @@ public class CrazyFloor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		players = GameObject.FindGameObjectsWithTag ("Player");
+
+
+		foreach (GameObject player in players)
+		if (player.GetComponent<PlayerController>().moved && gameObject.tag == "SpawnFloor") {
+				Physics.IgnoreCollision (GetComponent<Collider> (), player.GetComponent<Collider> (), true);
+			}
+		//player.transform.position.y < transform.position.y && 
 		// Determine if floor is hit using starting position and angle
 		if (transform.position == startPos && transform.rotation == startAngle)
 		{

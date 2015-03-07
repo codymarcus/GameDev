@@ -30,6 +30,7 @@ public class Weapon : MonoBehaviour {
 
 			// Set cooldown
 			canFire = .1f;
+			player.moved = true;
 		}
 
 		// If cooldown is less than zero, set it to zero

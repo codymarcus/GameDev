@@ -58,6 +58,10 @@ public class Bullet : MonoBehaviour {
 			isDestroy = true;
 		}
 		// Upon touching a heavy floor, destroy bullet
+		if (other.gameObject.tag == "SpawnFloor") {
+			Destroy(gameObject);
+		}
+
 		if (other.gameObject.tag == "HeavyFloor") {
 			Destroy(gameObject);
 		}

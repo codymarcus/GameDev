@@ -2,13 +2,16 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\CrazyFloor.cs">
     <Files>
-      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="53" Column="3" />
-      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="20" Column="2" />
-      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="225" Column="2" />
-      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="49" Column="26" />
+      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="10" Column="2" />
+      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="35" Column="41" />
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="178" Column="9" />
+      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="32" Column="16" />
       <File FileName="Assets\Hat.cs" Line="20" Column="1" />
       <File FileName="Assets\rigid.cs" Line="16" Column="1" />
-      <File FileName="Assets\CrazyFloor.cs" Line="58" Column="33" />
+      <File FileName="Assets\CrazyFloor.cs" Line="36" Column="8" />
+      <File FileName="Assets\SpikeWalls.cs" Line="1" Column="1" />
+      <File FileName="Assets\Explosion.cs" Line="1" Column="1" />
+      <File FileName="Assets\Enemy.cs" Line="22" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

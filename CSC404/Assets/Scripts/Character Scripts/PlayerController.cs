@@ -10,12 +10,13 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives = 1000;
 	public GameObject self;
+	public bool moved = false;
 
 	public float shieldTime = 5f;
 
 	float timeInShield;
 
-	bool isShield = true;
+	bool isShield = false; // normally true
 
 	GameObject[] players;
 
