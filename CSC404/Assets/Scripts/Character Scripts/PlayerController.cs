@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour {
 			Destroy(other.gameObject);
 			fadeTime = 2f;
 			addedPoints = (int) Mathf.Pow(2f, hats-1);
-			GameManager.AddScore(playerNumber, 1 + addedPoints);
+			GameManager.AddScore(playerNumber, addedPoints);
 		}
 	}
 
