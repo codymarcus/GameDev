@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 	public Vector3 speed;
 	public GameManager manager;
 	GameObject[] players;
+	GameObject[] hats;
 	GameObject[] heavyFloors;
 	float destroyTime = 0.01F;
 	bool isDestroy = false;
@@ -17,16 +18,20 @@ public class Bullet : MonoBehaviour {
 		// Ignore collisions with players
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
-			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+			Physics.IgnoreCollision (GetComponent<Collider> (), player.GetComponent<Collider> ());
 
-		// Ignore collisions with heavy floors
-		heavyFloors = GameObject.FindGameObjectsWithTag ("HeavyFloor");
-		foreach (GameObject heavyFloor in heavyFloors)
-			Physics.IgnoreCollision(GetComponent<Collider>(), heavyFloor.GetComponent<Collider>());
+		hats = GameObject.FindGameObjectsWithTag ("HatTrigger");
+		foreach (GameObject hat in hats)
+			if (hat.transform.parent.GetComponent<Hat> ().ownerNumber == owner &&
+			    !hat.transform.parent.GetComponent<Hat> ().IsHit())
+			{
+				Physics.IgnoreCollision (GetComponent<Collider> (), hat.GetComponent<Collider> ());
+				Physics.IgnoreCollision (GetComponent<Collider> (), hat.transform.parent.GetComponent<Collider> ());
+			}
 
 		// Set initial velocity
-		GetComponent<Rigidbody>().velocity = transform.up * velocity; // * Time.deltaTime;
-		speed = GetComponent<Rigidbody>().velocity;
+		GetComponent<Rigidbody> ().velocity = transform.up * velocity; // * Time.deltaTime;
+		speed = GetComponent<Rigidbody> ().velocity;
 	}
 	
 	// Update is called once per frame
@@ -70,7 +75,11 @@ public class Bullet : MonoBehaviour {
 		}
 
 		if (other.gameObject.tag == "Hat") {
-			isDestroy = true;
+			if (other.GetComponent<Hat> ().ownerNumber != owner)
+			{
+				other.GetComponent<Hat>().Hit();
+				isDestroy = true;
+			}
 		}
 	}
 }

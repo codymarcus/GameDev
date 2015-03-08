@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour {
 	public int lives = 1000;
 	public GameObject self;
 
-	public float shieldTime = 5f;
+	int hats = 1;
+	bool[] hatPlaces = {true, false, false, false};
 
 	float timeInShield;
 
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		timeInShield = shieldTime;
+		//timeInShield = shieldTime;
 
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
 
@@ -69,16 +70,19 @@ public class PlayerController : MonoBehaviour {
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
 		GameManager.scores [playerNumber - 1] = (int) floatScore;
+		/*
 		if (speed != null)
 		{
 			transform.Translate (speed);
 			speed = new Vector3 (speed.x * 0.95F, speed.y * 0.95F, 0);
 		}
 
+
 		if (GetComponent<CharacterController>().velocity.x < 0)
 			self.transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 		else if (GetComponent<CharacterController>().velocity.x > 0)
 			self.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
+		*/
 
 		if (fadeTime > 0)
 			fadeTime -= Time.deltaTime;
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour {
 		if (inHill)
 			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
 
+		/*
 		playerColor.a = fadeTime;
 		GUI.color = playerColor;
 		if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
@@ -116,6 +121,7 @@ public class PlayerController : MonoBehaviour {
 		}
 		else
 			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Infinite Lives!"), livesFont);
+		*/
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -129,6 +135,11 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Hill")
 		{
 			inHill = true;
+		}
+
+		if (other.gameObject.tag == "HatTrigger")
+		{
+			other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
 		}
 	}
 
@@ -188,7 +199,7 @@ public class PlayerController : MonoBehaviour {
 					Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
 					int spawnNumber = Random.Range (0, spawns.Length);
 					spawn = spawns [spawnNumber];
-					timeInShield = shieldTime;
+					//timeInShield = shieldTime;
 					isShield = true;
 					transform.position = spawn.transform.position;
 				}
@@ -204,21 +215,45 @@ public class PlayerController : MonoBehaviour {
 			{
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
-				timeInShield = shieldTime;
+				//timeInShield = shieldTime;
 				isShield = true;
 				transform.position = spawn.transform.position;
 			}
 		}
 	}
 
-	public bool UseAmmo() {
-		if (ammo > 0)
+	public void LoseHat() {
+		if (hats > 0)
 		{
-			ammo--;
-			return true;
+			hats--;
+			for (int i=0; i < 4; i++)
+				if (!hatPlaces[i])
+				{
+					hatPlaces[i-1] = false;
+					Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+					return;
+				}
+			hatPlaces[3] = false;
+			Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
 		}
-		else
-			return false;
 	}
-	
+
+	public void AddHat() {
+		hats++;
+		for (int i=0; i < 4; i++)
+			if (!hatPlaces[i])
+			{
+				hatPlaces[i] = true;
+				Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+				break;
+			}
+	}
+
+	public int NumHats() {
+		return hats;
+	}
+
+	public bool[] HatPlaces() {
+		return hatPlaces;
+	}
 }

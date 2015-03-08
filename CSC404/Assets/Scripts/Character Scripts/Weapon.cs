@@ -6,17 +6,18 @@ public class Weapon : MonoBehaviour {
 	public int playerNumber;
 	public GameObject bullet;
 	public GameObject barrel;
-	public PlayerController player;
+	public GameObject player;
 	float canFire = 0f;
 	bool isFiring = false;
 
 	// Use this for initialization
 	void Start () {
-	
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		// If isFiring and weapon cooldown is zero...
 		if (isFiring == true && canFire <= 0) 
 		{ 
@@ -29,7 +30,7 @@ public class Weapon : MonoBehaviour {
 			Destroy( b , 3.5F);
 
 			// Set cooldown
-			canFire = .5f;
+			canFire = .3f;
 		}
 
 		// If cooldown is less than zero, set it to zero
