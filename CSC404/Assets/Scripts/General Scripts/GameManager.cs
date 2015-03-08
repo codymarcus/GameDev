@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item)
 	{
 		spawnLoc = new Vector3 (Random.Range (-38, 18), Random.Range (-15, 17), 0);
-		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 90, 90)) as GameObject;
+		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 180, 90)) as GameObject;
 	}
 
 	// Function to move Hill
