@@ -144,10 +144,13 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Money")
 		{
-			Destroy(other.gameObject);
-			fadeTime = 2f;
-			addedPoints = (int) Mathf.Pow(2f, hats-1);
-			GameManager.AddScore(playerNumber, addedPoints);
+			if (hats > 0)
+			{
+				Destroy(other.gameObject);
+				fadeTime = 2f;
+				addedPoints = (int) Mathf.Pow(2f, hats-1);
+				GameManager.AddScore(playerNumber, addedPoints);
+			}
 		}
 	}
 
