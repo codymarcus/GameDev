@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour {
 	bool isAlive = true;
 
 	Vector3 screenPosition;
-	Vector3 moneyPosition;
 
 	GUIStyle livesFont;
 	float fadeTime = 2f;
@@ -118,7 +117,6 @@ public class PlayerController : MonoBehaviour {
 		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
 		//{
 		//	if (lives > 1)
-		//GUI.Label(new Rect(moneyPosition.x, moneyPosition.y-40, 100, 100),("+" + addedPoints), livesFont);
 
 		//	else
 		//		GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
@@ -147,10 +145,11 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Money")
 		{
-			moneyPosition = Camera.main.WorldToScreenPoint(other.gameObject.transform.position);
-			moneyPosition.y = Screen.height - moneyPosition.y;
-			addedPoints = (int) Mathf.Pow(2f, hats-1);
-			GameManager.AddScore(playerNumber, 1 + addedPoints);
+			if (hats > 0)
+			{
+				addedPoints = (int) Mathf.Pow(2f, hats-1);
+				GameManager.AddScore(playerNumber, addedPoints);
+			}
 		}
 	}
 
