@@ -1,18 +1,19 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/Bullet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="124" Column="3" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="148" Column="12" />
       <File FileName="Assets/ExplodingFloor.cs" Line="1" Column="1" />
       <File FileName="Assets/MovingFloor.cs" Line="1" Column="1" />
       <File FileName="Assets/Follow.cs" Line="1" Column="1" />
       <File FileName="Assets/CrazyFloor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="50" Column="56" />
       <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
       <File FileName="Assets/OnClickEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="27" Column="50" />
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="20" Column="41" />
-      <File FileName="Assets/Hat.cs" Line="73" Column="16" />
+      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Hat.cs" Line="60" Column="111" />
+      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="191" Column="81" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour {
 	float doubleJump = 3.0F;
 	bool canDJump = false;
 
+	int addedPoints;
+
 	int ammo = 5;
 	float floatScore = 0;
 	bool inHill = false;
@@ -69,7 +71,7 @@ public class PlayerController : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
-		GameManager.scores [playerNumber - 1] = (int) floatScore;
+		//GameManager.scores [playerNumber - 1] = (int) floatScore;
 		/*
 		if (speed != null)
 		{
@@ -103,25 +105,23 @@ public class PlayerController : MonoBehaviour {
 		GUI.color = color;
 		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),("P" + playerNumber));
 
-		playerColor.a = 1;
-		GUI.color = playerColor;
+//		playerColor.a = 1;
+//		GUI.color = playerColor;
 
-		if (inHill)
-			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
+//		if (inHill)
+//		GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
 
-		/*
 		playerColor.a = fadeTime;
 		GUI.color = playerColor;
-		if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
-		{
-			if (lives > 1)
-				GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Lives!"), livesFont);
-			else
-				GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
-		}
-		else
-			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Infinite Lives!"), livesFont);
-		*/
+		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
+		//{
+		//	if (lives > 1)
+				GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("+" + addedPoints), livesFont);
+		//	else
+		//		GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(lives + " Life!"), livesFont);
+		//}
+		//else
+		//	GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Infinite Lives!"), livesFont);
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -140,6 +140,14 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "HatTrigger")
 		{
 			other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
+		}
+
+		if (other.gameObject.tag == "Money")
+		{
+			Destroy(other.gameObject);
+			fadeTime = 2f;
+			addedPoints = (int) Mathf.Pow(2f, hats-1);
+			GameManager.AddScore(playerNumber, 1 + addedPoints);
 		}
 	}
 

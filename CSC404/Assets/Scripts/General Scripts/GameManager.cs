@@ -34,21 +34,22 @@ public class GameManager : MonoBehaviour {
 	public static int[] scores = {0, 0, 0, 0};
 	public static int[] teamScores = {0, 0};
 
-	//Text scoreText;
+	Text scoreText;
 
 	float curAmmoTime;
 	float curHillTime;
 	float curFloorTime;
+	float curMoneyTime;
 
-//	public GameObject coin;
-//	float moneySpawnTime = 5f;
+	public GameObject coin;
+	public float moneySpawnTime = 5f;
 	
 	// Use this for initialization
 	void Start () {
 
-//		scoreText = (Text) GameObject.FindGameObjectWithTag ("Score");
+		scoreText = GameObject.FindGameObjectWithTag ("Scores").GetComponent<Text>();
 
-
+		curMoneyTime = moneySpawnTime;
 		curAmmoTime = ammoSpawnTime;
 		curHillTime = hillChangeTime;
 		curFloorTime = floorSpawnTime;
@@ -108,9 +109,16 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
+		scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
 		curFloorTime -= Time.deltaTime;
+		curMoneyTime -= Time.deltaTime;
+
+		if (curMoneyTime <= 0)
+		{
+			Spawn(coin);
+			curMoneyTime = moneySpawnTime;
+		}
 //
 //		if (curFloorTime <= 0)
 //		{
@@ -118,6 +126,7 @@ public class GameManager : MonoBehaviour {
 //			curFloorTime = floorSpawnTime;
 //		}
 
+		/*
 		// Move the Hill if GameType is King of the Hill
 		if (gameType == "King of the Hill")
 		{
@@ -158,7 +167,8 @@ public class GameManager : MonoBehaviour {
 				}
 			}
 
-		}
+
+		}*/
 
 	}
 
@@ -166,7 +176,7 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item)
 	{
 		spawnLoc = new Vector3 (Random.Range (-38, 18), Random.Range (-15, 17), 0);
-		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 90, 90)) as GameObject;
 	}
 
 	// Function to move Hill
@@ -183,7 +193,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Function to add an amount to a player's score
-	void addScore (int playerNumber, int amount)
+	public static void AddScore (int playerNumber, int amount)
 	{
 		scores [playerNumber - 1] += amount;
 	}
