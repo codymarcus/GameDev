@@ -6,6 +6,7 @@ public class Hat : MonoBehaviour {
 	public GameObject owner;
 	public int ownerNumber;
 	GameObject[] players;
+	GameObject[] hats;
 	GameObject[] floors;
 	bool isHit = false;
 	float hitTime = 0.5f;
@@ -17,7 +18,13 @@ public class Hat : MonoBehaviour {
 	void Start () {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
+		{
 			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+		}
+
+		hats = GameObject.FindGameObjectsWithTag ("Hat");
+		foreach (GameObject hat in hats)
+			Physics.IgnoreCollision(GetComponent<Collider>(), hat.GetComponent<Collider>());
 	}
 	
 	// Update is called once per frame
@@ -26,7 +33,8 @@ public class Hat : MonoBehaviour {
 			timeLeft -= Time.deltaTime;
 		else
 		{
-			transform.rotation = new Quaternion(0,0,0,0);
+//			transform.rotation = new Quaternion(0,0,0,0);
+			transform.right = -owner.transform.forward;
 //			for (int i=0; i<4; i++)
 //				if (!owner.GetComponent<PlayerController>().HatPlaces()[i] && i+1 == hatNumber)
 //					hatNumber--;

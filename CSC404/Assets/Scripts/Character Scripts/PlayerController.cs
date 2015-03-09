@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	GUIStyle livesFont;
 	float fadeTime = 2f;
 	Color color = Color.white;
-	Color playerColor;
+	public Color playerColor;
 
 	// Use this for initialization
 	void Start () {

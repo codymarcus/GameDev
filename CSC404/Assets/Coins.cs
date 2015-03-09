@@ -37,6 +37,7 @@ public class Coins : MonoBehaviour {
 	void OnGUI () {
 		color.a = fadeTime;
 		GUI.color = color;
+		livesFont.normal.textColor = color;
 		GUI.Label(new Rect(screenPosition.x, screenPosition.y-40, 100, 100),("+" + addedPoints), livesFont);
 	}
 
@@ -54,6 +55,7 @@ public class Coins : MonoBehaviour {
 					r.enabled = false;
 				}
 				gameObject.GetComponent<Collider>().enabled = false;
+				color = other.gameObject.GetComponent<PlayerController>().playerColor;
 				isHit = true;
 			}
 	}
