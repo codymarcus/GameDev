@@ -45,12 +45,13 @@ public class GameManager : MonoBehaviour {
 	public GameObject coin;
 	public float moneySpawnTime = 5f;
 
-	float timeRemain = 120f;
+	//float timeRemain = 12f;
 
 	// Use this for initialization
 	void Start () {
 
 		scoreText = GameObject.FindGameObjectWithTag ("Scores").GetComponent<Text>();
+
 		timerText = GameObject.FindGameObjectWithTag ("Timer").GetComponent<Text>();
 
 		curMoneyTime = moneySpawnTime;
@@ -113,16 +114,27 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		timeRemain -= Time.deltaTime;
+		//timeRemain -= Time.deltaTime;
 
-		scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
-		timerText.text = "Time Remaining:" + (int)timeRemain;
+		scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
+		//timerText.text = "Time Remaining:" + (int)timeRemain;
 		curFloorTime -= Time.deltaTime;
 		curMoneyTime -= Time.deltaTime;
+
+		for (int i=0; i<4; i++)
+			if (scores[i] >= 100)
+		{
+			Debug.Log (scores[i]);
+			winners.Add(i+1);
+			RoundOver (winners, 1, 1);
+		}
+
+		/*
 		if (timeRemain <= 0)
 		{
 			Application.LoadLevel("ScoresScreen");
 		}
+		*/
 
 		if (curMoneyTime <= 0)
 		{
