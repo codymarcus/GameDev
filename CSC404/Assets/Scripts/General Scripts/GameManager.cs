@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour {
 	// Function to spawn an object
 	void Spawn (GameObject item)
 	{
-		spawnLoc = new Vector3 (Random.Range (-38, 18), Random.Range (-15, 17), 0);
+		spawnLoc = new Vector3 (Random.Range (-36, 16), Random.Range (-11, 16), 0);
 		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 180, 90)) as GameObject;
 	}
 
