@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
 	public static int[] teamScores = {0, 0};
 
 	Text scoreText;
+	Text timerText;
 
 	float curAmmoTime;
 	float curHillTime;
@@ -43,11 +44,14 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject coin;
 	public float moneySpawnTime = 5f;
-	
+
+	float timeRemain = 120f;
+
 	// Use this for initialization
 	void Start () {
 
 		scoreText = GameObject.FindGameObjectWithTag ("Scores").GetComponent<Text>();
+		timerText = GameObject.FindGameObjectWithTag ("Timer").GetComponent<Text>();
 
 		curMoneyTime = moneySpawnTime;
 		curAmmoTime = ammoSpawnTime;
@@ -109,10 +113,16 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
+		timeRemain -= Time.deltaTime;
 
+		scoreText.text = "P1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
+		timerText.text = "Time Remaining:" + (int)timeRemain;
 		curFloorTime -= Time.deltaTime;
 		curMoneyTime -= Time.deltaTime;
+		if (timeRemain <= 0)
+		{
+			Application.LoadLevel("ScoresScreen");
+		}
 
 		if (curMoneyTime <= 0)
 		{

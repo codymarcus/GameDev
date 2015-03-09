@@ -10,6 +10,7 @@ public class ScoreScreenManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		matchScores = GameManager.scores;
 		displayText = "Player 1: " + matchScores [0] + "\nPlayer 2: " + matchScores [1] + "\nPlayer 3: "
 			+ matchScores [2] + "\nPlayer 4: " + matchScores [3];
 		GameObject.FindGameObjectWithTag ("Scores").GetComponent<Text> ().text = displayText;
@@ -20,6 +21,7 @@ public class ScoreScreenManager : MonoBehaviour {
 		waitTime -= Time.deltaTime;
 		if (waitTime <= 0){
 			Debug.Log(OnClickEvent.matchType);
+			/*
 			if (OnClickEvent.matchType == null)
 			{
 				Application.LoadLevel ("RoundScreen");
@@ -28,6 +30,8 @@ public class ScoreScreenManager : MonoBehaviour {
 			{	
 				Application.LoadLevel ("GameMenu");
 			}
+			*/
+			Application.LoadLevel ("Scene0");
 		}
 	}
 }
