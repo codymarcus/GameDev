@@ -114,6 +114,8 @@ public class PlayerController : MonoBehaviour {
 
 		playerColor.a = fadeTime;
 		GUI.color = playerColor;
+		if (hats < 1)
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
 		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
 		//{
 		//	if (lives > 1)
@@ -150,6 +152,8 @@ public class PlayerController : MonoBehaviour {
 				addedPoints = (int) Mathf.Pow(2f, hats-1);
 				GameManager.AddScore(playerNumber, addedPoints);
 			}
+			else
+				fadeTime = 2f;
 		}
 	}
 
