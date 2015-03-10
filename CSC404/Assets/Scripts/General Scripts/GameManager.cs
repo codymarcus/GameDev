@@ -116,8 +116,9 @@ public class GameManager : MonoBehaviour {
 
 		//timeRemain -= Time.deltaTime;
 
-		scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
+		//scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 		//timerText.text = "Time Remaining:" + (int)timeRemain;
+		scoreText.text = "First to 100!";
 		curFloorTime -= Time.deltaTime;
 		curMoneyTime -= Time.deltaTime;
 

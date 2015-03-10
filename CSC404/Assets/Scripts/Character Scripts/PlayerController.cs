@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
+	public Slider PlayerScoreSlider;
+
 	public GameObject spawn;
 	public int playerNumber;
 	public GameObject[] spawns;
@@ -62,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		PlayerScoreSlider.value = GameManager.scores [playerNumber - 1];
 		if (timeInShield > 0)
 			timeInShield -= Time.deltaTime;
 		else
