@@ -213,7 +213,7 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item)
 	{
 		int coins_type;
-		coins_type = Random.Range (0, 2);
+		coins_type = Random.Range (0, 3);
 		spawnLoc = new Vector3 (Random.Range (-45, 5), Random.Range (-1, 23), 0);
 		GameObject s = Instantiate (CoinsCollcetion[coins_type], spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
 	}
