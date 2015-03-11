@@ -142,12 +142,18 @@ public class GameManager : MonoBehaviour {
 		}
 		*/
 
-		if (curMoneyTime <= 0 && numCoins < 3)
+		if (curMoneyTime <= 0)
 		{
-			Spawn(coin);
-			numCoins++;
-			curMoneyTime = moneySpawnTime;
+			if (numCoins < 3)
+			{
+				Spawn(coin);
+				numCoins++;
+				curMoneyTime = moneySpawnTime;
+			}
+			else
+				curMoneyTime = moneySpawnTime;
 		}
+
 //
 //		if (curFloorTime <= 0)
 //		{
@@ -204,7 +210,7 @@ public class GameManager : MonoBehaviour {
 	// Function to spawn an object
 	void Spawn (GameObject item)
 	{
-		spawnLoc = new Vector3 (Random.Range (-36, 16), Random.Range (-11, 16), 0);
+		spawnLoc = new Vector3 (Random.Range (-30, 28), Random.Range (-8, 22), 0);
 		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 180, 90)) as GameObject;
 	}
 
