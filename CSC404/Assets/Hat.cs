@@ -40,6 +40,16 @@ public class Hat : MonoBehaviour {
 //					hatNumber--;
 			transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y + (hatNumber*1.2f));
 		}
+
+		// If hat falls through bottom of screen, teleport it to top
+		if (transform.position.y <= -10)
+			transform.position = new Vector3 (transform.position.x, 26);
+		
+		// If hat moves through side of screen, teleport it to other side
+		if (transform.position.x < -32.5f)
+			transform.position = new Vector3 (32.5f, transform.position.y);
+		if (transform.position.x > 32.5f)
+			transform.position = new Vector3 (-32.5f, transform.position.y);
 	}
 
 	public void Hit() {
