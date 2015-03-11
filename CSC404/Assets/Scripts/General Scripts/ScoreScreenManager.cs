@@ -20,7 +20,7 @@ public class ScoreScreenManager : MonoBehaviour {
 	void Update () {
 		waitTime -= Time.deltaTime;
 		if (waitTime <= 0){
-			Debug.Log(OnClickEvent.matchType);
+			//Debug.Log(OnClickEvent.matchType);
 			/*
 			if (OnClickEvent.matchType == null)
 			{
@@ -31,7 +31,7 @@ public class ScoreScreenManager : MonoBehaviour {
 				Application.LoadLevel ("GameMenu");
 			}
 			*/
-			Application.LoadLevel ("Scene0");
+			Application.LoadLevel("Scene0");
 		}
 	}
 }

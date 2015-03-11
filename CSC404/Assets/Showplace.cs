@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Showplace : MonoBehaviour {
 	
 	public GameObject[] players;
+	public Slider slider;
 	public static int[] place = {0,0,0,0};
 	public static int[] sortedscores = {0,0,0,0};
 	int[] scores = {0,0,0,0};
@@ -25,11 +27,13 @@ public class Showplace : MonoBehaviour {
 		}
 
 		for (int k = 0; k < 4; k++) {
-			if (k != currentplace) {
-				Debug.Log(players[1]);
+			if (k != place[currentplace]) {
 				players[k].SetActive(false);
 			}
 		}
+
+		slider.value = sortedscores[currentplace];
+
 
 	}
 

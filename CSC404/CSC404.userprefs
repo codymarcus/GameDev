@@ -1,22 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/General Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Showplace.cs">
     <Files>
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="59" Column="3" />
-      <File FileName="Assets/ExplodingFloor.cs" Line="1" Column="1" />
-      <File FileName="Assets/MovingFloor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Follow.cs" Line="1" Column="1" />
-      <File FileName="Assets/CrazyFloor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="119" Column="33" />
+      <File FileName="Assets/Showplace.cs" Line="9" Column="27" />
+      <File FileName="Assets/Scripts/General Scripts/ScoreScreenManager.cs" Line="24" Column="6" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/OnClickEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Weapon.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="1" Column="1" />
-      <File FileName="Assets/Hat.cs" Line="25" Column="7" />
-      <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/General Scripts/Coin.cs" Line="1" Column="1" />
-      <File FileName="Assets/Coins.cs" Line="38" Column="22" />
-      <File FileName="Assets/Scripts/General Scripts/ScoreScreenManager.cs" Line="22" Column="22" />
+      <File FileName="Assets/PlayerHealthController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
