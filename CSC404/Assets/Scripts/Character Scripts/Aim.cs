@@ -31,10 +31,12 @@ public class Aim : MonoBehaviour {
 			currentRotation = Quaternion.LookRotation(Vector3.forward, direction);
 			transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * angularVelocity);
 
+		}
+		if (Input.GetButton(playerNumber + "Fire1"))
 			// Fire
 			//Instantiate (muzzleFlash, transform.position, Quarternion.identity);
 			barrel.GetComponent<Weapon>().Fire();
-		}
+
 		// Otherwise, do not fire
 		else
 		{
