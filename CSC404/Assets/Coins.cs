@@ -46,6 +46,7 @@ public class Coins : MonoBehaviour {
 		if (other.gameObject.tag == "Player")
 			if (other.gameObject.GetComponent<PlayerController>().NumHats()>0)
 			{
+				GameManager.numCoins--;
 				addedPoints = (int) Mathf.Pow(2f, other.gameObject.GetComponent<PlayerController>().NumHats()-1);
 				fadeTime = 2f;
 				gameObject.GetComponent<Renderer>().enabled = false;

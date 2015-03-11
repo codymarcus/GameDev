@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour {
 	float curFloorTime;
 	float curMoneyTime;
 
+	public static int numCoins = 1;
+
 	public GameObject coin;
 	public float moneySpawnTime = 5f;
 
@@ -140,9 +142,10 @@ public class GameManager : MonoBehaviour {
 		}
 		*/
 
-		if (curMoneyTime <= 0)
+		if (curMoneyTime <= 0 && numCoins < 3)
 		{
 			Spawn(coin);
+			numCoins++;
 			curMoneyTime = moneySpawnTime;
 		}
 //
