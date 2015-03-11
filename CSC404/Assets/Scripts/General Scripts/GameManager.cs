@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject hill;
 	public float hillChangeTime = 10f;
 	public int winScore;
+	public GameObject[] CoinsCollcetion;
 
 	GameObject myHill;
 	float floorSpawnTime = 0.5f;
@@ -42,7 +43,7 @@ public class GameManager : MonoBehaviour {
 	float curFloorTime;
 	float curMoneyTime;
 
-	public static int numCoins = 1;
+	public static int numCoins;
 
 	public GameObject coin;
 	public float moneySpawnTime = 5f;
@@ -142,6 +143,7 @@ public class GameManager : MonoBehaviour {
 		}
 		*/
 
+		numCoins = GameObject.FindGameObjectsWithTag("Money").Length;
 		if (curMoneyTime <= 0)
 		{
 			if (numCoins < 3)
@@ -205,13 +207,15 @@ public class GameManager : MonoBehaviour {
 
 		}*/
 
-	}
+	}	
 
 	// Function to spawn an object
 	void Spawn (GameObject item)
 	{
-		spawnLoc = new Vector3 (Random.Range (-30, 28), Random.Range (-8, 22), 0);
-		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 180, 90)) as GameObject;
+		int coins_type;
+		coins_type = Random.Range (0, 2);
+		spawnLoc = new Vector3 (Random.Range (-45, 5), Random.Range (-1, 23), 0);
+		GameObject s = Instantiate (CoinsCollcetion[coins_type], spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
 	}
 
 	// Function to move Hill
