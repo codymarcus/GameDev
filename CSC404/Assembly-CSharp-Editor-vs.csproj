@@ -59,10 +59,10 @@
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors_RimOutline.shader" />
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/MarishkaZ/Desktop/OCAD/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/codymarcus/Developer/KyleGameDev/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Assembly-UnityScript">
- <HintPath>/Users/MarishkaZ/Desktop/OCAD/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
+ <HintPath>/Users/codymarcus/Developer/KyleGameDev/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
