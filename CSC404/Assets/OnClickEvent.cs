@@ -29,8 +29,12 @@ public class OnClickEvent : MonoBehaviour {
 		f = 1;
 	}
 
-	public void switch5(){
+	public void Replay(){
 		Application.LoadLevel ("StartMenu");
+	}
+
+	public void Back(){
+		Application.LoadLevel ("Scene0");
 	}
 	
 }
