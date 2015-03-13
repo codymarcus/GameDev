@@ -7,15 +7,15 @@ public class Showplace : MonoBehaviour {
 	public GameObject[] players;
 	public Slider slider;
 	public static int[] place = {0,0,0,0};
-	public static int[] sortedscores = {0,0,0,0};
-	int[] scores = {0,0,0,0};
+	public static int[] sortedscores = {7,9,34,1};
+	int[] scores = {7,9,34,1};
 	public int currentplace;
 
 	// Update is called once per frame
 	void Start () {
 	
-		scores = ScoreScreenManager.matchScores;
-		sortedscores = ScoreScreenManager.matchScores;
+		//scores = ScoreScreenManager.matchScores;
+		//sortedscores = ScoreScreenManager.matchScores;
 		sortedscores = Sort (sortedscores);
 
 		for(int i = 0; i < 4; i++){
@@ -32,6 +32,11 @@ public class Showplace : MonoBehaviour {
 			}
 		}
 
+		Debug.Log (sortedscores[0]);
+		Debug.Log (sortedscores[1]);
+		Debug.Log (sortedscores[2]);
+		Debug.Log (sortedscores[3]);
+		Debug.Log (currentplace);
 		slider.value = sortedscores[currentplace];
 
 
