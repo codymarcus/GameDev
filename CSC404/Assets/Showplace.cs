@@ -7,8 +7,8 @@ public class Showplace : MonoBehaviour {
 	public GameObject[] players;
 	public Slider slider;
 	public static int[] place = {0,0,0,0};
-	public static int[] sortedscores = {7,9,34,1};
-	int[] scores = {7,9,34,1};
+	public static int[] sortedscores = {0,0,0,0};
+	int[] scores = {0,0,0,0};
 	public int currentplace;
 
 	// Update is called once per frame
@@ -20,24 +20,23 @@ public class Showplace : MonoBehaviour {
 
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4; j++){
-				if (sortedscores[i] == scores[j]){
+				if ((sortedscores[i] == scores[j]) && (ScoreScreenManager.rank[j] == 0)){
 					place[i] = j;
-				} 
+					ScoreScreenManager.rank[j] = -1;
+					break;
+				}
 			}
 		}
 
 		for (int k = 0; k < 4; k++) {
 			if (k != place[currentplace]) {
 				players[k].SetActive(false);
-			}
+			} 
 		}
 
-		Debug.Log (sortedscores[0]);
-		Debug.Log (sortedscores[1]);
-		Debug.Log (sortedscores[2]);
-		Debug.Log (sortedscores[3]);
-		Debug.Log (currentplace);
-		slider.value = sortedscores[currentplace];
+		if (currentplace != 0) {
+			slider.value = sortedscores[currentplace];
+		}
 
 
 	}
@@ -58,7 +57,6 @@ public class Showplace : MonoBehaviour {
 
 		return result;
 	}
-
 
 
 }
