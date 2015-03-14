@@ -17,6 +17,7 @@ public class ScoreScreenManager : MonoBehaviour {
 	void Update () {
 		waitTime -= Time.deltaTime;
 		if (waitTime <= 0){
+			GameManager.ResetScores();
 			Application.LoadLevel("Scene0");
 		}
 	}

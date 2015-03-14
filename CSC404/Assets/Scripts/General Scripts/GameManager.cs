@@ -269,6 +269,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	public static void ResetScores(){
+		for (int i = 0; i < 4; i++)
+			scores[i] = 0;
+	}
+
 	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)
 	{
 		for (int i = 0; i < numWinners; i++)
