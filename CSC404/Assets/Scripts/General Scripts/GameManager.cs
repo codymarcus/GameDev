@@ -42,12 +42,13 @@ public class GameManager : MonoBehaviour {
 	float curHillTime;
 	float curFloorTime;
 	float curMoneyTime;
+	float curMagnetTime;
 
 	public static int numCoins;
-
-	public GameObject coin;
+	
+	public GameObject Magnet;
 	public float moneySpawnTime = 5f;
-
+	public float MagnetSpawnTime = 5f;
 	//float timeRemain = 12f;
 
 	// Use this for initialization
@@ -61,6 +62,7 @@ public class GameManager : MonoBehaviour {
 		curAmmoTime = ammoSpawnTime;
 		curHillTime = hillChangeTime;
 		curFloorTime = floorSpawnTime;
+		curMagnetTime = MagnetSpawnTime;
 
 		// Set GameType to MatchManager GameType
 		if (MatchManager.gameType != null)
@@ -124,9 +126,19 @@ public class GameManager : MonoBehaviour {
 		//scoreText.text = "First to 30!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
 		//timerText.text = "Time Remaining:" + (int)timeRemain;
+		int numMagnet = GameObject.FindGameObjectsWithTag("Magnet").Length;
+		numCoins = GameObject.FindGameObjectsWithTag("Money").Length;
+
 		scoreText.text = "First to 30!";
 		curFloorTime -= Time.deltaTime;
-		curMoneyTime -= Time.deltaTime;
+
+		if (numMagnet < 1){
+			curMagnetTime -= Time.deltaTime;
+		}
+
+		if (numMagnet < 3){
+			curMoneyTime -= Time.deltaTime;
+		}
 
 		for (int i=0; i<4; i++)
 			if (scores[i] >= 30)
@@ -143,17 +155,24 @@ public class GameManager : MonoBehaviour {
 		}
 		*/
 
-		numCoins = GameObject.FindGameObjectsWithTag("Money").Length;
 		if (curMoneyTime <= 0)
 		{
 			if (numCoins < 3)
 			{
-				Spawn(coin);
+				int coins_type;
+				coins_type = Random.Range (0, 3);
+				Spawn(CoinsCollcetion[coins_type], -47, 9, -1, 27);
 				numCoins++;
 				curMoneyTime = moneySpawnTime;
 			}
-			else
-				curMoneyTime = moneySpawnTime;
+		}
+
+		if (curMagnetTime <= 0) 
+		{
+			if (numMagnet < 1){
+				Spawn(Magnet, -31, 34, -9, 25);
+				curMagnetTime = MagnetSpawnTime;
+			}
 		}
 
 //
@@ -210,14 +229,12 @@ public class GameManager : MonoBehaviour {
 	}	
 
 	// Function to spawn an object
-	void Spawn (GameObject item)
+	void Spawn (GameObject item, int max_x, int min_x, int max_y, int min_y)
 	{
-		int coins_type;
-		coins_type = Random.Range (0, 3);
-		spawnLoc = new Vector3 (Random.Range (-45, 5), Random.Range (-1, 23), 0);
-		GameObject s = Instantiate (CoinsCollcetion[coins_type], spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
+		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
 	}
-
+	
 	// Function to move Hill
 	void MoveHill ()
 	{

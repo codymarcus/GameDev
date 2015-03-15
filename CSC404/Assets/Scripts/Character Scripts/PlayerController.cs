@@ -12,12 +12,14 @@ public class PlayerController : MonoBehaviour {
 	public GameManager manager;
 	public int lives = 1000;
 	public GameObject self;
+	public GameObject MagnetEffect;
 
 	int hats = 1;
 	bool[] hatPlaces = {true, false, false, false};
 
 	float timeInShield;
 
+	float MagnetTime = 0;
 	bool isShield = true;
 
 	GameObject[] players;
@@ -93,6 +95,12 @@ public class PlayerController : MonoBehaviour {
 		if (fadeTime > 0)
 			fadeTime -= Time.deltaTime;
 
+		if (MagnetTime > 0)
+			MagnetTime -= Time.deltaTime;
+
+		if (MagnetTime <= 0)
+			MagnetEffect.GetComponent<Collider>().enabled = false;
+
 		// If player falls through bottom of screen, teleport them to top
 		if (transform.position.y <= -10)
 			transform.position = new Vector3 (transform.position.x, 26);
@@ -158,6 +166,15 @@ public class PlayerController : MonoBehaviour {
 			else
 				fadeTime = 2f;
 		}
+
+		if (other.gameObject.tag == "Magnet")
+		{
+			MagnetEffect.GetComponent<Collider>().enabled = true;
+			MagnetTime = 5f;
+			Destroy(other.gameObject);
+		}
+
+
 	}
 
 

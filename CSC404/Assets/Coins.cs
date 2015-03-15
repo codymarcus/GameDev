@@ -43,24 +43,29 @@ public class Coins : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Player")
-			if (other.gameObject.GetComponent<PlayerController>().NumHats()>0)
-			{
-				GameManager.numCoins--;
-				addedPoints = (int) Mathf.Pow(2f, other.gameObject.GetComponent<PlayerController>().NumHats()-1);
-				fadeTime = 2f;
-				gameObject.GetComponent<Renderer>().enabled = false;
-				Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
-				foreach (Renderer r in renderers)
-				{
-					r.enabled = false;
-				}
-				gameObject.GetComponent<Collider>().enabled = false;
-				color = other.gameObject.GetComponent<PlayerController>().playerColor;
-				isHit = true;
+		if (other.gameObject.tag == "Player") {
+			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
+					GameManager.numCoins--;
+					addedPoints = (int)Mathf.Pow (2f, other.gameObject.GetComponent<PlayerController> ().NumHats () - 1);
+					fadeTime = 2f;
+					gameObject.GetComponent<Renderer> ().enabled = false;
+					Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer> ();
+					foreach (Renderer r in renderers) {
+							r.enabled = false;
+					}
+					gameObject.GetComponent<Collider> ().enabled = false;
+					color = other.gameObject.GetComponent<PlayerController> ().playerColor;
+					isHit = true;
 			}
+		}
 	}
 
+	void OnTriggerStay(Collider other){
+		if (other.tag == "Magneting"){
+			float step = 2.0f * Time.deltaTime;
+			transform.position = Vector3.MoveTowards(transform.position, other.gameObject.transform.position,step);
+		}
+	}
 
 
 }
