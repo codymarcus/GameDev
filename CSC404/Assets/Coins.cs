@@ -7,18 +7,15 @@ public class Coins : MonoBehaviour {
 	// Use this for initialization
 	Vector3 screenPosition;
 
-	Color color = Color.white;
-
 	float fadeTime = 0f;
 	float waitTime = 2f;
 	bool isHit = false;
 	int addedPoints;
 	GUIStyle livesFont;
+	public Texture2D ScoreImage;
 
 	void Start () {
-		livesFont = new GUIStyle();
-		livesFont.fontSize = 15;
-		livesFont.fontStyle = FontStyle.Bold;
+		//ScoreImage = (Texture2D)Resources.Load("ScorePoints/red/r_100");
 	}
 	
 	// Update is called once per frame
@@ -35,16 +32,21 @@ public class Coins : MonoBehaviour {
 	}
 
 	void OnGUI () {
+		Color color = GUI.color;
+		Color old = color;
 		color.a = fadeTime;
 		GUI.color = color;
-		livesFont.normal.textColor = color;
-		GUI.Label(new Rect(screenPosition.x, screenPosition.y-40, 100, 100),("+" + addedPoints), livesFont);
+		GUI.DrawTexture(new Rect(screenPosition.x, screenPosition.y-40, 60, 30), ScoreImage, ScaleMode.StretchToFill);
+		GUI.color = old;
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {
 			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
+					int playerNum = other.gameObject.GetComponent<PlayerController>().playerNumber;
+					int playerHat = other.gameObject.GetComponent<PlayerController>().NumHats();
+					SetImage(playerNum, playerHat);
 					GameManager.numCoins--;
 					addedPoints = (int)Mathf.Pow (2f, other.gameObject.GetComponent<PlayerController> ().NumHats () - 1);
 					fadeTime = 2f;
@@ -54,10 +56,30 @@ public class Coins : MonoBehaviour {
 							r.enabled = false;
 					}
 					gameObject.GetComponent<Collider> ().enabled = false;
-					color = other.gameObject.GetComponent<PlayerController> ().playerColor;
 					isHit = true;
 			}
 		}
+	}
+
+	void SetImage (int playerNum, int playerHat){
+		string path = "ScorePoints/";
+		if(playerNum == 1)
+			path += "green/g_";
+		if(playerNum == 2)
+			path += "blue/b_";
+		if(playerNum == 3)
+			path += "red/r_";
+		if(playerNum == 4)
+			path += "yellow/y_";
+		if(playerHat == 1)
+			path += "100";
+		if(playerHat == 2)
+			path += "200";
+		if(playerHat == 3)
+			path += "400";
+		if(playerHat == 4)
+			path += "800";
+		ScoreImage = (Texture2D)Resources.Load(path);
 	}
 
 	void OnTriggerStay(Collider other){
