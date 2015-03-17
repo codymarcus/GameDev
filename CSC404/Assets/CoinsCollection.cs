@@ -4,7 +4,6 @@ using System.Collections;
 public class CoinsCollection : MonoBehaviour {
 
 	public GameObject[] coins;
-	int count = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,12 +11,14 @@ public class CoinsCollection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		ArrayList check_coins = new ArrayList();
 		for(int i = 0; i < coins.Length; i++)
 		{
-			if(coins[i] == null)
-				count++;
+			if(coins[i] == null && !check_coins.Contains(i))
+				check_coins.Add(i);
 		}
-		if (coins.Length == count)
-			Destroy (this.gameObject);
+		if (coins.Length == check_coins.Count) {
+				Destroy (this.gameObject);
+		}
 	}
 }
