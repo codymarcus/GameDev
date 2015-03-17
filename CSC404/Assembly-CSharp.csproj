@@ -76,6 +76,7 @@
      <Compile Include="Assets\Showplace.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\SpikeWalls.cs" />
+     <Compile Include="Assets\StartManager.cs" />
      <Compile Include="Assets\rigid.cs" />
      <Compile Include="Assets\scr.cs" />
      <None Include="Assets\Skyboxes\_skybox info.txt" />
