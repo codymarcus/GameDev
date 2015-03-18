@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] players;
 	public GameObject spawnFloor;
 	Vector3 spawnLoc;
+	public Vector3[] playerSpawnLocs;
 
 	GameObject[] playersList;
 
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour {
 	public float moneySpawnTime = 5f;
 	public float MagnetSpawnTime = 5f;
 	//float timeRemain = 12f;
+	public float gameStartTime = 3f;
 
 	// Use this for initialization
 	void Start () {
@@ -121,6 +123,15 @@ public class GameManager : MonoBehaviour {
 
 		//timeRemain -= Time.deltaTime;
 
+		gameStartTime -= Time.deltaTime;
+
+		players = GameObject.FindGameObjectsWithTag ("Player");
+
+		if (gameStartTime > 0.0) {
+			for (int i =0; i < 4; i++) {
+				players[i].transform.position = playerSpawnLocs[i];
+			}		
+		}
 
 		//scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 		//scoreText.text = "First to 30!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
