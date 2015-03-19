@@ -173,7 +173,12 @@ public class PlayerController : MonoBehaviour {
 			MagnetTime = 5f;
 			Destroy(other.gameObject);
 		}
-
+		if (other.gameObject.tag == "Shield")
+		{
+			timeInShield = 5f;
+			isShield = true;
+			Destroy(other.gameObject);
+		}
 
 	}
 
@@ -254,6 +259,10 @@ public class PlayerController : MonoBehaviour {
 				transform.position = spawn.transform.position;
 			}
 		}
+	}
+
+	public bool IsShield() {
+		return isShield;
 	}
 
 	public void LoseHat() {

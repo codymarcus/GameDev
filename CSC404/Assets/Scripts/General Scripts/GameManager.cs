@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour {
 	public float hillChangeTime = 10f;
 	public int winScore;
 	public GameObject[] CoinsCollcetion;
+	public GameObject[] PowersCollection;
 
 	GameObject myHill;
 	float floorSpawnTime = 0.5f;
@@ -157,10 +158,7 @@ public class GameManager : MonoBehaviour {
 		{
 			if (numCoins < 3)
 			{
-				int coins_type;
-				coins_type = Random.Range (0, 3);
-				Spawn(CoinsCollcetion[coins_type], -47, 9, -1, 27);
-				numCoins++;
+				Spawn(CoinsCollcetion[Random.Range (0, 3)], -47, 9, -1, 27);
 				curMoneyTime = moneySpawnTime;
 			}
 		}
@@ -168,7 +166,7 @@ public class GameManager : MonoBehaviour {
 		if (curMagnetTime <= 0) 
 		{
 			if (numMagnet < 1){
-				Spawn(Magnet, -31, 34, -9, 25);
+				Spawn(PowersCollection[Random.Range (0, 2)], -31, 34, -9, 25);
 				curMagnetTime = MagnetSpawnTime;
 			}
 		}

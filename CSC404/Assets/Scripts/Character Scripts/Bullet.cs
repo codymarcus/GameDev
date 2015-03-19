@@ -77,8 +77,10 @@ public class Bullet : MonoBehaviour {
 		if (other.gameObject.tag == "Hat") {
 			if (other.GetComponent<Hat> ().ownerNumber != owner)
 			{
-				other.GetComponent<Hat>().Hit();
-				isDestroy = true;
+				if (!other.GetComponent<Hat> ().owner.GetComponent<PlayerController>().IsShield()){
+					other.GetComponent<Hat>().Hit();
+					isDestroy = true;
+				}
 			}
 		}
 	}
