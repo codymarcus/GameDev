@@ -30,7 +30,11 @@ public class Hat : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isHit)
+		{
 			timeLeft -= Time.deltaTime;
+			if (timeLeft <= 0)
+				Physics.IgnoreCollision(GetComponent<Collider>(), owner.GetComponent<Collider>(), false);
+		}
 		else
 		{
 //			transform.rotation = new Quaternion(0,0,0,0);
@@ -58,7 +62,8 @@ public class Hat : MonoBehaviour {
 		transform.parent = null;
 		owner.GetComponent<PlayerController> ().LoseHat ();
 		foreach (GameObject player in players)
-			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+			if (player != owner)
+				Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>(), false);
 	}
 
 	public void NewOwner (GameObject newOwner, int newNumber) {
