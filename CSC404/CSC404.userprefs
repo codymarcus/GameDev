@@ -1,13 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/General Scripts/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/PlayerController.cs">
     <Files>
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="234" Column="54" />
-      <File FileName="Assets/Coins.cs" Line="28" Column="13" />
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets/StartManager.cs" Line="8" Column="52" />
-      <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="1" Column="1" />
-      <File FileName="Assets/CoinsCollection.cs" Line="6" Column="28" />
+      <File FileName="Assets/Hat.cs" Line="33" Column="16" />
+      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="243" Column="40" />
+      <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Coins.cs" Line="44" Column="37" />
+      <File FileName="Assets/CoinsCollection.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="102" Column="58" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
