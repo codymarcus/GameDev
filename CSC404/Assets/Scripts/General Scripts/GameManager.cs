@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour {
 	public float moneySpawnTime = 5f;
 	public float MagnetSpawnTime = 5f;
 	//float timeRemain = 12f;
-
 	// Use this for initialization
 	void Start () {
 
@@ -120,7 +119,7 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 
 		//timeRemain -= Time.deltaTime;
-
+	
 
 		//scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 		//scoreText.text = "First to 30!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];

@@ -36,7 +36,8 @@ public class Coins : MonoBehaviour {
 		Color old = color;
 		color.a = fadeTime;
 		GUI.color = color;
-		GUI.DrawTexture(new Rect(screenPosition.x, screenPosition.y-40, 60, 30), ScoreImage, ScaleMode.StretchToFill);
+		if (ScoreImage != null)
+			GUI.DrawTexture(new Rect(screenPosition.x, screenPosition.y-40, 60, 30), ScoreImage, ScaleMode.StretchToFill);
 		GUI.color = old;
 	}
 
