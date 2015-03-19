@@ -140,11 +140,10 @@ public class GameManager : MonoBehaviour {
 		}
 
 		for (int i=0; i<4; i++)
-			if (scores[i] >= 30)
 		{
-			Debug.Log (scores[i]);
-			winners.Add(i+1);
-			RoundOver (winners, 1, 1);
+			if (scores[i] >= 30)
+			//winners.Add(i+1);
+				Application.LoadLevel ("ScoresScreen");
 		}
 
 		/*
@@ -158,7 +157,7 @@ public class GameManager : MonoBehaviour {
 		{
 			if (numCoins < 3)
 			{
-				Spawn(CoinsCollcetion[Random.Range (0, 3)], -47, 9, -1, 27);
+				Spawn(CoinsCollcetion[Random.Range (0, 3)], -40, 10, -1, 25);
 				curMoneyTime = moneySpawnTime;
 			}
 		}

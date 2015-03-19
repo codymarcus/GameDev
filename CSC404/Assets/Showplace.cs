@@ -14,10 +14,8 @@ public class Showplace : MonoBehaviour {
 	// Update is called once per frame
 	void Start () {
 	
-		//scores = ScoreScreenManager.matchScores;
-		//sortedscores = ScoreScreenManager.matchScores;
+		sortedscores = GameManager.scores;
 		sortedscores = Sort (sortedscores);
-
 		for(int i = 0; i < 4; i++){
 			for(int j = 0; j < 4; j++){
 				if ((sortedscores[i] == scores[j]) && (ScoreScreenManager.rank[j] == 0)){
