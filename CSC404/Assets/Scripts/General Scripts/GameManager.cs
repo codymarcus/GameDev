@@ -228,15 +228,9 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item, int max_x, int min_x, int max_y, int min_y)
 	{
 		spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
-		/*
-		var checkResult = Physics.OverlapSphere(spawnLoc, 6);
-		Debug.Log (checkResult.Length);
-		while (checkResult.Length > 0) {
-			Debug.Log (checkResult.Length);
+		while (Physics.CheckSphere(spawnLoc, 2)) {
 			spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
-			checkResult = Physics.OverlapSphere(spawnLoc, 6);
 		}
-		*/
 		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
 	}
 	// Function to move Hill
