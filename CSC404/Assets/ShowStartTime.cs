@@ -13,7 +13,7 @@ public class ShowStartTime : MonoBehaviour {
 	void Update () {
 		gameStartTime -= Time.deltaTime;
 		if (gameStartTime > 2.0) {
-			Debug.Log(gameStartTime);
+			//Debug.Log(gameStartTime);
 			text1.SetActive(true);
 			text2.SetActive(false);
 			text3.SetActive(false);

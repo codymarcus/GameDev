@@ -60,6 +60,7 @@
      <Compile Include="Assets\JMO Assets\Toony Colors\Demo\AutoRotateObject.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\OnClickEvent.cs" />
+     <Compile Include="Assets\PlayerAnimator.cs" />
      <Compile Include="Assets\PlayerHealthController.cs" />
      <Compile Include="Assets\QuickMatch.cs" />
      <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
@@ -73,9 +74,11 @@
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
+     <Compile Include="Assets\ShowStartTime.cs" />
      <Compile Include="Assets\Showplace.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\SpikeWalls.cs" />
+     <Compile Include="Assets\StartColision.cs" />
      <Compile Include="Assets\StartManager.cs" />
      <Compile Include="Assets\rigid.cs" />
      <Compile Include="Assets\scr.cs" />
@@ -91,7 +94,7 @@
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors_RimOutline.shader" />
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/codymarcus/Developer/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/MarishkaZ/Desktop/OCAD/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

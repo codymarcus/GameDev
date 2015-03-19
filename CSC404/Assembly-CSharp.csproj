@@ -60,6 +60,7 @@
      <Compile Include="Assets\JMO Assets\Toony Colors\Demo\AutoRotateObject.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\OnClickEvent.cs" />
+     <Compile Include="Assets\PlayerAnimator.cs" />
      <Compile Include="Assets\PlayerHealthController.cs" />
      <Compile Include="Assets\QuickMatch.cs" />
      <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
@@ -73,9 +74,11 @@
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
+     <Compile Include="Assets\ShowStartTime.cs" />
      <Compile Include="Assets\Showplace.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />
      <Compile Include="Assets\SpikeWalls.cs" />
+     <Compile Include="Assets\StartColision.cs" />
      <Compile Include="Assets\StartManager.cs" />
      <Compile Include="Assets\rigid.cs" />
      <Compile Include="Assets\scr.cs" />
