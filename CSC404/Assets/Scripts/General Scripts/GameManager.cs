@@ -128,7 +128,6 @@ public class GameManager : MonoBehaviour {
 		//timerText.text = "Time Remaining:" + (int)timeRemain;
 		int numMagnet = GameObject.FindGameObjectsWithTag("Magnet").Length;
 		numCoins = GameObject.FindGameObjectsWithTag("Money").Length;
-
 		scoreText.text = "First to 30!";
 		curFloorTime -= Time.deltaTime;
 
@@ -232,9 +231,17 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item, int max_x, int min_x, int max_y, int min_y)
 	{
 		spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
-		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler(0, 0, 0)) as GameObject;
+		/*
+		var checkResult = Physics.OverlapSphere(spawnLoc, 6);
+		Debug.Log (checkResult.Length);
+		while (checkResult.Length > 0) {
+			Debug.Log (checkResult.Length);
+			spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
+			checkResult = Physics.OverlapSphere(spawnLoc, 6);
+		}
+		*/
+		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
 	}
-	
 	// Function to move Hill
 	void MoveHill ()
 	{
