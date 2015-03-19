@@ -1,0 +1,515 @@
+fileFormatVersion: 2
+guid: 7a2d20a6bb1b240bba15e4fd87c97a34
+timeCreated: 1426711482
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ankle_L
+    100002: ankle_R
+    100004: Beard1
+    100006: Beard2
+    100008: foot_L
+    100010: foot_R
+    100012: hand_L
+    100014: hand_R
+    100016: Head
+    100018: Hip_Control
+    100020: hip_L
+    100022: hip_R
+    100024: knee_L
+    100026: knee_R
+    100028: lowpoly_wizard
+    100030: Main_Control
+    100032: Neck
+    100034: Rib
+    100036: root
+    100038: shoulder_L
+    100040: shoulder_R
+    100042: Spine1
+    100044: Spine2
+    100046: //RootNode
+    100048: wrist_L
+    100050: wrist_R
+    400000: ankle_L
+    400002: ankle_R
+    400004: Beard1
+    400006: Beard2
+    400008: foot_L
+    400010: foot_R
+    400012: hand_L
+    400014: hand_R
+    400016: Head
+    400018: Hip_Control
+    400020: hip_L
+    400022: hip_R
+    400024: knee_L
+    400026: knee_R
+    400028: lowpoly_wizard
+    400030: Main_Control
+    400032: Neck
+    400034: Rib
+    400036: root
+    400038: shoulder_L
+    400040: shoulder_R
+    400042: Spine1
+    400044: Spine2
+    400046: //RootNode
+    400048: wrist_L
+    400050: wrist_R
+    4300000: lowpoly_wizard
+    7400000: Idle
+    7400002: Run
+    7400004: Landing
+    7400006: Attack
+    7400008: Jump
+    9500000: //RootNode
+    13700000: lowpoly_wizard
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lowpoly_wizard
+        weight: 1
+      - path: Main_Control
+        weight: 1
+      - path: Main_Control/Hip_Control
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/hip_L
+        weight: 1
+      - path: root/hip_L/knee_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L/foot_L
+        weight: 1
+      - path: root/hip_R
+        weight: 1
+      - path: root/hip_R/knee_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R/foot_R
+        weight: 1
+      - path: root/Spine1
+        weight: 1
+      - path: root/Spine1/Rib
+        weight: 1
+      - path: root/Spine1/Spine2
+        weight: 1
+      - path: root/Spine1/Spine2/Neck
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1/Beard2
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L/hand_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R/hand_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Run
+      takeName: Take 001
+      firstFrame: 56
+      lastFrame: 68
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lowpoly_wizard
+        weight: 1
+      - path: Main_Control
+        weight: 1
+      - path: Main_Control/Hip_Control
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/hip_L
+        weight: 1
+      - path: root/hip_L/knee_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L/foot_L
+        weight: 1
+      - path: root/hip_R
+        weight: 1
+      - path: root/hip_R/knee_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R/foot_R
+        weight: 1
+      - path: root/Spine1
+        weight: 1
+      - path: root/Spine1/Rib
+        weight: 1
+      - path: root/Spine1/Spine2
+        weight: 1
+      - path: root/Spine1/Spine2/Neck
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1/Beard2
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L/hand_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R/hand_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Landing
+      takeName: Take 001
+      firstFrame: 104
+      lastFrame: 121
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lowpoly_wizard
+        weight: 1
+      - path: Main_Control
+        weight: 1
+      - path: Main_Control/Hip_Control
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/hip_L
+        weight: 1
+      - path: root/hip_L/knee_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L/foot_L
+        weight: 1
+      - path: root/hip_R
+        weight: 1
+      - path: root/hip_R/knee_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R/foot_R
+        weight: 1
+      - path: root/Spine1
+        weight: 1
+      - path: root/Spine1/Rib
+        weight: 1
+      - path: root/Spine1/Spine2
+        weight: 1
+      - path: root/Spine1/Spine2/Neck
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1/Beard2
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L/hand_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R/hand_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 124
+      lastFrame: 145
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lowpoly_wizard
+        weight: 1
+      - path: Main_Control
+        weight: 1
+      - path: Main_Control/Hip_Control
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/hip_L
+        weight: 1
+      - path: root/hip_L/knee_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L/foot_L
+        weight: 1
+      - path: root/hip_R
+        weight: 1
+      - path: root/hip_R/knee_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R/foot_R
+        weight: 1
+      - path: root/Spine1
+        weight: 1
+      - path: root/Spine1/Rib
+        weight: 1
+      - path: root/Spine1/Spine2
+        weight: 1
+      - path: root/Spine1/Spine2/Neck
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1/Beard2
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L/hand_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R/hand_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Jump
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 104
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: lowpoly_wizard
+        weight: 1
+      - path: Main_Control
+        weight: 1
+      - path: Main_Control/Hip_Control
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/hip_L
+        weight: 1
+      - path: root/hip_L/knee_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L
+        weight: 1
+      - path: root/hip_L/knee_L/ankle_L/foot_L
+        weight: 1
+      - path: root/hip_R
+        weight: 1
+      - path: root/hip_R/knee_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R
+        weight: 1
+      - path: root/hip_R/knee_R/ankle_R/foot_R
+        weight: 1
+      - path: root/Spine1
+        weight: 1
+      - path: root/Spine1/Rib
+        weight: 1
+      - path: root/Spine1/Spine2
+        weight: 1
+      - path: root/Spine1/Spine2/Neck
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1
+        weight: 1
+      - path: root/Spine1/Spine2/Neck/Head/Beard1/Beard2
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_L/wrist_L/hand_L
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R
+        weight: 1
+      - path: root/Spine1/Spine2/shoulder_R/wrist_R/hand_R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
