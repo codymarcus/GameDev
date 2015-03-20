@@ -9,6 +9,7 @@ public class Bullet : MonoBehaviour {
 	public GameManager manager;
 	GameObject[] players;
 	GameObject[] hats;
+	GameObject[] bullets;
 	GameObject[] heavyFloors;
 	float destroyTime = 0.01F;
 	bool isDestroy = false;
@@ -19,6 +20,10 @@ public class Bullet : MonoBehaviour {
 		players = GameObject.FindGameObjectsWithTag ("Player");
 		foreach (GameObject player in players)
 			Physics.IgnoreCollision (GetComponent<Collider> (), player.GetComponent<Collider> ());
+
+		bullets = GameObject.FindGameObjectsWithTag ("Bullet");
+		foreach (GameObject bullet in bullets)
+			Physics.IgnoreCollision (GetComponent<Collider> (), bullet.GetComponent<Collider> ());
 
 		hats = GameObject.FindGameObjectsWithTag ("HatTrigger");
 		foreach (GameObject hat in hats)
@@ -50,8 +55,8 @@ public class Bullet : MonoBehaviour {
 	{
 		// Upon touching a "crazy" floor, call its hit function and set isDestroy to true
 		if (other.gameObject.tag == "Floor") {
-			other.gameObject.GetComponent<CrazyFloor>().Hit();
-			isDestroy = true;
+			Debug.Log("HIT");
+			Destroy(gameObject);
 		}
 
 		// Upon touching a heavy floor, destroy bullet
