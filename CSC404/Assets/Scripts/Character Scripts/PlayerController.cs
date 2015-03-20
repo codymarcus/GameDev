@@ -13,14 +13,17 @@ public class PlayerController : MonoBehaviour {
 	public int lives = 1000;
 	public GameObject self;
 	public GameObject MagnetEffect;
+	public GameObject gun;
 
 	int hats = 1;
 	bool[] hatPlaces = {true, false, false, false};
 
 	float timeInShield;
-
 	float MagnetTime = 0;
+	float SplittedTime = 0;
+
 	bool isShield = true;
+	bool splittedEnabled = true;
 
 	GameObject[] players;
 
@@ -71,6 +74,18 @@ public class PlayerController : MonoBehaviour {
 			timeInShield -= Time.deltaTime;
 		else
 			isShield = false;
+
+		if (SplittedTime > 0)
+			SplittedTime -= Time.deltaTime;
+		else
+			splittedEnabled = false;
+
+		if (splittedEnabled == true) {
+			gun.GetComponent<Aim> ().splitted = true;		
+		} else {
+			gun.GetComponent<Aim> ().splitted = false;
+		}
+
 
 		if (transform.position.z != 0)
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
@@ -177,6 +192,14 @@ public class PlayerController : MonoBehaviour {
 		{
 			timeInShield = 5f;
 			isShield = true;
+			Destroy(other.gameObject);
+		}
+		if (other.gameObject.tag == "SplittedBarrel")
+		{
+
+			SplittedTime = 5f;
+			splittedEnabled = true;
+			Debug.Log (splittedEnabled);
 			Destroy(other.gameObject);
 		}
 
