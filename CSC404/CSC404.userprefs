@@ -1,14 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Hat.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\Weapon.cs">
     <Files>
-      <File FileName="Assets/Hat.cs" Line="37" Column="4" />
-      <File FileName="Assets/Scripts/General Scripts/GameManager.cs" Line="299" Column="1" />
-      <File FileName="Assets/Scripts/General Scripts/MatchManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Coins.cs" Line="1" Column="1" />
-      <File FileName="Assets/CoinsCollection.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Character Scripts/Bullet.cs" Line="58" Column="21" />
-      <File FileName="Assets/Scripts/Character Scripts/PlayerController.cs" Line="326" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="19" Column="36" />
+      <File FileName="Assets\Hat.cs" Line="37" Column="4" />
+      <File FileName="Assets\Scripts\General Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\General Scripts\MatchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Coins.cs" Line="1" Column="1" />
+      <File FileName="Assets\CoinsCollection.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="202" Column="8" />
+      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="18" Column="17" />
+      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="19" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
