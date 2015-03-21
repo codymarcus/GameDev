@@ -1,8 +1,19 @@
 fileFormatVersion: 2
 guid: a5318cdd277494849ad8af5bd62f69d1
+timeCreated: 1426980220
+licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - bulletBlue: {instanceID: 0}
+  - bulletRed: {instanceID: 0}
+  - bulletGreen: {instanceID: 0}
+  - bulletYellow: {instanceID: 0}
+  - bullet: {instanceID: 0}
+  - barrel: {instanceID: 0}
+  - player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
