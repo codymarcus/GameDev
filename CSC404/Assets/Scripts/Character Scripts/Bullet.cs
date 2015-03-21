@@ -55,8 +55,9 @@ public class Bullet : MonoBehaviour {
 	{
 		// Upon touching a "crazy" floor, call its hit function and set isDestroy to true
 		if (other.gameObject.tag == "Floor") {
-			Debug.Log("HIT");
-			Destroy(gameObject);
+			other.GetComponent<CrazyFloor>().Hit();
+			isDestroy = true;
+			//Destroy(gameObject);
 		}
 
 		// Upon touching a heavy floor, destroy bullet
