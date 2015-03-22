@@ -14,17 +14,19 @@ public class PlayerController : MonoBehaviour {
 	public GameObject self;
 	public GameObject MagnetEffect;
 	public ParticleSystem shieldEffect;
+	public ParticleSystem magnetParticleEffect;
 	//public GameObject shieldEffect2;
 	public GameObject gun;
 
 	int hats = 1;
 	bool[] hatPlaces = {true, false, false, false};
 
-	float timeInShield;
-	float MagnetTime = 0;
+	float timeInShield = 0;
+	float timeInMagnet = 0;
 	float SplittedTime = 0;
 
 	bool isShield = true;
+	bool isMagnet = true; // to turn off particle effects at the very beginning
 	bool splittedEnabled = true;
 
 	GameObject[] players;
@@ -69,10 +71,16 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		PlayerScoreSlider.value = GameManager.scores [playerNumber - 1];
+
 		if (timeInShield > 0)
 			timeInShield -= Time.deltaTime;
 		else
-		if(isShield) turnOffShield();
+			if(isShield) turnOffShield();
+
+		if (timeInMagnet > 0)
+			timeInMagnet -= Time.deltaTime;
+		else
+			if(isMagnet)turnOffMagnet();
 
 		if (SplittedTime > 0)
 			SplittedTime -= Time.deltaTime;
@@ -84,7 +92,8 @@ public class PlayerController : MonoBehaviour {
 		} else {
 			gun.GetComponent<Aim> ().splitted = false;
 		}
-
+		if (fadeTime > 0)
+			fadeTime -= Time.deltaTime;
 
 		if (transform.position.z != 0)
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
@@ -105,15 +114,6 @@ public class PlayerController : MonoBehaviour {
 		else if (GetComponent<CharacterController>().velocity.x > 0)
 			self.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
 		*/
-
-		if (fadeTime > 0)
-			fadeTime -= Time.deltaTime;
-
-		if (MagnetTime > 0)
-			MagnetTime -= Time.deltaTime;
-
-		if (MagnetTime <= 0)
-			MagnetEffect.GetComponent<Collider>().enabled = false;
 
 		// If player falls through bottom of screen, teleport them to top
 		if (transform.position.y <= -10)
@@ -183,14 +183,12 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Magnet")
 		{
-			MagnetEffect.GetComponent<Collider>().enabled = true;
-			MagnetTime = 5f;
+			turnOnMagnet(5f);
 			Destroy(other.gameObject);
 		}
 		if (other.gameObject.tag == "Shield")
 		{
-			timeInShield = 5f;
-			turnOnShield();
+			turnOnShield(5f);
 			Destroy(other.gameObject);
 		}
 		if (other.gameObject.tag == "SplittedBarrel")
@@ -267,7 +265,7 @@ public class PlayerController : MonoBehaviour {
 					int spawnNumber = Random.Range (0, spawns.Length);
 					spawn = spawns [spawnNumber];
 					//timeInShield = shieldTime;
-					turnOnShield();
+					//turnOnShield();
 					transform.position = spawn.transform.position;
 				}
 				else
@@ -283,20 +281,31 @@ public class PlayerController : MonoBehaviour {
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				//timeInShield = shieldTime;
-				turnOnShield();
+				//turnOnShield();
 				transform.position = spawn.transform.position;
 			}
 		}
 	}
-	public void turnOnShield(){
+	public void turnOnShield(float dur){
 		isShield = true;
+		timeInShield = dur;
 		shieldEffect.Play();
 	}
 	public void turnOffShield(){
 		isShield = false;
 		shieldEffect.Stop();
 	}
-
+	public void turnOnMagnet(float dur){
+		isMagnet = true;
+		timeInMagnet = dur;
+		magnetParticleEffect.Play();
+		MagnetEffect.GetComponent<Collider>().enabled = true;
+	}
+	public void turnOffMagnet(){
+		isMagnet = false;
+		magnetParticleEffect.Stop();
+		MagnetEffect.GetComponent<Collider>().enabled = false;
+	}
 	public bool IsShield() {
 		return isShield;
 	}
