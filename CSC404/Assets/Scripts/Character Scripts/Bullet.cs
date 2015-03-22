@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour {
 		// Set initial velocity
 		GetComponent<Rigidbody> ().velocity = transform.up * velocity; // * Time.deltaTime;
 		speed = GetComponent<Rigidbody> ().velocity;
+		//hitEffect (); // todo: turn into fire effect
 	}
 	
 	// Update is called once per frame
@@ -57,6 +58,13 @@ public class Bullet : MonoBehaviour {
 		}
 	}
 
+	void hitEffect()
+	{
+		ParticleSystem coinEffect = new ParticleSystem();
+		coinEffect = Instantiate(Resources.Load("powerupEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
+		Destroy(coinEffect, 0);
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		// Upon touching a "crazy" floor, call its hit function and set isDestroy to true
@@ -64,17 +72,20 @@ public class Bullet : MonoBehaviour {
 			//other.GetComponent<CrazyFloor>().Hit();
 			//isDestroy = true;
 			Destroy(gameObject);
+			hitEffect();
 		}
 
 		// Upon touching a heavy floor, destroy bullet
 		if (other.gameObject.tag == "HeavyFloor") {
 			Destroy(gameObject);
+			hitEffect();
 		}
 
 		// Exploding Floor
 		if (other.gameObject.tag == "ExplodingFloor") {
 			other.GetComponent<ExplodingFloor>().Hit();
 			Destroy(gameObject);
+			hitEffect();
 		}
 
 		// Upon touching an enemy, call its hit function and set isDestroy to true
@@ -84,6 +95,7 @@ public class Bullet : MonoBehaviour {
 			else
 				other.gameObject.GetComponent<Follow>().Hit();
 			isDestroy = true;
+			hitEffect();
 		}
 
 		if (other.gameObject.tag == "Hat") {
