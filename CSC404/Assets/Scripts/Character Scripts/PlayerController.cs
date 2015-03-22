@@ -124,6 +124,10 @@ public class PlayerController : MonoBehaviour {
 			transform.position = new Vector3 (32.5f, transform.position.y);
 		if (transform.position.x > 32.5f)
 			transform.position = new Vector3 (-32.5f, transform.position.y);
+
+		if(Input.GetButtonDown(playerNumber+"Jump")){
+			puffEffect();
+		}
 	}
 
 	void OnGUI () {
@@ -199,7 +203,11 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log (splittedEnabled);
 			Destroy(other.gameObject);
 		}
-
+		if (other.gameObject.tag == "Floor")
+		{
+			if(other.transform.position.y < transform.position.y) puffEffect();
+		}
+		
 	}
 
 	void puffEffect()
@@ -214,8 +222,6 @@ public class PlayerController : MonoBehaviour {
 		{
 			canDJump = true;			
 			speed = new Vector3 (speed.x, 0, speed.z);
-			puffEffect();
-
 		}
 		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
@@ -225,19 +231,6 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Hill")
 		{
 			inHill = false;
-		}
-	}
-
-	void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.tag == "Hill")
-		{
-			floatScore += Time.deltaTime;
-		}
-
-		if (other.gameObject.tag == "HeavyFloorTrigger")
-		{
-			other.gameObject.GetComponentInParent<HeavyFloor>().WeighDown();
 		}
 	}
 

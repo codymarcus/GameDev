@@ -23,7 +23,6 @@ public class Weapon : MonoBehaviour {
 		{ 
 			// Create a new bullet
 			GameObject b = new GameObject();
-			int caseSwitch = 1;
 			switch (playerNumber)
 			{
 			case 1:

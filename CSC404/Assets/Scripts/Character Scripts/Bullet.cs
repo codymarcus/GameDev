@@ -60,16 +60,44 @@ public class Bullet : MonoBehaviour {
 
 	void hitEffect()
 	{
-		ParticleSystem coinEffect = new ParticleSystem();
-		coinEffect = Instantiate(Resources.Load("hitEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
-		Destroy(coinEffect, 0);
+		ParticleSystem effect = new ParticleSystem();
+		switch (owner)
+		{
+		case 1:
+			effect = Instantiate(Resources.Load("hitEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 2:
+			effect = Instantiate(Resources.Load("hitEffectBlue"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 3:
+			effect = Instantiate(Resources.Load("hitEffectRed"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 4:
+			effect = Instantiate(Resources.Load("hitEffectYellow"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		}
+		Destroy(effect, 0);
 	}
 
 	void muzzleEffect()
 	{
-		ParticleSystem coinEffect = new ParticleSystem();
-		coinEffect = Instantiate(Resources.Load("muzzleEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
-		Destroy(coinEffect, 0);
+		ParticleSystem effect = new ParticleSystem();
+		switch (owner)
+		{
+		case 1:
+			effect = Instantiate(Resources.Load("muzzleEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 2:
+			effect = Instantiate(Resources.Load("muzzleEffectBlue"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 3:
+			effect = Instantiate(Resources.Load("muzzleEffectRed"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		case 4:
+			effect = Instantiate(Resources.Load("muzzleEffectYellow"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		}
+		Destroy(effect, 0);
 	}
 
 	void OnTriggerEnter(Collider other)

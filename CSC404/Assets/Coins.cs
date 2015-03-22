@@ -9,6 +9,7 @@ public class Coins : MonoBehaviour {
 
 	float fadeTime = 0f;
 	float waitTime = 2f;
+	float rotationsPerMinute = 25.0f;
 	bool isHit = false;
 	int addedPoints;
 	GUIStyle livesFont;
@@ -29,6 +30,8 @@ public class Coins : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 		if (waitTime <= 0)
 			Destroy(this.gameObject);
+
+		transform.Rotate(6.0f*rotationsPerMinute*Time.deltaTime,0,0);
 	}
 
 	void OnGUI () {

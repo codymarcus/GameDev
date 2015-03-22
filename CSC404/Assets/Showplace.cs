@@ -39,7 +39,7 @@ public class Showplace : MonoBehaviour {
 		}
 
 		for (int i=0; i<4; i++) {
-			Debug.Log(rank[i]);
+			//Debug.Log(rank[i]);
 		}
 
 		for (int k = 0; k < 4; k++) {

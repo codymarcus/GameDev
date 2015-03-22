@@ -56,7 +56,7 @@ public class Aim : MonoBehaviour {
 			if (Input.GetButton (playerNumber + "Fire1")) {
 				// Fire
 				//Instantiate (muzzleFlash, transform.position, Quarternion.identity);
-				Debug.Log (splitted);
+				//Debug.Log (splitted);
 
 				barrel [0].GetComponent<Weapon> ().Fire ();
 			} else {
