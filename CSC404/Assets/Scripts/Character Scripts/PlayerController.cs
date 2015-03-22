@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour {
 		livesFont.fontStyle = FontStyle.Bold;
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
-		turnOnShield ();
 	}
 	
 	// Update is called once per frame

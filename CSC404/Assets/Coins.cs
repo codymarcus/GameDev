@@ -41,10 +41,18 @@ public class Coins : MonoBehaviour {
 		GUI.color = old;
 	}
 
+	void coinEffect()
+	{
+		ParticleSystem coinEffect = new ParticleSystem();
+		coinEffect = Instantiate(Resources.Load("CoinEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
+		Destroy(coinEffect, 0);
+	}
+	
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {
 			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
+					coinEffect();
 					int playerNum = other.gameObject.GetComponent<PlayerController>().playerNumber;
 					int playerHat = other.gameObject.GetComponent<PlayerController>().NumHats();
 					SetImage(playerNum, playerHat);
