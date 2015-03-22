@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 		livesFont.fontStyle = FontStyle.Bold;
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
-
+		
 	}
 	
 	// Update is called once per frame
@@ -205,15 +205,22 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
+	void puffEffect()
+	{
+		ParticleSystem puff = new ParticleSystem();
+		puff = Instantiate(Resources.Load("SmokePuff"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
+		Destroy(puff, 1);
+	}
 
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "Floor")
-			canDJump = true;
 		{
+			canDJump = true;			
 			speed = new Vector3 (speed.x, 0, speed.z);
-		}
+			puffEffect();
 
+		}
 		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
