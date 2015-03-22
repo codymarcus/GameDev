@@ -41,6 +41,12 @@ public class Bullet : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// If bullet moves through side of screen, teleport it to other side
+		if (transform.position.x < -32.5f)
+			transform.position = new Vector3 (32.5f, transform.position.y);
+		if (transform.position.x > 32.5f)
+			transform.position = new Vector3 (-32.5f, transform.position.y);
+
 		// If isDestroy is true, wait a short amount of time then destroy the bullet
 		// The wait is so that the bullet's physics can briefly affect the object it hits
 		if (isDestroy == true)

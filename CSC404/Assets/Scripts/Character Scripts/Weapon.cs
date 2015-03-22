@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour {
 			b.GetComponent<Bullet>().owner = playerNumber;
 
 			// Destroy the bullet after a few seconds
-			Destroy( b , 3.5F);
+			Destroy( b , 1.5F);
 
 			// Set cooldown
 			canFire = .3f;
