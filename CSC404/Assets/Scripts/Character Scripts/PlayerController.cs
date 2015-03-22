@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 	public int lives = 1000;
 	public GameObject self;
 	public GameObject MagnetEffect;
+	public ParticleSystem shieldEffect;
+	//public GameObject shieldEffect2;
 	public GameObject gun;
 
 	int hats = 1;
@@ -50,8 +52,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//timeInShield = shieldTime;
-
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
 
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
 		livesFont.fontStyle = FontStyle.Bold;
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
-		
+		turnOnShield ();
 	}
 	
 	// Update is called once per frame
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour {
 		if (timeInShield > 0)
 			timeInShield -= Time.deltaTime;
 		else
-			isShield = false;
+		if(isShield) turnOffShield();
 
 		if (SplittedTime > 0)
 			SplittedTime -= Time.deltaTime;
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Shield")
 		{
 			timeInShield = 5f;
-			isShield = true;
+			turnOnShield();
 			Destroy(other.gameObject);
 		}
 		if (other.gameObject.tag == "SplittedBarrel")
@@ -209,9 +209,8 @@ public class PlayerController : MonoBehaviour {
 	{
 		ParticleSystem puff = new ParticleSystem();
 		puff = Instantiate(Resources.Load("SmokePuff"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
-		Destroy(puff, 1);
+		Destroy(puff, 0);
 	}
-
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "Floor")
@@ -269,7 +268,7 @@ public class PlayerController : MonoBehaviour {
 					int spawnNumber = Random.Range (0, spawns.Length);
 					spawn = spawns [spawnNumber];
 					//timeInShield = shieldTime;
-					isShield = true;
+					turnOnShield();
 					transform.position = spawn.transform.position;
 				}
 				else
@@ -285,10 +284,18 @@ public class PlayerController : MonoBehaviour {
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				//timeInShield = shieldTime;
-				isShield = true;
+				turnOnShield();
 				transform.position = spawn.transform.position;
 			}
 		}
+	}
+	public void turnOnShield(){
+		isShield = true;
+		shieldEffect.Play();
+	}
+	public void turnOffShield(){
+		isShield = false;
+		shieldEffect.Stop();
 	}
 
 	public bool IsShield() {
