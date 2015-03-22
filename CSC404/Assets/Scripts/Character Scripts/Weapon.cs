@@ -27,16 +27,16 @@ public class Weapon : MonoBehaviour {
 			switch (playerNumber)
 			{
 			case 1:
-				b = Instantiate(Resources.Load("bulletGreen"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				b = Instantiate(Resources.Load("bulletGreen2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
 			case 2:
-				b = Instantiate(Resources.Load("bulletBlue"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				b = Instantiate(Resources.Load("bulletBlue2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
 			case 3:
-				b = Instantiate(Resources.Load("bulletRed"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				b = Instantiate(Resources.Load("bulletRed2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
 			case 4:
-				b = Instantiate(Resources.Load("bulletYellow"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				b = Instantiate(Resources.Load("bulletYellow2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
 			}
 

@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour {
 		// Set initial velocity
 		GetComponent<Rigidbody> ().velocity = transform.up * velocity; // * Time.deltaTime;
 		speed = GetComponent<Rigidbody> ().velocity;
-		//hitEffect (); // todo: turn into fire effect
+		muzzleEffect ();
 	}
 	
 	// Update is called once per frame
@@ -61,7 +61,14 @@ public class Bullet : MonoBehaviour {
 	void hitEffect()
 	{
 		ParticleSystem coinEffect = new ParticleSystem();
-		coinEffect = Instantiate(Resources.Load("powerupEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
+		coinEffect = Instantiate(Resources.Load("hitEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
+		Destroy(coinEffect, 0);
+	}
+
+	void muzzleEffect()
+	{
+		ParticleSystem coinEffect = new ParticleSystem();
+		coinEffect = Instantiate(Resources.Load("muzzleEffectGreen"), transform.position, transform.rotation) as ParticleSystem;
 		Destroy(coinEffect, 0);
 	}
 
