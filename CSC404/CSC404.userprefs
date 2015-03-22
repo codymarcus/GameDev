@@ -1,5 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\Weapon.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="24" Column="25" />
+      <File FileName="Assets\Coins.cs" Line="51" Column="1" />
+      <File FileName="Assets\PlayerAnimator.cs" Line="50" Column="72" />
+      <File FileName="Assets\powerups.cs" Line="25" Column="57" />
+      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="30" Column="48" />
+=======
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\Bullet.cs">
     <Files>
       <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="348" Column="1" />
@@ -8,6 +17,7 @@
       <File FileName="Assets\powerups.cs" Line="36" Column="1" />
       <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="39" Column="33" />
       <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="40" Column="49" />
+>>>>>>> nick3
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
