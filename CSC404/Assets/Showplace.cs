@@ -29,7 +29,7 @@ public class Showplace : MonoBehaviour {
 		for (int k = 0; k < 4; k++) {
 			if (k != place[currentplace]) {
 				players[k].SetActive(false);
-			} 
+			}
 		}
 
 		if (currentplace != 0) {
