@@ -562,7 +562,7 @@ function CalculateJumpVerticalSpeed (targetJumpHeight : float) {
         return Mathf.Sqrt (2 * targetJumpHeight * movement.gravity);
 }
  
-function IsJumping () {
+public function IsJumping () {
         return jumping.jumping;
 }
  
