@@ -138,6 +138,9 @@ public class PlayerController : MonoBehaviour {
 		else
 			anim.SetBool("IsJumping", false);
 
+		if (Input.GetButton (playerNumber + "Fire1"))
+			anim.SetTrigger("Attack");
+
 		if(Input.GetButtonDown(playerNumber+"Jump")){
 			puffEffect();
 		}
