@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour {
 	//public GameObject shieldEffect2;
 	public GameObject gun;
 
+	Animator anim;
+
 	int hats = 1;
 	bool[] hatPlaces = {true, false, false, false};
 
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour {
 		livesFont.fontStyle = FontStyle.Bold;
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -99,6 +102,11 @@ public class PlayerController : MonoBehaviour {
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
+
+		if (Input.GetAxis (playerNumber + "Horizontal") < -0.1 || Input.GetAxis (playerNumber + "Horizontal") > 0.1)
+			anim.SetBool("IsWalking", true);
+		else
+			anim.SetBool("IsWalking", false);
 
 		//GameManager.scores [playerNumber - 1] = (int) floatScore;
 		/*
@@ -337,4 +345,5 @@ public class PlayerController : MonoBehaviour {
 	public bool[] HatPlaces() {
 		return hatPlaces;
 	}
+	
 }
