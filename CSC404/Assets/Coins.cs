@@ -9,6 +9,7 @@ public class Coins : MonoBehaviour {
 
 	float fadeTime = 0f;
 	float waitTime = 2f;
+	float rotationsPerMinute = 25.0f;
 	bool isHit = false;
 	int addedPoints;
 	GUIStyle livesFont;
@@ -29,6 +30,8 @@ public class Coins : MonoBehaviour {
 			waitTime -= Time.deltaTime;
 		if (waitTime <= 0)
 			Destroy(this.gameObject);
+
+		transform.Rotate(6.0f*rotationsPerMinute*Time.deltaTime,0,0);
 	}
 
 	void OnGUI () {
@@ -41,10 +44,18 @@ public class Coins : MonoBehaviour {
 		GUI.color = old;
 	}
 
+	void coinEffect()
+	{
+		ParticleSystem coinEffect = new ParticleSystem();
+		coinEffect = Instantiate(Resources.Load("CoinEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
+		Destroy(coinEffect, 0);
+	}
+	
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {
 			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
+					coinEffect();
 					int playerNum = other.gameObject.GetComponent<PlayerController>().playerNumber;
 					int playerHat = other.gameObject.GetComponent<PlayerController>().NumHats();
 					SetImage(playerNum, playerHat);

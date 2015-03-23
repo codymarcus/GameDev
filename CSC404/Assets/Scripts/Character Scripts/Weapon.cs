@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapon : MonoBehaviour {
 
 	public int playerNumber;
-	public GameObject bullet;
+	//public GameObject bullet;
 	public GameObject barrel;
 	public GameObject player;
 	float canFire = 0f;
@@ -23,11 +23,26 @@ public class Weapon : MonoBehaviour {
 		{ 
 			// Create a new bullet
 			GameObject b = new GameObject();
-			b = Instantiate(bullet, barrel.transform.position, barrel.transform.rotation) as GameObject;
+			switch (playerNumber)
+			{
+			case 1:
+				b = Instantiate(Resources.Load("bulletGreen2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				break;
+			case 2:
+				b = Instantiate(Resources.Load("bulletBlue2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				break;
+			case 3:
+				b = Instantiate(Resources.Load("bulletRed2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				break;
+			case 4:
+				b = Instantiate(Resources.Load("bulletYellow2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				break;
+			}
+
 			b.GetComponent<Bullet>().owner = playerNumber;
 
 			// Destroy the bullet after a few seconds
-			Destroy( b , 3.5F);
+			Destroy( b , 1.5F);
 
 			// Set cooldown
 			canFire = .3f;

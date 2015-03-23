@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour {
 		if (curMagnetTime <= 0) 
 		{
 			if (numMagnet < 1){
-				Spawn(PowersCollection[Random.Range (0, 2)], -31, 34, -9, 25);
+				Spawn(PowersCollection[Random.Range (0, 3)], -31, 34, -9, 25);
 				curMagnetTime = MagnetSpawnTime;
 			}
 		}
@@ -290,8 +290,8 @@ public class GameManager : MonoBehaviour {
 
 	public void RoundOver (List<int> winnerNumbers, int numWinners, int score)
 	{
-		for (int i = 0; i < numWinners; i++)
-			ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
+		//for (int i = 0; i < numWinners; i++)
+			//ScoreScreenManager.matchScores[winnerNumbers[i] - 1]+=score;
 		MatchManager.roundNumber ++;
 		Application.LoadLevel ("ScoresScreen");
 	}

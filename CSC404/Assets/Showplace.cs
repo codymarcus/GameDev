@@ -6,54 +6,51 @@ public class Showplace : MonoBehaviour {
 	
 	public GameObject[] players;
 	public Slider slider;
-	public static int[] place = {0,0,0,0};
-	public static int[] sortedscores = {0,0,0,0};
+	public static int[] rank = {0,0,0,0};
 	int[] scores = {0,0,0,0};
 	public int currentplace;
 
 	// Update is called once per frame
 	void Start () {
 	
-		sortedscores = GameManager.scores;
-		sortedscores = Sort (sortedscores);
-		for(int i = 0; i < 4; i++){
-			for(int j = 0; j < 4; j++){
-				if ((sortedscores[i] == scores[j]) && (ScoreScreenManager.rank[j] == 0)){
-					place[i] = j;
-					ScoreScreenManager.rank[j] = -1;
-					break;
+		scores = GameManager.scores;
+
+		int counter = 0;
+		for (int i=0; i<4; i++) {
+			for (int j =0;j<4;j++){
+				if (scores[i] < scores[j]) {
+					counter++;
 				}
 			}
+			rank[i] = counter;
+			counter = 0;
+		}
+
+		
+		int stackedrank = 0;
+		for (int i=0; i<4; i++) {
+			for (int j=0; j<i; j++){
+				if (rank[j] == rank[i]) {
+					stackedrank++;
+				}
+			}
+			rank[i] += stackedrank;
+			//stackedrank = 0;
+		}
+
+		for (int i=0; i<4; i++) {
+			//Debug.Log(rank[i]);
 		}
 
 		for (int k = 0; k < 4; k++) {
-			if (k != place[currentplace]) {
+			if (currentplace != rank[k]) {
 				players[k].SetActive(false);
-			}
-		}
-
-		if (currentplace != 0) {
-			slider.value = sortedscores[currentplace];
-		}
-
-
-	}
-
-	int[] Sort (int[] list) {
-		int[] result = {0,0,0,0};
-		int bigger = 0;
-
-		for (int i = 0; i < 4; i++) {
-			bigger = 0;
-			for (int j = 0; j < 4; j++) {
-				if (list[i] > list[j]) {
-					bigger++;
+			} else {
+				if (currentplace != 0) {
+					slider.value = scores[k];
 				}
 			}
-			result[3-bigger] = list[i];
 		}
-
-		return result;
 	}
 
 

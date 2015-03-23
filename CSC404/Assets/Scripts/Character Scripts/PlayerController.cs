@@ -13,14 +13,23 @@ public class PlayerController : MonoBehaviour {
 	public int lives = 1000;
 	public GameObject self;
 	public GameObject MagnetEffect;
+	public ParticleSystem shieldEffect;
+	public ParticleSystem magnetParticleEffect;
+	//public GameObject shieldEffect2;
+	public GameObject gun;
+
+	Animator anim;
 
 	int hats = 1;
 	bool[] hatPlaces = {true, false, false, false};
 
-	float timeInShield;
+	float timeInShield = 0;
+	float timeInMagnet = 0;
+	float SplittedTime = 0;
 
-	float MagnetTime = 0;
 	bool isShield = true;
+	bool isMagnet = true; // to turn off particle effects at the very beginning
+	bool splittedEnabled = true;
 
 	GameObject[] players;
 
@@ -47,8 +56,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//timeInShield = shieldTime;
-
 		spawns = GameObject.FindGameObjectsWithTag ("Spawn");
 
 		players = GameObject.FindGameObjectsWithTag ("Player");
@@ -61,21 +68,45 @@ public class PlayerController : MonoBehaviour {
 		livesFont.fontStyle = FontStyle.Bold;
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
-
+		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		PlayerScoreSlider.value = GameManager.scores [playerNumber - 1];
+
 		if (timeInShield > 0)
 			timeInShield -= Time.deltaTime;
 		else
-			isShield = false;
+			if(isShield) turnOffShield();
+
+		if (timeInMagnet > 0)
+			timeInMagnet -= Time.deltaTime;
+		else
+			if(isMagnet)turnOffMagnet();
+
+		if (SplittedTime > 0)
+			SplittedTime -= Time.deltaTime;
+		else
+			splittedEnabled = false;
+
+		if (splittedEnabled == true) {
+			gun.GetComponent<Aim> ().splitted = true;		
+		} else {
+			gun.GetComponent<Aim> ().splitted = false;
+		}
+		if (fadeTime > 0)
+			fadeTime -= Time.deltaTime;
 
 		if (transform.position.z != 0)
 			transform.position = new Vector3 (transform.position.x, transform.position.y, 0);
 		screenPosition = Camera.main.WorldToScreenPoint(transform.position);
 		screenPosition.y = Screen.height - screenPosition.y;
+
+		if (Input.GetAxis (playerNumber + "Horizontal") < -0.1 || Input.GetAxis (playerNumber + "Horizontal") > 0.1)
+			anim.SetBool("IsWalking", true);
+		else
+			anim.SetBool("IsWalking", false);
 
 		//GameManager.scores [playerNumber - 1] = (int) floatScore;
 		/*
@@ -92,15 +123,6 @@ public class PlayerController : MonoBehaviour {
 			self.transform.rotation = Quaternion.LookRotation(Vector3.back, Vector3.up);
 		*/
 
-		if (fadeTime > 0)
-			fadeTime -= Time.deltaTime;
-
-		if (MagnetTime > 0)
-			MagnetTime -= Time.deltaTime;
-
-		if (MagnetTime <= 0)
-			MagnetEffect.GetComponent<Collider>().enabled = false;
-
 		// If player falls through bottom of screen, teleport them to top
 		if (transform.position.y <= -10)
 			transform.position = new Vector3 (transform.position.x, 26);
@@ -110,6 +132,10 @@ public class PlayerController : MonoBehaviour {
 			transform.position = new Vector3 (32.5f, transform.position.y);
 		if (transform.position.x > 32.5f)
 			transform.position = new Vector3 (-32.5f, transform.position.y);
+
+		if(Input.GetButtonDown(playerNumber+"Jump")){
+			puffEffect();
+		}
 	}
 
 	void OnGUI () {
@@ -169,28 +195,42 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Magnet")
 		{
-			MagnetEffect.GetComponent<Collider>().enabled = true;
-			MagnetTime = 5f;
+			turnOnMagnet(5f);
 			Destroy(other.gameObject);
 		}
 		if (other.gameObject.tag == "Shield")
 		{
-			timeInShield = 5f;
-			isShield = true;
+			turnOnShield(5f);
 			Destroy(other.gameObject);
 		}
+		if (other.gameObject.tag == "SplittedBarrel")
+		{
 
+			SplittedTime = 5f;
+			splittedEnabled = true;
+			Debug.Log (splittedEnabled);
+			Destroy(other.gameObject);
+		}
+		if (other.gameObject.tag == "Floor")
+		{
+			if(other.transform.position.y < transform.position.y) puffEffect();
+		}
+		
 	}
 
-
+	void puffEffect()
+	{
+		ParticleSystem puff = new ParticleSystem();
+		puff = Instantiate(Resources.Load("SmokePuff"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
+		Destroy(puff, 0);
+	}
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "Floor")
-			canDJump = true;
 		{
+			canDJump = true;			
 			speed = new Vector3 (speed.x, 0, speed.z);
 		}
-
 		if (other.gameObject.tag == "HeavyFloorTrigger")
 		{
 			other.gameObject.GetComponentInParent<HeavyFloor>().NotWeighDown();
@@ -199,19 +239,6 @@ public class PlayerController : MonoBehaviour {
 		if (other.gameObject.tag == "Hill")
 		{
 			inHill = false;
-		}
-	}
-
-	void OnTriggerStay(Collider other)
-	{
-		if (other.gameObject.tag == "Hill")
-		{
-			floatScore += Time.deltaTime;
-		}
-
-		if (other.gameObject.tag == "HeavyFloorTrigger")
-		{
-			other.gameObject.GetComponentInParent<HeavyFloor>().WeighDown();
 		}
 	}
 
@@ -239,7 +266,7 @@ public class PlayerController : MonoBehaviour {
 					int spawnNumber = Random.Range (0, spawns.Length);
 					spawn = spawns [spawnNumber];
 					//timeInShield = shieldTime;
-					isShield = true;
+					//turnOnShield();
 					transform.position = spawn.transform.position;
 				}
 				else
@@ -255,12 +282,31 @@ public class PlayerController : MonoBehaviour {
 				int spawnNumber = Random.Range (0, spawns.Length);
 				spawn = spawns [spawnNumber];
 				//timeInShield = shieldTime;
-				isShield = true;
+				//turnOnShield();
 				transform.position = spawn.transform.position;
 			}
 		}
 	}
-
+	public void turnOnShield(float dur){
+		isShield = true;
+		timeInShield = dur;
+		shieldEffect.Play();
+	}
+	public void turnOffShield(){
+		isShield = false;
+		shieldEffect.Stop();
+	}
+	public void turnOnMagnet(float dur){
+		isMagnet = true;
+		timeInMagnet = dur;
+		magnetParticleEffect.Play();
+		MagnetEffect.GetComponent<Collider>().enabled = true;
+	}
+	public void turnOffMagnet(){
+		isMagnet = false;
+		magnetParticleEffect.Stop();
+		MagnetEffect.GetComponent<Collider>().enabled = false;
+	}
 	public bool IsShield() {
 		return isShield;
 	}
@@ -299,4 +345,5 @@ public class PlayerController : MonoBehaviour {
 	public bool[] HatPlaces() {
 		return hatPlaces;
 	}
+	
 }

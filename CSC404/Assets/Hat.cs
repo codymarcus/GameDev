@@ -38,7 +38,7 @@ public class Hat : MonoBehaviour {
 		else
 		{
 //			transform.rotation = new Quaternion(0,0,0,0);
-			transform.right = -owner.transform.forward;
+			transform.right = -owner.transform.Find("Player").forward;
 //			for (int i=0; i<4; i++)
 //				if (!owner.GetComponent<PlayerController>().HatPlaces()[i] && i+1 == hatNumber)
 //					hatNumber--;
