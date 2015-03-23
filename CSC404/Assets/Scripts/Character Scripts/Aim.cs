@@ -6,6 +6,8 @@ public class Aim : MonoBehaviour {
 	public int playerNumber;
 	public GameObject[] barrel;
 	public bool splitted = false;
+	public GameObject playerController;
+	Transform player;
 	Vector2 rightStick = new Vector2(0, 0);
 	float angularVelocity = 200f;
 	float radialDeadZone = 0.25f;
@@ -16,7 +18,7 @@ public class Aim : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		 
+		player = playerController.transform.Find("Player");
 	}
 	
 	// Update is called once per frame
@@ -34,6 +36,22 @@ public class Aim : MonoBehaviour {
 			transform.rotation = Quaternion.Lerp(transform.rotation, currentRotation, Time.deltaTime * angularVelocity);
 
 		}
+
+		if (Input.GetAxis (playerNumber + "RightH") < -0.1)
+		{
+			player.rotation = new Quaternion(0, 90, 0, 0);
+//			foreach (Transform child in playerController.transform)
+//				if (child.tag == "Hat")
+//					child.rotation = new Quaternion(0, 270, 0, 0);
+		}
+		if (Input.GetAxis (playerNumber + "RightH") > 0.1)
+		{
+			player.rotation = new Quaternion(0, 0, 0, 0);
+//			foreach (Transform child in playerController.transform)
+//				if (child.tag == "Hat")
+//					child.rotation = new Quaternion(0, 90, 0, 0);
+		}
+
 
 		if (splitted == true) {
 			if (Input.GetButton (playerNumber + "Fire1")) {
