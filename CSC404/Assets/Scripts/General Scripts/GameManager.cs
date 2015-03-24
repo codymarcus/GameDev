@@ -141,7 +141,7 @@ public class GameManager : MonoBehaviour {
 
 		for (int i=0; i<4; i++)
 		{
-			if (scores[i] >= 30)
+			if (scores[i] >= winScore)
 			//winners.Add(i+1);
 				Application.LoadLevel ("ScoresScreen");
 		}
