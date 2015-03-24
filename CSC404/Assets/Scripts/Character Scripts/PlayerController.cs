@@ -83,12 +83,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
 		if (pausepressed == false) {
-			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire4")) {
 				pausepressed = true;
 				//resumepressed = false;
 			}
 		} else {
-			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire4")) {
 				pausepressed = false;
 				//resumepressed = true;
 			}
