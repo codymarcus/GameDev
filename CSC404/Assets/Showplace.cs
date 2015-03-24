@@ -9,7 +9,9 @@ public class Showplace : MonoBehaviour {
 	public Text score;
 	public static int[] rank = {0,0,0,0};
 	public static int[] scores = {0,0,0,0};
+	public Image fill;
 	public int currentplace;
+	public Color[] PlayerColors = {Color.green, Color.blue, Color.red, Color.yellow};
 
 	// Update is called once per frame
 	void Start () {
@@ -49,6 +51,7 @@ public class Showplace : MonoBehaviour {
 			} else {
 				if (currentplace != 0) {
 					slider.value = scores[k];
+					fill.color = PlayerColors[k];
 				}
 				score.text = (100 * scores[k]).ToString();
 			}
