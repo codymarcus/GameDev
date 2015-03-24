@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -35,9 +35,6 @@ public class PlayerController : MonoBehaviour {
 	bool splittedEnabled = true;
 
 	GameObject[] players;
-
-	float hatDrop = 1f;
-	bool isHatDrop = false;
 
 	Vector3 speed = new Vector3();
 	public CharacterController controller;
@@ -92,13 +89,6 @@ public class PlayerController : MonoBehaviour {
 				pausepressed = false;
 				//resumepressed = true;
 			}
-		}
-
-		if (isHatDrop)
-		{
-			hatDrop -= Time.deltaTime;
-			if (hatDrop <= 0)
-				DropHats();
 		}
 
 		if (PlayerScoreSlider.value < GameManager.scores [playerNumber - 1])
@@ -185,16 +175,23 @@ public class PlayerController : MonoBehaviour {
 //		if (inHill)
 //		GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
 
+<<<<<<< HEAD
+		playerColor.a = fadeTime;
+		GUI.color = playerColor;
+		if (numHats < 1)
+			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
+=======
 		//playerColor.a = fadeTime;
 		//GUI.color = playerColor;
 		Color color = GUI.color;
 		Color old = color;
 		color.a = fadeTime;
 		GUI.color = color;
-		if (numHats < 1)
+		if (hats < 1)
 			//GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
 			GetHatImage = (Texture2D)Resources.Load(SetGetHatPath(playerNumber));
 			GUI.DrawTexture(new Rect(screenPosition.x-30, screenPosition.y-60, 60, 40), GetHatImage, ScaleMode.StretchToFill);
+>>>>>>> f94bce12039d5b58a1cc544898863dd6b3f4e387
 		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
 		//{
 		//	if (lives > 1)
@@ -372,52 +369,37 @@ public class PlayerController : MonoBehaviour {
 			numHats--;
 			hats = GetComponentsInChildren<Hat>();
 
-			bool pass = false;
-
 			for (int i=0; i < 4; i++)
 				if (!hatPlaces[i])
 				{
 					hatPlaces[i-1] = false;
 					Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
-					pass = true;
+					return;
 				}
-			if (pass == false)
-			{
-				hatPlaces[3] = false;
-				Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
-			}
-			isHatDrop = true;
-			hatDrop = 1f;
-		}
-	}
+			hatPlaces[3] = false;
+			Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
 
-	void DropHats() {
-		isHatDrop = false;
-		hatDrop = 1f;
-		for (int j=0; j<4; j++)
-		{
-			Debug.Log(hatPlaces[j]);
-			if (hatPlaces[j])
+			for (int j=0; j<4; j++)
 			{
-				bool isEmpty = true;
-				while (isEmpty == true)
+				if (hatPlaces[j])
 				{
-					foreach(Hat hat in hats)
-					{
-						if (hat.GetHatNumber() - 1 == j)
-						{
-							isEmpty = false;
-						}
-					}
-					if (isEmpty == true)
+					bool isEmpty = true;
+					while (isEmpty == true)
 					{
 						foreach(Hat hat in hats)
 						{
-							if (hat.GetHatNumber() - 1 > j)
-								hat.SetHatNumber(hat.GetHatNumber()-1);
+							if (hat.GetHatNumber() - 1 == j)
+								isEmpty = false;
+						}
+						if (isEmpty == true)
+						{
+							foreach(Hat hat in hats)
+							{
+								if (hat.GetHatNumber() - 1 > j)
+									hat.SetHatNumber(hat.GetHatNumber()-1);
+							}
 						}
 					}
-					hats = GetComponentsInChildren<Hat>();
 				}
 			}
 		}
