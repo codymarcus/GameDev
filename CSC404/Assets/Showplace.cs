@@ -50,7 +50,7 @@ public class Showplace : MonoBehaviour {
 				if (currentplace != 0) {
 					slider.value = scores[k];
 				}
-				score.text = scores[k].ToString();
+				score.text = (100 * scores[k]).ToString();
 			}
 		}
 	}
