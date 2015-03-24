@@ -6,8 +6,9 @@ public class Showplace : MonoBehaviour {
 	
 	public GameObject[] players;
 	public Slider slider;
+	public Text score;
 	public static int[] rank = {0,0,0,0};
-	int[] scores = {0,0,0,0};
+	public static int[] scores = {0,0,0,0};
 	public int currentplace;
 
 	// Update is called once per frame
@@ -49,6 +50,7 @@ public class Showplace : MonoBehaviour {
 				if (currentplace != 0) {
 					slider.value = scores[k];
 				}
+				score.text = scores[k].ToString();
 			}
 		}
 	}
