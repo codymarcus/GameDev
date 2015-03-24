@@ -24,23 +24,25 @@ public class MovingFloor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-		transform.position = new Vector3(transform.position.x + thisXVelocity, transform.position.y + thisYVelocity);
-
-		if (!xOut && (transform.position.x > startX + xRange || transform.position.x < startX))
+		if (!GameManager.paused)
 		{
-			thisXVelocity = -thisXVelocity;
-			xOut = true;
-		}
-		else
-			xOut = false;
+			transform.position = new Vector3(transform.position.x + thisXVelocity, transform.position.y + thisYVelocity);
 
-		if (!yOut && (transform.position.y > startY + yRange || transform.position.y < startY))
-		{
-			thisYVelocity = -thisYVelocity;
-			yOut = true;
+			if (!xOut && (transform.position.x > startX + xRange || transform.position.x < startX))
+			{
+				thisXVelocity = -thisXVelocity;
+				xOut = true;
+			}
+			else
+				xOut = false;
+
+			if (!yOut && (transform.position.y > startY + yRange || transform.position.y < startY))
+			{
+				thisYVelocity = -thisYVelocity;
+				yOut = true;
+			}
+			else
+				yOut = false;
 		}
-		else
-			yOut = false;
 	}
 }
