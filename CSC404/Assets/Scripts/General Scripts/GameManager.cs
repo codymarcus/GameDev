@@ -126,16 +126,18 @@ public class GameManager : MonoBehaviour {
 		//scoreText.text = "First to 30!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
 		//timerText.text = "Time Remaining:" + (int)timeRemain;
-		int numMagnet = GameObject.FindGameObjectsWithTag("Magnet").Length;
+		int numPowers = GameObject.FindGameObjectsWithTag("Magnet").Length + 
+						GameObject.FindGameObjectsWithTag("Shield").Length + 
+						GameObject.FindGameObjectsWithTag("SplittedBarrel").Length;
 		numCoins = GameObject.FindGameObjectsWithTag("Money").Length;
 		scoreText.text = "First to 30!";
 		curFloorTime -= Time.deltaTime;
 
-		if (numMagnet < 1){
+		if (numPowers < 3){
 			curMagnetTime -= Time.deltaTime;
 		}
 
-		if (numMagnet < 3){
+		if (numCoins < 3){
 			curMoneyTime -= Time.deltaTime;
 		}
 
@@ -157,15 +159,15 @@ public class GameManager : MonoBehaviour {
 		{
 			if (numCoins < 3)
 			{
-				Spawn(CoinsCollcetion[Random.Range (0, 3)], -40, 10, -1, 25);
+				Spawn(CoinsCollcetion[Random.Range (0, 3)], -36, 8, -1, 24);
 				curMoneyTime = moneySpawnTime;
 			}
 		}
 
 		if (curMagnetTime <= 0) 
 		{
-			if (numMagnet < 1){
-				Spawn(PowersCollection[Random.Range (0, 3)], -31, 34, -9, 25);
+			if (numPowers < 3){
+				Spawn(PowersCollection[Random.Range (0, 3)], -27, 27, -6, 20);
 				curMagnetTime = MagnetSpawnTime;
 			}
 		}
