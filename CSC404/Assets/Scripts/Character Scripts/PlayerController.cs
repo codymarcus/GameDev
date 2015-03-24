@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour {
 	public ParticleSystem magnetParticleEffect;
 	//public GameObject shieldEffect2;
 	public GameObject gun;
+	public bool pausepressed = false;
 
+	public Texture2D GetHatImage;
 	Animator anim;
 
 	int numHats = 1;
@@ -76,6 +78,19 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (pausepressed == false) {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+				pausepressed = true;
+				//resumepressed = false;
+			}
+		} else {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+				pausepressed = false;
+				//resumepressed = true;
+			}
+		}
+
 		if (PlayerScoreSlider.value < GameManager.scores [playerNumber - 1])
 			PlayerScoreSlider.value += (GameManager.scores [playerNumber - 1]-PlayerScoreSlider.value)/10f;
 
@@ -151,9 +166,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		color.a = 1;
-		GUI.color = color;
-		GUI.Label(new Rect(screenPosition.x-10, screenPosition.y-5, 100, 100),("P" + playerNumber));
+		//color.a = 1;
+		//GUI.color = color;
 
 //		playerColor.a = 1;
 //		GUI.color = playerColor;
@@ -161,10 +175,16 @@ public class PlayerController : MonoBehaviour {
 //		if (inHill)
 //		GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),(GameManager.scores [playerNumber - 1]+""));
 
-		playerColor.a = fadeTime;
-		GUI.color = playerColor;
-		if (numHats < 1)
-			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
+		//playerColor.a = fadeTime;
+		//GUI.color = playerColor;
+		Color color = GUI.color;
+		Color old = color;
+		color.a = fadeTime;
+		GUI.color = color;
+		if (hats < 1)
+			//GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
+			GetHatImage = (Texture2D)Resources.Load(SetGetHatPath(playerNumber));
+			GUI.DrawTexture(new Rect(screenPosition.x-30, screenPosition.y-60, 60, 40), GetHatImage, ScaleMode.StretchToFill);
 		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
 		//{
 		//	if (lives > 1)
@@ -174,6 +194,19 @@ public class PlayerController : MonoBehaviour {
 		//}
 		//else
 		//	GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Infinite Lives!"), livesFont);
+	}
+
+	string SetGetHatPath(int playerNum){
+		string path = "ScorePoints/";
+		if(playerNum == 1)
+			path += "green/g_hat";
+		if(playerNum == 2)
+			path += "blue/b_hat";
+		if(playerNum == 3)
+			path += "red/r_hat";
+		if(playerNum == 4)
+			path += "yellow/y_hat";
+		return path;
 	}
 
 	void OnTriggerEnter(Collider other)
