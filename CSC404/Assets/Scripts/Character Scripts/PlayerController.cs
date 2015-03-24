@@ -73,7 +73,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		PlayerScoreSlider.value = GameManager.scores [playerNumber - 1];
+		if (PlayerScoreSlider.value < GameManager.scores [playerNumber - 1])
+			PlayerScoreSlider.value += (GameManager.scores [playerNumber - 1]-PlayerScoreSlider.value)/10f;
 
 		if (timeInShield > 0)
 			timeInShield -= Time.deltaTime;
