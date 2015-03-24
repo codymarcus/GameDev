@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour {
 	int[] team1Array;
 	int[] team2Array;
 
+	int pause_player = -1;
+
 	public static int[] scores = {0, 0, 0, 0};
 	public static int[] teamScores = {0, 0};
 
@@ -51,6 +53,9 @@ public class GameManager : MonoBehaviour {
 	public float moneySpawnTime = 5f;
 	public float MagnetSpawnTime = 5f;
 	//float timeRemain = 12f;
+
+	public static bool paused = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -118,6 +123,24 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (pause_player == -1) {
+			for (int i=0; i<4; i++) {
+				if (players [i].GetComponent<PlayerController> ().pausepressed == true) {
+					Time.timeScale = 0;
+					pause_player = i;
+					paused = true;
+					//Debug.Log (1);
+					break;
+				}
+			}
+		} else {
+			if (players [pause_player].GetComponent<PlayerController> ().pausepressed == false) {
+				Time.timeScale = 1;
+				pause_player = -1;
+				paused = false;
+			}
+		}
 
 		//timeRemain -= Time.deltaTime;
 	

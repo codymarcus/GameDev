@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	public ParticleSystem magnetParticleEffect;
 	//public GameObject shieldEffect2;
 	public GameObject gun;
+	public bool pausepressed = false;
 
 	public Texture2D GetHatImage;
 	Animator anim;
@@ -74,6 +75,19 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (pausepressed == false) {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+				pausepressed = true;
+				//resumepressed = false;
+			}
+		} else {
+			if (Input.GetKeyDown ("z") || Input.GetButton ("Fire2")) {
+				pausepressed = false;
+				//resumepressed = true;
+			}
+		}
+
 		if (PlayerScoreSlider.value < GameManager.scores [playerNumber - 1])
 			PlayerScoreSlider.value += (GameManager.scores [playerNumber - 1]-PlayerScoreSlider.value)/10f;
 
