@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
+     <Compile Include="Assets\ShowScore.cs" />
      <Compile Include="Assets\ShowStartTime.cs" />
      <Compile Include="Assets\Showplace.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />

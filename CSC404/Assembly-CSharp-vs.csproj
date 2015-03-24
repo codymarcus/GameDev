@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\General Scripts\MatchManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\General Scripts\ScoreScreenManager.cs" />
+     <Compile Include="Assets\ShowScore.cs" />
      <Compile Include="Assets\ShowStartTime.cs" />
      <Compile Include="Assets\Showplace.cs" />
      <Compile Include="Assets\SpikeDeath.cs" />
@@ -95,7 +96,7 @@
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors_RimOutline.shader" />
      <None Include="Assets\JMO Assets\Toony Colors\Shaders\Toony_Colors.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/MarishkaZ/Desktop/OCAD/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/codymarcus/Developer/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
