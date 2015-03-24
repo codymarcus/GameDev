@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour {
 
 	Animator anim;
 
-	int hats = 1;
+	int numHats = 1;
 	bool[] hatPlaces = {true, false, false, false};
+	Hat[] hats;
 
 	float timeInShield = 0;
 	float timeInMagnet = 0;
@@ -69,6 +70,8 @@ public class PlayerController : MonoBehaviour {
 		playerColor = self.GetComponent<Renderer>().material.color;
 		livesFont.normal.textColor = playerColor;
 		anim = GetComponent<Animator>();
+
+		hats = GetComponentsInChildren<Hat>();
 	}
 	
 	// Update is called once per frame
@@ -160,7 +163,7 @@ public class PlayerController : MonoBehaviour {
 
 		playerColor.a = fadeTime;
 		GUI.color = playerColor;
-		if (hats < 1)
+		if (numHats < 1)
 			GUI.Label(new Rect(screenPosition.x-15, screenPosition.y-40, 100, 100),("Get a Hat!"), livesFont);
 		//if (manager.gameType == "Deathmatch" || manager.gameType == "Team Deathmatch")
 		//{
@@ -193,9 +196,9 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "Money")
 		{
-			if (hats > 0)
+			if (numHats > 0)
 			{
-				addedPoints = (int) Mathf.Pow(2f, hats-1);
+				addedPoints = (int) Mathf.Pow(2f, numHats-1);
 				GameManager.AddScore(playerNumber, addedPoints);
 			}
 			else
@@ -321,9 +324,11 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void LoseHat() {
-		if (hats > 0)
+		if (numHats > 0)
 		{
-			hats--;
+			numHats--;
+			hats = GetComponentsInChildren<Hat>();
+
 			for (int i=0; i < 4; i++)
 				if (!hatPlaces[i])
 				{
@@ -333,11 +338,35 @@ public class PlayerController : MonoBehaviour {
 				}
 			hatPlaces[3] = false;
 			Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+
+			for (int j=0; j<4; j++)
+			{
+				if (hatPlaces[j])
+				{
+					bool isEmpty = true;
+					while (isEmpty == true)
+					{
+						foreach(Hat hat in hats)
+						{
+							if (hat.GetHatNumber() - 1 == j)
+								isEmpty = false;
+						}
+						if (isEmpty == true)
+						{
+							foreach(Hat hat in hats)
+							{
+								if (hat.GetHatNumber() - 1 > j)
+									hat.SetHatNumber(hat.GetHatNumber()-1);
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
 	public void AddHat() {
-		hats++;
+		numHats++;
 		for (int i=0; i < 4; i++)
 			if (!hatPlaces[i])
 			{
@@ -348,7 +377,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public int NumHats() {
-		return hats;
+		return numHats;
 	}
 
 	public bool[] HatPlaces() {

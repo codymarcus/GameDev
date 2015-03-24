@@ -54,6 +54,7 @@ public class Hat : MonoBehaviour {
 			transform.position = new Vector3 (32.5f, transform.position.y);
 		if (transform.position.x > 32.5f)
 			transform.position = new Vector3 (-32.5f, transform.position.y);
+
 	}
 
 	public void Hit() {
@@ -94,5 +95,13 @@ public class Hat : MonoBehaviour {
 
 	public bool IsHit() {
 		return isHit;
+	}
+
+	public int GetHatNumber() {
+		return hatNumber;
+	}
+
+	public void SetHatNumber(int num) {
+		hatNumber = num;
 	}
 }
