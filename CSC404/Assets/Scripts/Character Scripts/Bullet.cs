@@ -54,7 +54,10 @@ public class Bullet : MonoBehaviour {
 		{
 			destroyTime -= Time.deltaTime;
 			if (destroyTime <= 0)
+			{
 				Destroy (gameObject);
+				hitEffect();
+			}
 		}
 	}
 

@@ -14,8 +14,12 @@ public class Coins : MonoBehaviour {
 	int addedPoints;
 	GUIStyle livesFont;
 	public Texture2D ScoreImage;
+	public AudioClip collectSound;
+
+	AudioSource source;
 
 	void Start () {
+		source = GetComponent<AudioSource>();
 		//ScoreImage = (Texture2D)Resources.Load("ScorePoints/red/r_100");
 	}
 	
@@ -50,11 +54,12 @@ public class Coins : MonoBehaviour {
 		coinEffect = Instantiate(Resources.Load("CoinEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
 		Destroy(coinEffect, 0);
 	}
-	
+
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {
 			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
+					source.PlayOneShot(collectSound, 1f);
 					coinEffect();
 					int playerNum = other.gameObject.GetComponent<PlayerController>().playerNumber;
 					int playerHat = other.gameObject.GetComponent<PlayerController>().NumHats();
@@ -96,7 +101,7 @@ public class Coins : MonoBehaviour {
 
 	void OnTriggerStay(Collider other){
 		if (other.tag == "Magneting"){
-			float step = 2.0f * Time.deltaTime;
+			float step = 5.0f * Time.deltaTime;
 			transform.position = Vector3.MoveTowards(transform.position, other.gameObject.transform.position,step);
 		}
 	}
