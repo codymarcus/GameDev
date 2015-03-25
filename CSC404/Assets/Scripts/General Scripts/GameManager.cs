@@ -263,11 +263,13 @@ public class GameManager : MonoBehaviour {
 		while (Physics.CheckSphere(spawnLoc, 1)) {
 			spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
 		}
-		if (item.name == "Square Coins" || item.name == "Wave Coins" || item.name == "Cross Coins") {
-			coinSpawnEffect(spawnLoc);
-			spawnCoins(1.0f, item, spawnLoc);
-		}else{
-			GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
+		if(Time.time > 4.0f){
+			if (item.name == "Square Coins" || item.name == "Wave Coins" || item.name == "Cross Coins") {
+				coinSpawnEffect(spawnLoc);
+				spawnCoins(1.0f, item, spawnLoc);
+			}else{
+				GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
+			}
 		}
 	}
 	void spawnCoins(float delay, GameObject item, Vector3 spawnLoc){
