@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Character Scripts/Bullet.cs">
     <Files>
       <File FileName="Assets/Hat.cs" Line="45" Column="104" />
@@ -14,6 +15,22 @@
       <File FileName="Assets/Scripts/Character Scripts/Aim.cs" Line="1" Column="1" />
       <File FileName="Assets/Standard Assets/Character Controllers/Sources/Scripts/CharacterMotor.js" Line="1" Column="1" />
       <File FileName="Assets/MovingFloor.cs" Line="30" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\PlayerController.cs">
+    <Files>
+      <File FileName="Assets\Hat.cs" Line="99" Column="1" />
+      <File FileName="Assets\Scripts\General Scripts\GameManager.cs" Line="299" Column="1" />
+      <File FileName="Assets\Scripts\General Scripts\MatchManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Coins.cs" Line="106" Column="1" />
+      <File FileName="Assets\CoinsCollection.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="124" Column="80" />
+      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="147" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="69" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="89" Column="1" />
+      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="616" Column="1" />
+      <File FileName="Assets\MovingFloor.cs" Line="47" Column="1" />
+>>>>>>> Stashed changes
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
