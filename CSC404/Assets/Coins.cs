@@ -50,7 +50,7 @@ public class Coins : MonoBehaviour {
 		coinEffect = Instantiate(Resources.Load("CoinEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
 		Destroy(coinEffect, 0);
 	}
-	
+
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {

@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] players;
 	public GameObject spawnFloor;
 	Vector3 spawnLoc;
+	Vector3 coinSpawnLoc;
+	GameObject coinSpawnObject;
+	float coinSpawnTime;
 
 	GameObject[] playersList;
 
@@ -141,10 +144,7 @@ public class GameManager : MonoBehaviour {
 				paused = false;
 			}
 		}
-
 		//timeRemain -= Time.deltaTime;
-	
-
 		//scoreText.text = "First to 100!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 		//scoreText.text = "First to 30!\nP1: " + scores[0] + "\n" + "P2: " + scores[1] + "\n" + "P3: " + scores[2] + "\n" + "P4: " + scores[3];
 
@@ -162,6 +162,14 @@ public class GameManager : MonoBehaviour {
 
 		if (numCoins < 3){
 			curMoneyTime -= Time.deltaTime;
+		}
+		if (coinSpawnTime > 0) {
+			coinSpawnTime -= Time.deltaTime;
+		}else{
+			if(coinSpawnObject){
+				GameObject s = Instantiate (coinSpawnObject, coinSpawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
+				coinSpawnObject = null;
+			}
 		}
 
 		for (int i=0; i<4; i++)
@@ -255,8 +263,19 @@ public class GameManager : MonoBehaviour {
 		while (Physics.CheckSphere(spawnLoc, 2)) {
 			spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
 		}
-		GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
+		if (item.name == "Square Coins" || item.name == "Wave Coins" || item.name == "Cross Coins") {
+			coinSpawnEffect(spawnLoc);
+			spawnCoins(1.0f, item, spawnLoc);
+		}else{
+			GameObject s = Instantiate (item, spawnLoc, Quaternion.Euler (0, 0, 0)) as GameObject;
+		}
 	}
+	void spawnCoins(float delay, GameObject item, Vector3 spawnLoc){
+		coinSpawnLoc = spawnLoc;
+		coinSpawnObject = item;
+		coinSpawnTime = delay;
+	}
+
 	// Function to move Hill
 	void MoveHill ()
 	{
@@ -306,6 +325,12 @@ public class GameManager : MonoBehaviour {
 				RoundOver(winners, 2, 1);
 			}
 		}
+	}
+
+	public static void coinSpawnEffect(Vector3 spawnLoc)
+	{
+		ParticleSystem coinEffect = new ParticleSystem();
+		coinEffect = Instantiate(Resources.Load("CoinSpawnEffect"), spawnLoc, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
 	}
 
 	public static void ResetScores(){
