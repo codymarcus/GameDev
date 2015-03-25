@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 	public bool pausepressed = false;
 
 	public Texture2D GetHatImage;
+
+	public AudioClip GetCoins;
+
 	Animator anim;
 
 	int numHats = 1;
@@ -241,6 +244,7 @@ public class PlayerController : MonoBehaviour {
 		{
 			if (numHats > 0)
 			{
+				GetComponent<AudioSource>().PlayOneShot(GetCoins);
 				addedPoints = (int) Mathf.Pow(2f, numHats-1);
 				GameManager.AddScore(playerNumber, addedPoints);
 			}
