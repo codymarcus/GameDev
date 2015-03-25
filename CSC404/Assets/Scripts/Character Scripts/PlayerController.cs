@@ -222,6 +222,15 @@ public class PlayerController : MonoBehaviour {
 		return path;
 	}
 
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "HatTrigger")
+		{
+			if (other.GetComponentInParent<Hat>().IgnoreTrigger() == false)
+				other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
+		}
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		// If player touches a death object then die
@@ -237,7 +246,8 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "HatTrigger")
 		{
-			other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
+			if (other.GetComponentInParent<Hat>().IgnoreTrigger() == false)
+				other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
 		}
 
 		if (other.gameObject.tag == "Money")

@@ -11,8 +11,9 @@ public class Hat : MonoBehaviour {
 	bool isHit = false;
 	float hitTime = 0.5f;
 	float timeLeft;
-
 	int hatNumber = 1;
+	bool isDropping = false;
+	bool ignoreTrigger = false;
 
 	// Use this for initialization
 	void Start () {
@@ -33,7 +34,11 @@ public class Hat : MonoBehaviour {
 		{
 			timeLeft -= Time.deltaTime;
 			if (timeLeft <= 0)
-				Physics.IgnoreCollision(GetComponent<Collider>(), owner.GetComponent<Collider>(), false);
+			{
+				ignoreTrigger = false;
+				//foreach (GameObject player in players)
+				//s	Physics.IgnoreCollision(GetComponentInChildren<Collider>(), player.GetComponent<Collider>(), false);
+			}
 		}
 		else
 		{
@@ -42,7 +47,15 @@ public class Hat : MonoBehaviour {
 //			for (int i=0; i<4; i++)
 //				if (!owner.GetComponent<PlayerController>().HatPlaces()[i] && i+1 == hatNumber)
 //					hatNumber--;
-			transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y + (hatNumber*1.2f));
+			if (!isDropping)
+				transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y + (hatNumber*1.2f));
+			else
+			{
+				if (transform.position.y > owner.transform.position.y + hatNumber*1.2f)
+					transform.position = new Vector3(owner.transform.position.x, transform.position.y - 0.0001f);
+				else
+					isDropping = false;
+			}
 		}
 
 		// If hat falls through bottom of screen, teleport it to top
@@ -58,13 +71,13 @@ public class Hat : MonoBehaviour {
 	}
 
 	public void Hit() {
+		ignoreTrigger = true;
 		timeLeft = hitTime;
 		isHit = true;
 		transform.parent = null;
 		owner.GetComponent<PlayerController> ().LoseHat ();
 		foreach (GameObject player in players)
-			if (player != owner)
-				Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
 	}
 
 	public void NewOwner (GameObject newOwner, int newNumber) {
@@ -72,7 +85,7 @@ public class Hat : MonoBehaviour {
 		{
 			if (owner != newOwner || timeLeft <= 0)
 			{
-
+				isHit = false;
 				Debug.Log(owner + "+" + newOwner);
 				owner = newOwner;
 				ownerNumber = newNumber;
@@ -83,7 +96,6 @@ public class Hat : MonoBehaviour {
 				transform.rotation = new Quaternion(0,0,0,0);
 				transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y + (hatNumber*1.2f));
 				transform.parent = owner.transform;
-				isHit = false;
 
 				foreach (GameObject player in players)
 					Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
@@ -103,5 +115,10 @@ public class Hat : MonoBehaviour {
 
 	public void SetHatNumber(int num) {
 		hatNumber = num;
+		isDropping = true;
+	}
+
+	public bool IgnoreTrigger(){
+		return ignoreTrigger;
 	}
 }
