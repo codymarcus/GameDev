@@ -1,11 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\Bullet.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\PlayerController.cs">
     <Files>
       <File FileName="Assets\Coins.cs" Line="56" Column="3" />
       <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="150" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="24" Column="2" />
-      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="43" Column="52" />
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="24" Column="28" />
+      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="69" Column="1" />
       <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
