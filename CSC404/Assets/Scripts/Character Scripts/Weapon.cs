@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour {
 	public GameObject player;
 	float canFire = 0f;
 	bool isFiring = false;
+	public AudioClip fireball;
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,8 @@ public class Weapon : MonoBehaviour {
 				b = Instantiate(Resources.Load("bulletYellow2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
 			}
+
+			GetComponent<AudioSource>().PlayOneShot(fireball);
 
 			b.GetComponent<Bullet>().owner = playerNumber;
 
