@@ -1,19 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\General Scripts\GameManager.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\PlayerController.cs">
     <Files>
-      <File FileName="Assets\Hat.cs" Line="108" Column="1" />
-      <File FileName="Assets\Scripts\General Scripts\GameManager.cs" Line="268" Column="4" />
-      <File FileName="Assets\Scripts\General Scripts\MatchManager.cs" Line="94" Column="1" />
-      <File FileName="Assets\Coins.cs" Line="111" Column="3" />
-      <File FileName="Assets\CoinsCollection.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="446" Column="1" />
+      <File FileName="Assets\Coins.cs" Line="56" Column="3" />
       <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="150" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="24" Column="28" />
       <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="69" Column="1" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" Line="39" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="89" Column="1" />
-      <File FileName="Assets\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" Line="616" Column="1" />
-      <File FileName="Assets\MovingFloor.cs" Line="49" Column="1" />
+      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

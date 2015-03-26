@@ -29,20 +29,39 @@ public class Showplace : MonoBehaviour {
 			counter = 0;
 		}
 
+		for (int i=0; i<4; i++) {
+			Debug.Log(rank[i]);
+		}
 		
 		int stackedrank = 0;
+		int pairs = 0;
+
+		int count = 0;
 		for (int i=0; i<4; i++) {
-			for (int j=0; j<i; j++){
-				if (rank[j] == rank[i]) {
-					stackedrank++;
-				}
-			}
-			rank[i] += stackedrank;
-			//stackedrank = 0;
+			if (rank[i] == 1) {
+				count++;
+			}		
 		}
 
-		for (int i=0; i<4; i++) {
-			//Debug.Log(rank[i]);
+		int tie = 0;
+		if (count == 3) {
+			for (int i=0;i<4;i++) {
+				if (rank[i] == 1) {
+					rank[i]+=tie;
+					tie++;
+				}
+			}
+		} else {
+			for (int i=0; i<4; i++) {
+				for (int j=0; j<i; j++){
+					if (rank[j] == rank[i]) {
+						stackedrank++;
+						pairs++;
+					}
+				}
+				rank[i] += stackedrank;
+				stackedrank = 0;
+			}
 		}
 
 		for (int k = 0; k < 4; k++) {

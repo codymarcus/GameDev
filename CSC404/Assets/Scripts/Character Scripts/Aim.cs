@@ -77,6 +77,8 @@ public class Aim : MonoBehaviour {
 				//Debug.Log (splitted);
 
 				barrel [0].GetComponent<Weapon> ().Fire ();
+				barrel [1].GetComponent<Weapon> ().StopFire ();
+				barrel [2].GetComponent<Weapon> ().StopFire ();
 			} else {
 
 				barrel [0].GetComponent<Weapon> ().StopFire ();

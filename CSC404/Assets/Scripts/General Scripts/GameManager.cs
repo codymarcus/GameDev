@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
 	public int winScore;
 	public GameObject[] CoinsCollcetion;
 	public GameObject[] PowersCollection;
+	public Image background;
 
 	GameObject myHill;
 	float floorSpawnTime = 0.5f;
@@ -133,6 +134,7 @@ public class GameManager : MonoBehaviour {
 					Time.timeScale = 0;
 					pause_player = i;
 					paused = true;
+					background.color = new Color(background.color[0], background.color[1], background.color[2], 0.5f);
 					//Debug.Log (1);
 					break;
 				}
@@ -142,6 +144,28 @@ public class GameManager : MonoBehaviour {
 				Time.timeScale = 1;
 				pause_player = -1;
 				paused = false;
+				background.color = new Color(background.color[0], background.color[1], background.color[2], 0);
+			} else if (Input.GetKeyDown ("s") || Input.GetButtonDown ("Fire2")) {
+				Time.timeScale = 1;
+				pause_player = -1;
+				paused = false;
+				background.color = new Color(background.color[0], background.color[1], background.color[2], 0);
+				Application.LoadLevel("Scene0");
+				for (int i=0;i<4;i++) {
+					scores[i] = 0;
+				}
+				numCoins = 0;
+				//resumepressed = false;
+			} else if (Input.GetKeyDown ("d") || Input.GetButtonDown ("Fire3")) {
+				Time.timeScale = 1;
+				pause_player = -1;
+				paused = false;
+				background.color = new Color(background.color[0], background.color[1], background.color[2], 0);
+				for (int i=0;i<4;i++) {
+					scores[i] = 0;
+				}
+				numCoins = 0;
+				Application.LoadLevel("StartMenu");
 			}
 		}
 		//timeRemain -= Time.deltaTime;

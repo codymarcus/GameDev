@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 	public bool pausepressed = false;
 
 	public Texture2D GetHatImage;
+
+	public AudioClip GetCoins;
+
 	Animator anim;
 
 	int numHats = 1;
@@ -33,6 +36,8 @@ public class PlayerController : MonoBehaviour {
 	bool isShield = true;
 	bool isMagnet = true; // to turn off particle effects at the very beginning
 	bool splittedEnabled = true;
+	bool isJumping = false;
+	bool canPuffInAir = false;
 
 	GameObject[] players;
 
@@ -44,7 +49,7 @@ public class PlayerController : MonoBehaviour {
 
 
 	float doubleJump = 3.0F;
-	bool canDJump = false;
+	//bool canDJump = false;
 	bool get_coin = false;
 	int addedPoints;
 
@@ -171,7 +176,14 @@ public class PlayerController : MonoBehaviour {
 			anim.SetTrigger("Attack");
 
 		if(Input.GetButtonDown(playerNumber+"Jump")){
-			puffEffect();
+			if(isJumping){
+				if(canPuffInAir){
+					puffEffect();
+					canPuffInAir = false;
+				}
+			}else{
+				puffEffect();
+			}
 		}
 	}
 
@@ -219,6 +231,15 @@ public class PlayerController : MonoBehaviour {
 		return path;
 	}
 
+	void OnTriggerStay(Collider other)
+	{
+		if (other.gameObject.tag == "HatTrigger")
+		{
+			if (other.GetComponentInParent<Hat>().IgnoreTrigger() == false)
+				other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
+		}
+	}
+
 	void OnTriggerEnter(Collider other)
 	{
 		// If player touches a death object then die
@@ -234,13 +255,15 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.gameObject.tag == "HatTrigger")
 		{
-			other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
+			if (other.GetComponentInParent<Hat>().IgnoreTrigger() == false)
+				other.GetComponentInParent<Hat>().NewOwner(gameObject, playerNumber);
 		}
 
 		if (other.gameObject.tag == "Money")
 		{
 			if (numHats > 0)
 			{
+				GetComponent<AudioSource>().PlayOneShot(GetCoins);
 				addedPoints = (int) Mathf.Pow(2f, numHats-1);
 				GameManager.AddScore(playerNumber, addedPoints);
 			}
@@ -266,24 +289,28 @@ public class PlayerController : MonoBehaviour {
 			Debug.Log (splittedEnabled);
 			Destroy(other.gameObject);
 		}
-		if (other.gameObject.tag == "Floor")
-		{
-			if(other.transform.position.y < transform.position.y) puffEffect();
+		if (other.gameObject.tag == "Floor"){
+			if(other.transform.position.y < transform.position.y){ // if dropping onto a floor
+				puffEffect();
+				isJumping = false;
+			}
 		}
-		
 	}
 
 	void puffEffect()
 	{
 		ParticleSystem puff = new ParticleSystem();
 		puff = Instantiate(Resources.Load("SmokePuff"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
-		Destroy(puff, 0);
+		//Destroy(puff, 0);
 	}
+
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "Floor")
 		{
-			canDJump = true;			
+			//canDJump = true;	
+			isJumping = true;
+			canPuffInAir = true;
 			speed = new Vector3 (speed.x, 0, speed.z);
 		}
 		if (other.gameObject.tag == "HeavyFloorTrigger")
