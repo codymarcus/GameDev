@@ -128,6 +128,11 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if (Screen.width != 1280) {
+			Screen.SetResolution(1280, 720, true);
+			// set to true if you want a fullscreen game
+		}
+
 		if (pause_player == -1) {
 			for (int i=0; i<4; i++) {
 				if (players [i].GetComponent<PlayerController> ().pausepressed == true) {

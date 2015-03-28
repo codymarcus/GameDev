@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
 	Vector3 speed = new Vector3();
 	public CharacterController controller;
 
+	public KnightManager knightManager;
+
 
 	float doubleJump = 3.0F;
 	//bool canDJump = false;
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour {
 	float fadeTime = 2f;
 	Color color = Color.white;
 	public Color playerColor;
+
+	bool knightArea = false;
 
 	// Use this for initialization
 	void Start () {
@@ -97,6 +101,18 @@ public class PlayerController : MonoBehaviour {
 				pausepressed = false;
 				//resumepressed = true;
 			}
+		}
+
+		if (transform.position.y < 6 && !knightArea)
+		{
+			knightArea = true;
+			knightManager.addPlayer();
+			Debug.Log(transform.position.y);
+		}
+		else if (transform.position.y >= 6 && knightArea)
+		{
+			knightArea = false;
+			knightManager.losePlayer();
 		}
 
 		if (isHatDrop)
@@ -286,7 +302,7 @@ public class PlayerController : MonoBehaviour {
 
 			SplittedTime = 5f;
 			splittedEnabled = true;
-			Debug.Log (splittedEnabled);
+			//Debug.Log (splittedEnabled);
 			Destroy(other.gameObject);
 		}
 		if (other.gameObject.tag == "Floor"){
@@ -344,7 +360,7 @@ public class PlayerController : MonoBehaviour {
 				if (lives > 0)
 				{
 					fadeTime = 2f;
-					Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
+					//Debug.Log("P" + playerNumber + " died! \n Lives: " + lives);
 					int spawnNumber = Random.Range (0, spawns.Length);
 					spawn = spawns [spawnNumber];
 					//timeInShield = shieldTime;
@@ -353,7 +369,7 @@ public class PlayerController : MonoBehaviour {
 				}
 				else
 				{
-					Debug.Log("P" + playerNumber + " eliminated!");
+					//Debug.Log("P" + playerNumber + " eliminated!");
 					Destroy(this.gameObject);
 					manager.Dead(playerNumber);
 					isAlive = false;
@@ -405,13 +421,13 @@ public class PlayerController : MonoBehaviour {
 				if (!hatPlaces[i])
 				{
 					hatPlaces[i-1] = false;
-					Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+					//Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
 					pass = true;
 				}
 			if (pass == false)
 			{
 				hatPlaces[3] = false;
-				Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+				//Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
 			}
 			isHatDrop = true;
 			hatDrop = 1f;
@@ -423,7 +439,7 @@ public class PlayerController : MonoBehaviour {
 		hatDrop = 1f;
 		for (int j=0; j<4; j++)
 		{
-			Debug.Log(hatPlaces[j]);
+			//Debug.Log(hatPlaces[j]);
 			if (hatPlaces[j])
 			{
 				bool isEmpty = true;
@@ -456,7 +472,7 @@ public class PlayerController : MonoBehaviour {
 			if (!hatPlaces[i])
 			{
 				hatPlaces[i] = true;
-				Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
+				//Debug.Log(hatPlaces[0]+","+hatPlaces[1]+","+hatPlaces[2]+","+hatPlaces[3]);
 				break;
 			}
 	}
