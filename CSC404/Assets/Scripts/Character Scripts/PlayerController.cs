@@ -103,12 +103,13 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (transform.position.y < -1.3 && !knightArea)
+		if (transform.position.y < 6 && !knightArea)
 		{
 			knightArea = true;
 			knightManager.addPlayer();
+			Debug.Log(transform.position.y);
 		}
-		else if (transform.position.y >= -1.3 && knightArea)
+		else if (transform.position.y >= 6 && knightArea)
 		{
 			knightArea = false;
 			knightManager.losePlayer();
