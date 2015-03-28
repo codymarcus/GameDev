@@ -119,6 +119,11 @@ public class Bullet : MonoBehaviour {
 			hitEffect();
 		}
 
+		if (other.gameObject.tag == "Knights") {
+			Destroy(gameObject);
+			hitEffect();
+		}
+
 		// Exploding Floor
 		if (other.gameObject.tag == "ExplodingFloor") {
 			other.GetComponent<ExplodingFloor>().Hit();

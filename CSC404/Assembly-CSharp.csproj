@@ -58,6 +58,8 @@
      <Compile Include="Assets\Hat.cs" />
      <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\JMO Assets\Toony Colors\Demo\AutoRotateObject.cs" />
+     <Compile Include="Assets\Knight.cs" />
+     <Compile Include="Assets\KnightManager.cs" />
      <Compile Include="Assets\Marishkas Assets\BACKGROUND\otherScroll.cs" />
      <Compile Include="Assets\MovingFloor.cs" />
      <Compile Include="Assets\OnClickEvent.cs" />
