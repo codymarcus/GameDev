@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Character Scripts\PlayerController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Marishkas Assets/BACKGROUND/Transition.cs">
     <Files>
-      <File FileName="Assets\Coins.cs" Line="56" Column="3" />
-      <File FileName="Assets\Scripts\Character Scripts\Bullet.cs" Line="150" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\PlayerController.cs" Line="24" Column="28" />
-      <File FileName="Assets\Scripts\Character Scripts\Weapon.cs" Line="69" Column="1" />
-      <File FileName="Assets\Scripts\Character Scripts\Aim.cs" Line="17" Column="1" />
+      <File FileName="Assets/Marishkas Assets/BACKGROUND/Moving.cs" Line="4" Column="21" />
+      <File FileName="Assets/Marishkas Assets/BACKGROUND/Transition.cs" Line="20" Column="90" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
