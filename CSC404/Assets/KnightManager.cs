@@ -39,6 +39,7 @@ public class KnightManager : MonoBehaviour {
 				Destroy ( k , 4f);
 				timeLeft = 2*spawnTime;
 			}
+		}
 	}
 
 	public void addPlayer () {
