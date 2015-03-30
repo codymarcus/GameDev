@@ -55,6 +55,7 @@
      <Compile Include="Assets\Follow.cs" />
      <Compile Include="Assets\GameMenu.cs" />
      <Compile Include="Assets\GameMenuStart.cs" />
+     <Compile Include="Assets\GameStarter.cs" />
      <Compile Include="Assets\Hat.cs" />
      <Compile Include="Assets\HeavyFloor.cs" />
      <Compile Include="Assets\JMO Assets\Toony Colors\Demo\AutoRotateObject.cs" />
@@ -69,6 +70,7 @@
      <Compile Include="Assets\PlayerAnimator.cs" />
      <Compile Include="Assets\PlayerHealthController.cs" />
      <Compile Include="Assets\PlayerPauseManager.cs" />
+     <Compile Include="Assets\PlayerReadyManager.cs" />
      <Compile Include="Assets\QuickMatch.cs" />
      <Compile Include="Assets\Scripts\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Character Scripts\Aim.cs" />
@@ -174,7 +176,7 @@
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/apple/Documents/CSC404/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/sidachen/CSC404/Repo/GameDev/CSC404/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
