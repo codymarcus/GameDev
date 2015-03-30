@@ -88,6 +88,8 @@
      <Compile Include="Assets\SpikeWalls.cs" />
      <Compile Include="Assets\StartColision.cs" />
      <Compile Include="Assets\StartManager.cs" />
+     <Compile Include="Assets\Witch.cs" />
+     <Compile Include="Assets\WitchManager.cs" />
      <Compile Include="Assets\powerups.cs" />
      <Compile Include="Assets\rigid.cs" />
      <Compile Include="Assets\scr.cs" />
