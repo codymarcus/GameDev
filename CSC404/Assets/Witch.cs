@@ -16,8 +16,12 @@ public class Witch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (fireratio < 0) {
+			GameObject a = new GameObject ();
+			a = Instantiate (Resources.Load ("bulletGreen2"), transform.position, Quaternion.Euler(180, 90, 0)) as GameObject;
 			GameObject b = new GameObject ();
-			b = Instantiate (Resources.Load ("bulletGreen2"), transform.position, new Quaternion (180, 0, 0, 0)) as GameObject;
+			b = Instantiate (Resources.Load ("bulletGreen2"), transform.position, Quaternion.Euler(225, 90, 0)) as GameObject;
+			GameObject c = new GameObject ();
+			c = Instantiate (Resources.Load ("bulletGreen2"), transform.position, Quaternion.Euler(135, 90, 0)) as GameObject;
 			fireratio = 1.0f;
 		} else {
 			fireratio -= Time.deltaTime;
