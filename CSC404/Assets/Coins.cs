@@ -59,7 +59,7 @@ public class Coins : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player") {
 			if (other.gameObject.GetComponent<PlayerController> ().NumHats () > 0) {
-					source.PlayOneShot(collectSound, 1f);
+					//source.PlayOneShot(collectSound, 1f);
 					coinEffect();
 					int playerNum = other.gameObject.GetComponent<PlayerController>().playerNumber;
 					int playerHat = other.gameObject.GetComponent<PlayerController>().NumHats();
