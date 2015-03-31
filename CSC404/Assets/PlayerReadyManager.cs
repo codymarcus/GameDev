@@ -3,37 +3,41 @@ using System.Collections;
 
 public class PlayerReadyManager : MonoBehaviour {
 
-	public GameObject PlayerNotReady;
+	public GameObject PlayerReadyText;
 	public GameObject PlayerReady;
 	public int playerNumber;
 	public static int isReady;
+	public static int[] players = {0,0,0,0};
 	bool personalReady;
 
 	// Use this for initialization
 	void Start () {
 		PlayerReady.SetActive (false);
-		PlayerNotReady.SetActive (true);
+		PlayerReadyText.SetActive (false);
 		isReady = 0;
+		for (int i=0; i<4; i++) {
+			players[i] = 0;		
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isReady == 4) {
-			//everyone is ready	
-		} else {
+		if (!GameStarter.start) {
 			if (Input.GetKeyDown (playerNumber.ToString()) || Input.GetButtonDown ("Ready" + playerNumber)) {
 				if (!personalReady) {
-					PlayerNotReady.SetActive(false);
+					PlayerReadyText.SetActive(true);
 					PlayerReady.SetActive(true);
 					personalReady = true;
 					isReady++;
+					players[playerNumber-1] = 1;
 				} else {
-					PlayerNotReady.SetActive(true);
+					PlayerReadyText.SetActive(false);
 					PlayerReady.SetActive(false);
 					personalReady = false;
 					isReady--;
+					players[playerNumber-1] = 0;
 				}
 			}
-		}
+		} 
 	}
 }
