@@ -1,0 +1,297 @@
+fileFormatVersion: 2
+guid: 9b3f6aac94cf043cbbb45a60ccbc8ac9
+timeCreated: 1427863681
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: ankle.L
+    100002: ankle.R
+    100004: Armature
+    100006: Bone
+    100008: Bone.002
+    100010: calf.L
+    100012: calf.R
+    100014: hand.L
+    100016: hand.L_end
+    100018: hand.R
+    100020: hand.R_end
+    100022: Head
+    100024: Head_end
+    100026: Knight
+    100028: //RootNode
+    100030: lowerarm.L
+    100032: lowerarm.R
+    100034: Neck
+    100036: Root
+    100038: Spine 1
+    100040: Spine 2
+    100042: thigh.L
+    100044: thigh.R
+    100046: toe.L
+    100048: toe.L_end
+    100050: toe.R
+    100052: toe.R_end
+    100054: upperarm.L
+    100056: upperarm.R
+    400000: ankle.L
+    400002: ankle.R
+    400004: Armature
+    400006: Bone
+    400008: Bone.002
+    400010: calf.L
+    400012: calf.R
+    400014: hand.L
+    400016: hand.L_end
+    400018: hand.R
+    400020: hand.R_end
+    400022: Head
+    400024: Head_end
+    400026: Knight
+    400028: //RootNode
+    400030: lowerarm.L
+    400032: lowerarm.R
+    400034: Neck
+    400036: Root
+    400038: Spine 1
+    400040: Spine 2
+    400042: thigh.L
+    400044: thigh.R
+    400046: toe.L
+    400048: toe.L_end
+    400050: toe.R
+    400052: toe.R_end
+    400054: upperarm.L
+    400056: upperarm.R
+    4300000: Knight
+    7400000: Armature|Run
+    7400002: Knight|Run
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Knight
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|Run
+      takeName: Armature|Run
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine 1
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L/hand.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L/hand.L/hand.L_end
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R/hand.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R/hand.R/hand.R_end
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck/Head
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/thigh.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L/toe.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L/toe.L/toe.L_end
+        weight: 1
+      - path: Armature/Root/thigh.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R/toe.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R/toe.R/toe.R_end
+        weight: 1
+      - path: Knight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Knight|Run
+      takeName: Knight|Run
+      firstFrame: 0
+      lastFrame: 59
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Root
+        weight: 1
+      - path: Armature/Root/Spine 1
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L/hand.L
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone/upperarm.L/lowerarm.L/hand.L/hand.L_end
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R/hand.R
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Bone.002/upperarm.R/lowerarm.R/hand.R/hand.R_end
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck/Head
+        weight: 1
+      - path: Armature/Root/Spine 1/Spine 2/Neck/Head/Head_end
+        weight: 1
+      - path: Armature/Root/thigh.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L/toe.L
+        weight: 1
+      - path: Armature/Root/thigh.L/calf.L/ankle.L/toe.L/toe.L_end
+        weight: 1
+      - path: Armature/Root/thigh.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R/toe.R
+        weight: 1
+      - path: Armature/Root/thigh.R/calf.R/ankle.R/toe.R/toe.R_end
+        weight: 1
+      - path: Knight
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
