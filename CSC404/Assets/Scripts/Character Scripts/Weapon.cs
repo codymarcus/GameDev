@@ -38,6 +38,9 @@ public class Weapon : MonoBehaviour {
 			case 4:
 				b = Instantiate(Resources.Load("bulletYellow2"), barrel.transform.position, barrel.transform.rotation) as GameObject;
 				break;
+			default:
+				b = Instantiate(Resources.Load("bulletWitch"), barrel.transform.position, barrel.transform.rotation) as GameObject;
+				break;
 			}
 
 			GetComponent<AudioSource>().PlayOneShot(fireball);

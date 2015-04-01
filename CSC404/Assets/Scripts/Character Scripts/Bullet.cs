@@ -78,6 +78,9 @@ public class Bullet : MonoBehaviour {
 		case 4:
 			effect = Instantiate(Resources.Load("hitEffectYellow"), transform.position, transform.rotation) as ParticleSystem;
 			break;
+		default:
+			effect = Instantiate(Resources.Load("hitEffectWitch"), transform.position, transform.rotation) as ParticleSystem;
+			break;
 		}
 		Destroy(effect, 0);
 	}
@@ -98,6 +101,9 @@ public class Bullet : MonoBehaviour {
 			break;
 		case 4:
 			effect = Instantiate(Resources.Load("muzzleEffectYellow"), transform.position, transform.rotation) as ParticleSystem;
+			break;
+		default:
+			effect = Instantiate(Resources.Load("muzzleEffectWitch"), transform.position, transform.rotation) as ParticleSystem;
 			break;
 		}
 		Destroy(effect, 0);
