@@ -29,6 +29,19 @@ public class Witch : MonoBehaviour {
 		{
 			transform.Rotate(new Vector3 (0, 0, -15));
 		}
+		else
+		{
+			if (fireratio < 0) {
+				GameObject a = new GameObject ();
+				a = Instantiate (Resources.Load ("BulletWitch"), transform.position, Quaternion.Euler(180, 90, 0)) as GameObject;
+				GameObject b = new GameObject ();
+				b = Instantiate (Resources.Load ("BulletWitch"), transform.position, Quaternion.Euler(225, 90, 0)) as GameObject;
+				GameObject c = new GameObject ();
+				c = Instantiate (Resources.Load ("BulletWitch"), transform.position, Quaternion.Euler(135, 90, 0)) as GameObject;
+				fireratio = 1.0f;
+			} else
+				fireratio -= Time.deltaTime;
+		}
 		float new_z = initial_z + amplitude2 * Mathf.Sin (speed2 * Time.time);
 		float new_y = initial_y + amplitude * Mathf.Sin (speed * Time.time);
 		transform.position = new Vector3(transform.position.x + movementSpeed*Time.deltaTime, new_y, transform.position.z);
