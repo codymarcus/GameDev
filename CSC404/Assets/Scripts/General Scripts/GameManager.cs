@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour {
 			curMagnetTime -= Time.deltaTime;
 		}
 
-		if (numCoins < 3){
+		if (numCoins < 10){
 			curMoneyTime -= Time.deltaTime;
 		}
 		if (coinSpawnTime > 0) {
@@ -217,7 +217,7 @@ public class GameManager : MonoBehaviour {
 
 		if (curMoneyTime <= 0)
 		{
-			if (numCoins < 3)
+			if (numCoins < 10)
 			{
 				Spawn(CoinsCollcetion[Random.Range (0, 3)], -36, 8, -1, 24);
 				curMoneyTime = moneySpawnTime;

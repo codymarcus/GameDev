@@ -20,7 +20,7 @@ public class WitchManager : MonoBehaviour {
 		if (timeToSpawn < 0) {
 			w = Instantiate (witch, new Vector3 (transform.position.x, transform.position.y),
                 new Quaternion (0, 180, 0, 0)) as GameObject;
-			timeToSpawn = 20.0f;
+			timeToSpawn = spawnratio;
 		} else {
 			timeToSpawn -= Time.deltaTime;
 		}

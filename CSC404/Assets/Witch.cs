@@ -8,7 +8,7 @@ public class Witch : MonoBehaviour {
 	public float fireratio = 1.0f;
 	public float initial_y;
 	public float amplitude = 1.0f;
-	public float speed = 1.0f;
+	public float speed = 3.0f;
 	public float movementSpeed = 3.0f;
 
 	void Start () {
