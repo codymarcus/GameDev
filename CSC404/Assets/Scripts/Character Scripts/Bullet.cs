@@ -156,5 +156,11 @@ public class Bullet : MonoBehaviour {
 				}
 			}
 		}
+
+		if (other.gameObject.tag == "Witch" && owner != 0) {
+			other.GetComponent<Witch>().Hit();
+			Destroy(gameObject);
+			hitEffect();
+		}
 	}
 }
