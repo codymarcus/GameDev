@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour {
 		anim = GetComponent<Animator>();
 
 		hats = GetComponentsInChildren<Hat>();
+		//transform.rotation = new Quaternion(0, 270, 0, 0);
 	}
 	
 	// Update is called once per frame
