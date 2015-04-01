@@ -195,6 +195,7 @@ public class PlayerController : MonoBehaviour {
 			if(isJumping){
 				if(canPuffInAir){
 					puffEffect();
+					//doubleJumpEffect();
 					canPuffInAir = false;
 				}
 			}else{
@@ -319,7 +320,12 @@ public class PlayerController : MonoBehaviour {
 		puff = Instantiate(Resources.Load("SmokePuff"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
 		//Destroy(puff, 0);
 	}
-
+	void doubleJumpEffect()
+	{
+		ParticleSystem puff = new ParticleSystem();
+		puff = Instantiate(Resources.Load("doubleJump"), new Vector3(transform.position.x, transform.position.y - transform.lossyScale.y, transform.position.z), Quaternion.Euler(270, 0, 0)) as ParticleSystem;
+		//Destroy(puff, 0);
+	}
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "Floor")
