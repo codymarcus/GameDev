@@ -14,6 +14,14 @@ public class Showplace : MonoBehaviour {
 	public Color[] PlayerColors = {Color.green, Color.blue, Color.red, Color.yellow};
 
 	// Update is called once per frame
+	void Update(){
+		if (PlayerReadyManager.isReady != 0) {
+			if ((PlayerReadyManager.isReady - 1) < currentplace) {
+					this.gameObject.SetActive (false);
+			}
+		}
+	}
+
 	void Start () {
 	
 		scores = GameManager.scores;

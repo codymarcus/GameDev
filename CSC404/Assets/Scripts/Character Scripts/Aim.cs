@@ -42,27 +42,17 @@ public class Aim : MonoBehaviour {
 		{
 			turnLeft = true;
 			turnRight = false;
-			//player.rotation = new Quaternion(0, 90, 0, 0);
-//			foreach (Transform child in playerController.transform)
-//				if (child.tag == "Hat")
-//					child.rotation = new Quaternion(0, 270, 0, 0);
-			//Quaternion wanted = new Quaternion(1, 180, 1, 1);
-			//player.rotation = Quaternion.Lerp(player.rotation, wanted, Time.time * 0.001f);
 		}
 		if (Input.GetAxis (playerNumber + "RightH") > 0.1)
 		{
 			turnRight = true;
 			turnLeft = false;
-			//player.rotation = new Quaternion(0, 0, 0, 0);
-//			foreach (Transform child in playerController.transform)
-//				if (child.tag == "Hat")
-//					child.rotation = new Quaternion(0, 90, 0, 0);
 		}
 
 		if (turnLeft){
 			print (player.transform.eulerAngles.y);
 			if(player.transform.eulerAngles.y < 180){
-				player.Rotate (0, 10, 0);
+				player.Rotate (0, 20, 0);
 			}else{
 				turnLeft = false;
 			}
@@ -70,7 +60,7 @@ public class Aim : MonoBehaviour {
 		if (turnRight){
 			print (player.transform.eulerAngles.y);
 			if(player.transform.eulerAngles.y > 0){
-				player.Rotate (0, -10, 0);
+				player.Rotate (0, -20, 0);
 			}else{
 				turnRight = false;
 			}
