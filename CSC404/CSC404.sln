@@ -41,10 +41,13 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																																																																																																																						GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																																																																																																		GlobalSection(MonoDevelopProperties) = preSolution
+=======
+																																																																																																																																																																				GlobalSection(MonoDevelopProperties) = preSolution
 =======
 																																																																																																																																																															GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/master
+>>>>>>> master
 =======
 																																																																																																																																																			GlobalSection(MonoDevelopProperties) = preSolution
 >>>>>>> origin/master
