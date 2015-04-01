@@ -171,6 +171,7 @@ public class GameManager : MonoBehaviour {
 				}
 				numCoins = 0;
 				Application.LoadLevel("StartMenu");
+
 			}
 		}
 		//timeRemain -= Time.deltaTime;

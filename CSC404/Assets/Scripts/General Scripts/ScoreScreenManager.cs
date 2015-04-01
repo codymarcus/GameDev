@@ -4,7 +4,7 @@ using System.Collections;
 
 public class ScoreScreenManager : MonoBehaviour {
 	
-	public float waitTime;
+	//public float waitTime;
 	
 	// Update is called once per frame
 	void Update () {
@@ -15,7 +15,11 @@ public class ScoreScreenManager : MonoBehaviour {
 			Application.LoadLevel("Scene0");
 		}
 		*/
-		if (Input.GetKeyDown ("space") || Input.GetButton ("2Fire1")) {
+		if (Input.GetKeyDown ("space") || Input.GetButton ("Fire4")) {
+			GameManager.ResetScores();
+			Application.LoadLevel ("StartMenu");
+		}
+		if (Input.GetKeyDown ("x") || Input.GetButton ("Back")) {
 			GameManager.ResetScores();
 			Application.LoadLevel ("Scene0");
 		}
