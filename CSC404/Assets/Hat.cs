@@ -76,8 +76,10 @@ public class Hat : MonoBehaviour {
 		isHit = true;
 		transform.parent = null;
 		owner.GetComponent<PlayerController> ().LoseHat ();
-		foreach (GameObject player in players)
-			Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+		foreach (GameObject player in players) {
+			if (player.activeSelf)
+				Physics.IgnoreCollision (GetComponent<Collider> (), player.GetComponent<Collider> ());
+		}
 	}
 
 	public void NewOwner (GameObject newOwner, int newNumber) {
@@ -97,10 +99,10 @@ public class Hat : MonoBehaviour {
 				transform.position = new Vector3(owner.transform.position.x, owner.transform.position.y + (hatNumber*1.2f));
 				transform.parent = owner.transform;
 
-				foreach (GameObject player in players)
-					Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
-				//Physics.IgnoreCollision(GetComponent<Collider>(), owner.GetComponent<Collider>());
-
+				foreach (GameObject player in players){
+					if (player.activeSelf)
+						Physics.IgnoreCollision(GetComponent<Collider>(), player.GetComponent<Collider>());
+				}
 			}
 		}
 	}
