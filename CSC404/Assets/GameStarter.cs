@@ -10,6 +10,10 @@ public class GameStarter : MonoBehaviour {
 	float notice_time = 0.0f;
 	public static bool start= false;
 
+	void Start() {
+		start = false;
+	} 
+
 	// Update is called once per frame
 	void Update () {
 
