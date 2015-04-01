@@ -14,7 +14,8 @@ public class Aim : MonoBehaviour {
 	Vector3 direction;
 	Quaternion currentRotation;
 	ParticleEmitter muzzleFlash;
-
+	bool turnLeft = false;
+	bool turnRight = false;
 
 	// Use this for initialization
 	void Start () {
@@ -39,20 +40,42 @@ public class Aim : MonoBehaviour {
 
 		if (Input.GetAxis (playerNumber + "RightH") < -0.1)
 		{
-			player.rotation = new Quaternion(0, 90, 0, 0);
-//			foreach (Transform child in playerController.transform)
-//				if (child.tag == "Hat")
-//					child.rotation = new Quaternion(0, 270, 0, 0);
+			turnLeft = true;
+			turnRight = false;
+			//player.rotation = new Quaternion(0, 90, 0, 0);
+			//			foreach (Transform child in playerController.transform)
+			//				if (child.tag == "Hat")
+			//					child.rotation = new Quaternion(0, 270, 0, 0);
+			//Quaternion wanted = new Quaternion(1, 180, 1, 1);
+			//player.rotation = Quaternion.Lerp(player.rotation, wanted, Time.time * 0.001f);
 		}
 		if (Input.GetAxis (playerNumber + "RightH") > 0.1)
 		{
-			player.rotation = new Quaternion(0, 0, 0, 0);
-//			foreach (Transform child in playerController.transform)
-//				if (child.tag == "Hat")
-//					child.rotation = new Quaternion(0, 90, 0, 0);
+			turnRight = true;
+			turnLeft = false;
+			//player.rotation = new Quaternion(0, 0, 0, 0);
+			//			foreach (Transform child in playerController.transform)
+			//				if (child.tag == "Hat")
+			//					child.rotation = new Quaternion(0, 90, 0, 0);
 		}
 
-
+		if (turnLeft){
+			print (player.transform.eulerAngles.y);
+			if(player.transform.eulerAngles.y < 180){
+				player.Rotate (0, 10, 0);
+			}else{
+				turnLeft = false;
+			}
+		}
+		if (turnRight){
+			print (player.transform.eulerAngles.y);
+			if(player.transform.eulerAngles.y > 0){
+				player.Rotate (0, -10, 0);
+			}else{
+				turnRight = false;
+			}
+		}
+		
 		if (splitted == true) {
 			if (Input.GetButton (playerNumber + "Fire1")) {
 				// Fire
