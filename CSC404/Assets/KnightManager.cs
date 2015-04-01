@@ -4,7 +4,7 @@ using System.Collections;
 public class KnightManager : MonoBehaviour {
 
 	public GameObject knights;
-	double spawnTime = 5f;
+	public double spawnTime = 4f;
 	double timeLeft;
 	int numPlayers = 0;
 	bool runTime = false;
@@ -37,7 +37,7 @@ public class KnightManager : MonoBehaviour {
 					leftSide = true;
 				}
 				Destroy ( k , 4f);
-				timeLeft = 2*spawnTime;
+				timeLeft = spawnTime;
 			}
 		}
 	}
