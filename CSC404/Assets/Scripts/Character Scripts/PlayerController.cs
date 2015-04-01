@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	public Slider PlayerScoreSlider;
+	public GameObject SliderHandle;
 
 	public GameObject spawn;
 	public int playerNumber;
@@ -90,7 +91,14 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (PlayerReadyManager.isReady != 0){
+			if (PlayerReadyManager.players [playerNumber - 1] != 1) {
+				this.gameObject.SetActive(false);
+				SliderHandle.SetActive(false);
+			}
+		}
+		PlayerScoreSlider.gameObject.SetActive(false);
+				
 		if (pausepressed == false) {
 			if (Input.GetKeyDown ("z") || Input.GetButtonDown ("Fire4")) {
 				pausepressed = true;
