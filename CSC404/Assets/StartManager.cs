@@ -3,16 +3,14 @@ using System.Collections;
 
 public class StartManager : MonoBehaviour {
 
-	public GameObject readyPrompt;
-
-	void Start () {
-		readyPrompt.SetActive (false);
-	}
+	public GameObject[] readyPrompt;
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("space") || Input.GetButtonDown ("Fire2"))
-			//Application.LoadLevel ("Scene0");
-			readyPrompt.SetActive (true);
+		if (PlayerReadyManager.isReady >= 2) {
+			if (Input.GetKeyDown ("z") || Input.GetButtonDown ("Fire4")) {	
+				Application.LoadLevel("scene0");
+			}
+		}
 	}
 }
