@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Transition : MonoBehaviour {
-float duration = 18.0f;
+float duration = 30.0f;
 public SpriteRenderer sRender;
 // Update is called once per frame
 Color HexToColor(string hex)
