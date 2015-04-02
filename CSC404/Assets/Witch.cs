@@ -10,17 +10,18 @@ public class Witch : MonoBehaviour {
 	 float initial_z;
 	 float amplitude = 1.0f;
 	 float speed = 1.0f;
-	 float amplitude2 = 4.0f;
+	 float amplitude2 = 2.0f;
 	 float speed2 = 5.0f;
 	 float movementSpeed = 3.0f;
-	float recoveryTime = 5f;
-	float timeToRecover;
+	 float recoveryTime = 5f;
+	 float timeToRecover;
+	 public AudioClip groan;
 
 	bool isHit = false;
 
 	void Start () {
 		initial_y = transform.position.y;
-		//transform.rotation = Quaternion.Euler(-43.1f,180,0);
+		//transform.rotation = Quaternion.Euler(-43,180,0);
 		initial_z = transform.rotation.z;
 		Destroy(this.gameObject, 20.0f);
 		timeToRecover = recoveryTime;
@@ -57,6 +58,7 @@ public class Witch : MonoBehaviour {
 
 	public void Hit () {
 		timeToRecover = recoveryTime;
+		GetComponent<AudioSource>().PlayOneShot(groan);
 		isHit = true;
 	}
 	

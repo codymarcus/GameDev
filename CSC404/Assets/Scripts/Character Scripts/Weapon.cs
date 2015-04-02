@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour {
 	//public GameObject bullet;
 	public GameObject barrel;
 	public GameObject player;
-	float canFire = 0f;
+	public float canFire = 0f;
 	bool isFiring = false;
 	public AudioClip fireball;
 
@@ -15,7 +15,7 @@ public class Weapon : MonoBehaviour {
 	void Start () {
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour {
 				break;
 			}
 
-			GetComponent<AudioSource>().PlayOneShot(fireball);
+			player.GetComponent<AudioSource>().PlayOneShot(fireball);
 
 			b.GetComponent<Bullet>().owner = playerNumber;
 

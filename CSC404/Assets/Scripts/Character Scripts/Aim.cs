@@ -69,9 +69,10 @@ public class Aim : MonoBehaviour {
 			if (Input.GetButton (playerNumber + "Fire1")) {
 				// Fire
 				//Instantiate (muzzleFlash, transform.position, Quarternion.identity);
-				Debug.Log (splitted);
-
+				//Debug.Log (splitted);
+				barrel [2].GetComponent<Weapon> ().canFire = barrel [1].GetComponent<Weapon> ().canFire = barrel [0].GetComponent<Weapon> ().canFire; // syncing shots
 				for (int i =0; i<3; i++) {
+
 						barrel [i].GetComponent<Weapon> ().Fire ();
 				}
 			} else {

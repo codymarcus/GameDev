@@ -6,10 +6,12 @@ public class powerups : MonoBehaviour {
 	public float initial_y;
 	public float amplitude = 0.4f;
 	public float speed = 3.5f;
+	public AudioClip soundEffect;
 
 	// Use this for initialization
 	void Start () {
 		initial_y = transform.position.y;
+		powerupEffect();
 	}
 	
 	// Update is called once per frame
@@ -22,13 +24,16 @@ public class powerups : MonoBehaviour {
 	void powerupEffect()
 	{
 		ParticleSystem coinEffect = new ParticleSystem();
+		//GetComponent<AudioSource>().PlayOneShot(soundEffect);
 		coinEffect = Instantiate(Resources.Load("powerupEffect"), transform.position, Quaternion.Euler(0, 0, 0)) as ParticleSystem;
-		Destroy(coinEffect, 0);
+		//Destroy(coinEffect, 0);
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Player") {
+			other.gameObject.GetComponent<AudioSource>().PlayOneShot(soundEffect);
+			//print (soundEffect);
 			powerupEffect();
 		}
 	}
