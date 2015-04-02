@@ -4,11 +4,19 @@ using System.Collections;
 public class platform : MonoBehaviour {
 	
 	public float initial_y;
-	public float amplitude = 0.0f;
-	public float speed = 0.0f;
+	float amplitude = 0.75f;
+	float speed = 0.5f;
 	
 	// Use this for initialization
 	void Start () {
+		//speed = Random.value + 0.5;
+		if (Random.value > 0.5) {
+			amplitude = -1*amplitude;
+		} else {
+			//amplitude = 0.75f;
+		}
+		speed += Random.value;
+
 		initial_y = transform.position.y;
 	}
 	

@@ -192,7 +192,7 @@ public class PlayerController : MonoBehaviour {
 		if (transform.position.x > 32.5f)
 			transform.position = new Vector3 (-32.5f, transform.position.y);
 
-		if (GetComponent<CharacterController>().velocity.y > 0.1 || GetComponent<CharacterController>().velocity.y < -0.1)
+		if (GetComponent<CharacterController>().velocity.y > 10.0f || GetComponent<CharacterController>().velocity.y < -10.0f)
 			anim.SetBool("IsJumping", true);
 		else
 			anim.SetBool("IsJumping", false);
