@@ -13,6 +13,8 @@ public class Witch : MonoBehaviour {
 	 float amplitude2 = 4.0f;
 	 float speed2 = 5.0f;
 	 float movementSpeed = 3.0f;
+	float recoveryTime = 5f;
+	float timeToRecover;
 
 	bool isHit = false;
 
@@ -21,13 +23,15 @@ public class Witch : MonoBehaviour {
 		//transform.rotation = Quaternion.Euler(-43.1f,180,0);
 		initial_z = transform.rotation.z;
 		Destroy(this.gameObject, 20.0f);
+		timeToRecover = recoveryTime;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (isHit)
+		if (isHit && timeToRecover > 0)
 		{
 			transform.Rotate(new Vector3 (0, 0, -15));
+			timeToRecover -= Time.deltaTime;
 		}
 		else
 		{
@@ -52,6 +56,7 @@ public class Witch : MonoBehaviour {
 	}
 
 	public void Hit () {
+		timeToRecover = recoveryTime;
 		isHit = true;
 	}
 	
