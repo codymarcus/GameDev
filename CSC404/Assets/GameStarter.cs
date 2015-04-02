@@ -5,17 +5,29 @@ using UnityEngine.UI;
 public class GameStarter : MonoBehaviour {
 	
 	public Image fadeout;
-	public GameObject notice; 
+	public GameObject notice;
+	public GameObject Logo;
+	public GameObject Join;
 	float alpha = 0.0f;
 	float notice_time = 0.0f;
 	public static bool start= false;
 
 	void Start() {
 		start = false;
+		Logo.SetActive (true);
+		Join.SetActive (false);
 	} 
 
 	// Update is called once per frame
 	void Update () {
+
+		if (PlayerReadyManager.isReady > 0) {
+			Logo.SetActive(false);	
+			Join.SetActive(true);
+		} else {
+			Logo.SetActive(true);
+			Join.SetActive(false);
+		}
 
 		if (notice_time > 0.0) {
 			notice_time-=0.1f;		
@@ -30,8 +42,10 @@ public class GameStarter : MonoBehaviour {
 				}
 			} else {
 				if (Input.GetKeyDown ("z") || Input.GetButtonDown ("Fire4")) {	
-					notice.SetActive(true);
-					notice_time = 6.0f;
+					if (PlayerReadyManager.isReady > 0) {
+						notice.SetActive(true);
+						notice_time = 6.0f;
+					}
 				}
 			}
 		} else {
