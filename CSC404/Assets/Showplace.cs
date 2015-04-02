@@ -80,7 +80,7 @@ public class Showplace : MonoBehaviour {
 					slider.value = scores[k];
 					fill.color = PlayerColors[k];
 				}
-				score.text = (100 * scores[k]).ToString();
+				//xscore.text = (100 * scores[k]).ToString();
 			}
 		}
 	}
