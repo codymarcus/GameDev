@@ -22,7 +22,7 @@ public class Witch : MonoBehaviour {
 		initial_y = transform.position.y;
 		//transform.rotation = Quaternion.Euler(-43.1f,180,0);
 		initial_z = transform.rotation.z;
-		Destroy(this.gameObject, 20.0f);
+		Destroy(this.gameObject, 23.0f);
 		timeToRecover = recoveryTime;
 	}
 	

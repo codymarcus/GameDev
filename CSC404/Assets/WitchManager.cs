@@ -5,7 +5,7 @@ public class WitchManager : MonoBehaviour {
 
 	// Use this for initialization
 
-	public float spawnratio = 20.0f;
+	public float spawnratio;
 
 	public GameObject witch;
 	float timeToSpawn;
@@ -18,9 +18,9 @@ public class WitchManager : MonoBehaviour {
 	void Update () {
 		GameObject w;
 		if (timeToSpawn < 0) {
-			w = Instantiate (witch, new Vector3 (transform.position.x, transform.position.y),
+			w = Instantiate (witch, new Vector3 (transform.position.x-4, transform.position.y),
                 new Quaternion (0, 180, 0, 0)) as GameObject;
-			timeToSpawn = spawnratio;
+			timeToSpawn = 30f;
 		} else {
 			timeToSpawn -= Time.deltaTime;
 		}
