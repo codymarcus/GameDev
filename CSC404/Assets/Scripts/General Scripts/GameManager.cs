@@ -290,9 +290,9 @@ public class GameManager : MonoBehaviour {
 	void Spawn (GameObject item, int max_x, int min_x, int max_y, int min_y)
 	{
 		spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
-		while (Physics.CheckSphere(spawnLoc, 1)) {
-			spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
-		}
+		//while (Physics.CheckSphere(spawnLoc, 1)) {
+			//spawnLoc = new Vector3 (Random.Range (min_x, max_x), Random.Range (min_y, max_y), 0);
+		//}
 		if(Time.time > 4.0f){
 			if (item.name == "Square Coins" || item.name == "Wave Coins" || item.name == "Cross Coins") {
 				coinSpawnEffect(spawnLoc);

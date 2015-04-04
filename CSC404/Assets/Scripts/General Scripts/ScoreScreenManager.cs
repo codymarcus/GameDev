@@ -15,7 +15,7 @@ public class ScoreScreenManager : MonoBehaviour {
 			Application.LoadLevel("Scene0");
 		}
 		*/
-		if (Input.GetKeyDown ("space") || Input.GetButton ("Fire4")) {
+		if (Input.GetKeyDown ("space") || Input.GetButton ("Restart")) {
 			GameManager.ResetScores();
 			Application.LoadLevel ("StartMenu");
 		}

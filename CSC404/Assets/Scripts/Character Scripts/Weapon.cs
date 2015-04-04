@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour {
 				break;
 			}
 
-			player.GetComponent<AudioSource>().PlayOneShot(fireball);
+			//player.GetComponent<AudioSource>().PlayOneShot(fireball);
 
 			b.GetComponent<Bullet>().owner = playerNumber;
 
